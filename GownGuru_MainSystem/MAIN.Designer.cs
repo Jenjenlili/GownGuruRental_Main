@@ -33,32 +33,35 @@
             this.btnmenu = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.Panel();
-            this.pnlGownsSubTab = new System.Windows.Forms.Panel();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.pnlSettingsSubTab = new GownGuru_MainSystem.CustomPanel();
+            this.pnlArchiveSubTab = new GownGuru_MainSystem.CustomPanel();
+            this.btnArchGown = new GownGuru_MainSystem.CustomButton();
+            this.btnArchEmp = new GownGuru_MainSystem.CustomButton();
+            this.btnArchives = new GownGuru_MainSystem.CustomButton();
+            this.btnTransacLog = new GownGuru_MainSystem.CustomButton();
+            this.btnAcc = new GownGuru_MainSystem.CustomButton();
             this.btnSettings = new GownGuru_MainSystem.CustomButton();
             this.btnPOS = new GownGuru_MainSystem.CustomButton();
+            this.pnlGownsSubTab = new System.Windows.Forms.Panel();
             this.btnReturned = new GownGuru_MainSystem.CustomButton();
             this.btnCategory = new GownGuru_MainSystem.CustomButton();
             this.btnRented = new GownGuru_MainSystem.CustomButton();
             this.btnGown = new GownGuru_MainSystem.CustomButton();
             this.btnDashboard = new GownGuru_MainSystem.CustomButton();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.customPanel1 = new GownGuru_MainSystem.CustomPanel();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
-            this.btnTransacLog = new GownGuru_MainSystem.CustomButton();
-            this.btnAcc = new GownGuru_MainSystem.CustomButton();
-            this.btnArchives = new GownGuru_MainSystem.CustomButton();
-            this.pnlArchiveSubTab = new GownGuru_MainSystem.CustomPanel();
-            this.btnArchGown = new GownGuru_MainSystem.CustomButton();
-            this.btnArchEmp = new GownGuru_MainSystem.CustomButton();
-            this.pnlSettingsSubTab = new GownGuru_MainSystem.CustomPanel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnmenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.sidebar.SuspendLayout();
+            this.pnlSettingsSubTab.SuspendLayout();
+            this.pnlArchiveSubTab.SuspendLayout();
             this.pnlGownsSubTab.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
-            this.pnlArchiveSubTab.SuspendLayout();
-            this.pnlSettingsSubTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnmenu
@@ -120,50 +121,166 @@
             this.sidebar.Size = new System.Drawing.Size(276, 725);
             this.sidebar.TabIndex = 25;
             // 
-            // pnlGownsSubTab
+            // pnlSettingsSubTab
             // 
-            this.pnlGownsSubTab.Controls.Add(this.btnReturned);
-            this.pnlGownsSubTab.Controls.Add(this.btnCategory);
-            this.pnlGownsSubTab.Controls.Add(this.btnRented);
-            this.pnlGownsSubTab.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlGownsSubTab.Location = new System.Drawing.Point(0, 325);
-            this.pnlGownsSubTab.Name = "pnlGownsSubTab";
-            this.pnlGownsSubTab.Size = new System.Drawing.Size(276, 117);
-            this.pnlGownsSubTab.TabIndex = 29;
+            this.pnlSettingsSubTab.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSettingsSubTab.BorderRadius = 0;
+            this.pnlSettingsSubTab.Controls.Add(this.pnlArchiveSubTab);
+            this.pnlSettingsSubTab.Controls.Add(this.btnArchives);
+            this.pnlSettingsSubTab.Controls.Add(this.btnTransacLog);
+            this.pnlSettingsSubTab.Controls.Add(this.btnAcc);
+            this.pnlSettingsSubTab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSettingsSubTab.ForeColor = System.Drawing.Color.Black;
+            this.pnlSettingsSubTab.GradientAngle = 80F;
+            this.pnlSettingsSubTab.GradientBottomColor = System.Drawing.Color.Transparent;
+            this.pnlSettingsSubTab.GradientTopColor = System.Drawing.Color.Transparent;
+            this.pnlSettingsSubTab.Location = new System.Drawing.Point(0, 538);
+            this.pnlSettingsSubTab.Name = "pnlSettingsSubTab";
+            this.pnlSettingsSubTab.Size = new System.Drawing.Size(276, 209);
+            this.pnlSettingsSubTab.TabIndex = 30;
             // 
-            // pnlLogo
+            // pnlArchiveSubTab
             // 
-            this.pnlLogo.Controls.Add(this.pictureBox2);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 41);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(276, 188);
-            this.pnlLogo.TabIndex = 28;
+            this.pnlArchiveSubTab.BackColor = System.Drawing.Color.Transparent;
+            this.pnlArchiveSubTab.BorderRadius = 0;
+            this.pnlArchiveSubTab.Controls.Add(this.btnArchGown);
+            this.pnlArchiveSubTab.Controls.Add(this.btnArchEmp);
+            this.pnlArchiveSubTab.ForeColor = System.Drawing.Color.Black;
+            this.pnlArchiveSubTab.GradientAngle = 80F;
+            this.pnlArchiveSubTab.GradientBottomColor = System.Drawing.Color.Transparent;
+            this.pnlArchiveSubTab.GradientTopColor = System.Drawing.Color.Transparent;
+            this.pnlArchiveSubTab.Location = new System.Drawing.Point(2, 116);
+            this.pnlArchiveSubTab.Name = "pnlArchiveSubTab";
+            this.pnlArchiveSubTab.Size = new System.Drawing.Size(275, 84);
+            this.pnlArchiveSubTab.TabIndex = 28;
             // 
-            // pictureBox2
+            // btnArchGown
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::GownGuru_MainSystem.Properties.Resources.Final_Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(47, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(186, 169);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
+            this.btnArchGown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
+            this.btnArchGown.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
+            this.btnArchGown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnArchGown.BorderColor = System.Drawing.Color.White;
+            this.btnArchGown.BorderRadius = 13;
+            this.btnArchGown.BorderSize = 0;
+            this.btnArchGown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchGown.FlatAppearance.BorderSize = 0;
+            this.btnArchGown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchGown.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchGown.ForeColor = System.Drawing.Color.Black;
+            this.btnArchGown.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnArchGown.Location = new System.Drawing.Point(19, 40);
+            this.btnArchGown.Name = "btnArchGown";
+            this.btnArchGown.Size = new System.Drawing.Size(282, 36);
+            this.btnArchGown.TabIndex = 26;
+            this.btnArchGown.Text = "         Gowns";
+            this.btnArchGown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchGown.TextColor = System.Drawing.Color.Black;
+            this.btnArchGown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnArchGown.UseVisualStyleBackColor = false;
+            this.btnArchGown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchGown_MouseClick);
             // 
-            // panel1
+            // btnArchEmp
             // 
-            this.panel1.Controls.Add(this.btnmenu);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(276, 41);
-            this.panel1.TabIndex = 27;
+            this.btnArchEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
+            this.btnArchEmp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
+            this.btnArchEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnArchEmp.BorderColor = System.Drawing.Color.White;
+            this.btnArchEmp.BorderRadius = 13;
+            this.btnArchEmp.BorderSize = 0;
+            this.btnArchEmp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchEmp.FlatAppearance.BorderSize = 0;
+            this.btnArchEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchEmp.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchEmp.ForeColor = System.Drawing.Color.Black;
+            this.btnArchEmp.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnArchEmp.Location = new System.Drawing.Point(19, 2);
+            this.btnArchEmp.Name = "btnArchEmp";
+            this.btnArchEmp.Size = new System.Drawing.Size(305, 36);
+            this.btnArchEmp.TabIndex = 25;
+            this.btnArchEmp.Text = "         Former Employee";
+            this.btnArchEmp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchEmp.TextColor = System.Drawing.Color.Black;
+            this.btnArchEmp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnArchEmp.UseVisualStyleBackColor = false;
+            this.btnArchEmp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchEmp_MouseClick);
             // 
-            // sidebarTimer
+            // btnArchives
             // 
-            this.sidebarTimer.Interval = 1;
-            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick_1);
+            this.btnArchives.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnArchives.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnArchives.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnArchives.BorderColor = System.Drawing.Color.White;
+            this.btnArchives.BorderRadius = 13;
+            this.btnArchives.BorderSize = 0;
+            this.btnArchives.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchives.FlatAppearance.BorderSize = 0;
+            this.btnArchives.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchives.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchives.ForeColor = System.Drawing.Color.Black;
+            this.btnArchives.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnArchives.Location = new System.Drawing.Point(20, 81);
+            this.btnArchives.Name = "btnArchives";
+            this.btnArchives.Size = new System.Drawing.Size(316, 36);
+            this.btnArchives.TabIndex = 22;
+            this.btnArchives.Text = "       Archives";
+            this.btnArchives.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchives.TextColor = System.Drawing.Color.Black;
+            this.btnArchives.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnArchives.UseVisualStyleBackColor = false;
+            this.btnArchives.Click += new System.EventHandler(this.btnArchives_Click_1);
+            this.btnArchives.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchives_MouseClick);
+            // 
+            // btnTransacLog
+            // 
+            this.btnTransacLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnTransacLog.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnTransacLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTransacLog.BorderColor = System.Drawing.Color.White;
+            this.btnTransacLog.BorderRadius = 13;
+            this.btnTransacLog.BorderSize = 0;
+            this.btnTransacLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransacLog.FlatAppearance.BorderSize = 0;
+            this.btnTransacLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransacLog.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransacLog.ForeColor = System.Drawing.Color.Black;
+            this.btnTransacLog.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnTransacLog.Location = new System.Drawing.Point(20, 42);
+            this.btnTransacLog.Name = "btnTransacLog";
+            this.btnTransacLog.Size = new System.Drawing.Size(306, 36);
+            this.btnTransacLog.TabIndex = 24;
+            this.btnTransacLog.Text = "       Transaction Log";
+            this.btnTransacLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransacLog.TextColor = System.Drawing.Color.Black;
+            this.btnTransacLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTransacLog.UseVisualStyleBackColor = false;
+            this.btnTransacLog.Click += new System.EventHandler(this.btnTransacLog_Click);
+            this.btnTransacLog.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnTransacLog_MouseClick);
+            // 
+            // btnAcc
+            // 
+            this.btnAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnAcc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
+            this.btnAcc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAcc.BorderColor = System.Drawing.Color.White;
+            this.btnAcc.BorderRadius = 13;
+            this.btnAcc.BorderSize = 0;
+            this.btnAcc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAcc.FlatAppearance.BorderSize = 0;
+            this.btnAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcc.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc.ForeColor = System.Drawing.Color.Black;
+            this.btnAcc.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAcc.Location = new System.Drawing.Point(20, 3);
+            this.btnAcc.Name = "btnAcc";
+            this.btnAcc.Size = new System.Drawing.Size(316, 36);
+            this.btnAcc.TabIndex = 21;
+            this.btnAcc.Text = "       Accounts";
+            this.btnAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAcc.TextColor = System.Drawing.Color.Black;
+            this.btnAcc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAcc.UseVisualStyleBackColor = false;
+            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
+            this.btnAcc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAcc_MouseClick);
             // 
             // btnSettings
             // 
@@ -219,6 +336,17 @@
             this.btnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPOS.UseVisualStyleBackColor = false;
             this.btnPOS.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPOS_MouseClick_1);
+            // 
+            // pnlGownsSubTab
+            // 
+            this.pnlGownsSubTab.Controls.Add(this.btnReturned);
+            this.pnlGownsSubTab.Controls.Add(this.btnCategory);
+            this.pnlGownsSubTab.Controls.Add(this.btnRented);
+            this.pnlGownsSubTab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlGownsSubTab.Location = new System.Drawing.Point(0, 325);
+            this.pnlGownsSubTab.Name = "pnlGownsSubTab";
+            this.pnlGownsSubTab.Size = new System.Drawing.Size(276, 117);
+            this.pnlGownsSubTab.TabIndex = 29;
             // 
             // btnReturned
             // 
@@ -350,6 +478,40 @@
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnDashboard_MouseClick_1);
             // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.pictureBox2);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 41);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(276, 188);
+            this.pnlLogo.TabIndex = 28;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::GownGuru_MainSystem.Properties.Resources.Final_Logo;
+            this.pictureBox2.Location = new System.Drawing.Point(47, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(186, 169);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnmenu);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(276, 41);
+            this.panel1.TabIndex = 27;
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 1;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick_1);
+            // 
             // customPanel1
             // 
             this.customPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -413,166 +575,14 @@
             this.btnMin.MouseEnter += new System.EventHandler(this.btnMin_MouseEnter);
             this.btnMin.MouseLeave += new System.EventHandler(this.btnMin_MouseLeave);
             // 
-            // btnTransacLog
+            // button1
             // 
-            this.btnTransacLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnTransacLog.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnTransacLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnTransacLog.BorderColor = System.Drawing.Color.White;
-            this.btnTransacLog.BorderRadius = 13;
-            this.btnTransacLog.BorderSize = 0;
-            this.btnTransacLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransacLog.FlatAppearance.BorderSize = 0;
-            this.btnTransacLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransacLog.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransacLog.ForeColor = System.Drawing.Color.Black;
-            this.btnTransacLog.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnTransacLog.Location = new System.Drawing.Point(20, 42);
-            this.btnTransacLog.Name = "btnTransacLog";
-            this.btnTransacLog.Size = new System.Drawing.Size(306, 36);
-            this.btnTransacLog.TabIndex = 24;
-            this.btnTransacLog.Text = "       Transaction Log";
-            this.btnTransacLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransacLog.TextColor = System.Drawing.Color.Black;
-            this.btnTransacLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnTransacLog.UseVisualStyleBackColor = false;
-            this.btnTransacLog.Click += new System.EventHandler(this.btnTransacLog_Click);
-            this.btnTransacLog.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnTransacLog_MouseClick);
-            // 
-            // btnAcc
-            // 
-            this.btnAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnAcc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnAcc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAcc.BorderColor = System.Drawing.Color.White;
-            this.btnAcc.BorderRadius = 13;
-            this.btnAcc.BorderSize = 0;
-            this.btnAcc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAcc.FlatAppearance.BorderSize = 0;
-            this.btnAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcc.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcc.ForeColor = System.Drawing.Color.Black;
-            this.btnAcc.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAcc.Location = new System.Drawing.Point(20, 3);
-            this.btnAcc.Name = "btnAcc";
-            this.btnAcc.Size = new System.Drawing.Size(316, 36);
-            this.btnAcc.TabIndex = 21;
-            this.btnAcc.Text = "       Accounts";
-            this.btnAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcc.TextColor = System.Drawing.Color.Black;
-            this.btnAcc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAcc.UseVisualStyleBackColor = false;
-            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
-            this.btnAcc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAcc_MouseClick);
-            // 
-            // btnArchives
-            // 
-            this.btnArchives.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnArchives.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(199)))), ((int)(((byte)(17)))));
-            this.btnArchives.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnArchives.BorderColor = System.Drawing.Color.White;
-            this.btnArchives.BorderRadius = 13;
-            this.btnArchives.BorderSize = 0;
-            this.btnArchives.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArchives.FlatAppearance.BorderSize = 0;
-            this.btnArchives.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchives.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArchives.ForeColor = System.Drawing.Color.Black;
-            this.btnArchives.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnArchives.Location = new System.Drawing.Point(20, 81);
-            this.btnArchives.Name = "btnArchives";
-            this.btnArchives.Size = new System.Drawing.Size(316, 36);
-            this.btnArchives.TabIndex = 22;
-            this.btnArchives.Text = "       Archives";
-            this.btnArchives.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchives.TextColor = System.Drawing.Color.Black;
-            this.btnArchives.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnArchives.UseVisualStyleBackColor = false;
-            this.btnArchives.Click += new System.EventHandler(this.btnArchives_Click_1);
-            this.btnArchives.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchives_MouseClick);
-            // 
-            // pnlArchiveSubTab
-            // 
-            this.pnlArchiveSubTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlArchiveSubTab.BorderRadius = 0;
-            this.pnlArchiveSubTab.Controls.Add(this.btnArchGown);
-            this.pnlArchiveSubTab.Controls.Add(this.btnArchEmp);
-            this.pnlArchiveSubTab.ForeColor = System.Drawing.Color.Black;
-            this.pnlArchiveSubTab.GradientAngle = 80F;
-            this.pnlArchiveSubTab.GradientBottomColor = System.Drawing.Color.Transparent;
-            this.pnlArchiveSubTab.GradientTopColor = System.Drawing.Color.Transparent;
-            this.pnlArchiveSubTab.Location = new System.Drawing.Point(2, 116);
-            this.pnlArchiveSubTab.Name = "pnlArchiveSubTab";
-            this.pnlArchiveSubTab.Size = new System.Drawing.Size(275, 84);
-            this.pnlArchiveSubTab.TabIndex = 28;
-            // 
-            // btnArchGown
-            // 
-            this.btnArchGown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
-            this.btnArchGown.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
-            this.btnArchGown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnArchGown.BorderColor = System.Drawing.Color.White;
-            this.btnArchGown.BorderRadius = 13;
-            this.btnArchGown.BorderSize = 0;
-            this.btnArchGown.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArchGown.FlatAppearance.BorderSize = 0;
-            this.btnArchGown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchGown.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArchGown.ForeColor = System.Drawing.Color.Black;
-            this.btnArchGown.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnArchGown.Location = new System.Drawing.Point(19, 40);
-            this.btnArchGown.Name = "btnArchGown";
-            this.btnArchGown.Size = new System.Drawing.Size(282, 36);
-            this.btnArchGown.TabIndex = 26;
-            this.btnArchGown.Text = "         Gowns";
-            this.btnArchGown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchGown.TextColor = System.Drawing.Color.Black;
-            this.btnArchGown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnArchGown.UseVisualStyleBackColor = false;
-            this.btnArchGown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchGown_MouseClick);
-            // 
-            // btnArchEmp
-            // 
-            this.btnArchEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
-            this.btnArchEmp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(184)))), ((int)(((byte)(8)))));
-            this.btnArchEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnArchEmp.BorderColor = System.Drawing.Color.White;
-            this.btnArchEmp.BorderRadius = 13;
-            this.btnArchEmp.BorderSize = 0;
-            this.btnArchEmp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArchEmp.FlatAppearance.BorderSize = 0;
-            this.btnArchEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchEmp.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArchEmp.ForeColor = System.Drawing.Color.Black;
-            this.btnArchEmp.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnArchEmp.Location = new System.Drawing.Point(19, 2);
-            this.btnArchEmp.Name = "btnArchEmp";
-            this.btnArchEmp.Size = new System.Drawing.Size(305, 36);
-            this.btnArchEmp.TabIndex = 25;
-            this.btnArchEmp.Text = "         Former Employee";
-            this.btnArchEmp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchEmp.TextColor = System.Drawing.Color.Black;
-            this.btnArchEmp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnArchEmp.UseVisualStyleBackColor = false;
-            this.btnArchEmp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnArchEmp_MouseClick);
-            // 
-            // pnlSettingsSubTab
-            // 
-            this.pnlSettingsSubTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSettingsSubTab.BorderRadius = 0;
-            this.pnlSettingsSubTab.Controls.Add(this.pnlArchiveSubTab);
-            this.pnlSettingsSubTab.Controls.Add(this.btnArchives);
-            this.pnlSettingsSubTab.Controls.Add(this.btnTransacLog);
-            this.pnlSettingsSubTab.Controls.Add(this.btnAcc);
-            this.pnlSettingsSubTab.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSettingsSubTab.ForeColor = System.Drawing.Color.Black;
-            this.pnlSettingsSubTab.GradientAngle = 80F;
-            this.pnlSettingsSubTab.GradientBottomColor = System.Drawing.Color.Transparent;
-            this.pnlSettingsSubTab.GradientTopColor = System.Drawing.Color.Transparent;
-            this.pnlSettingsSubTab.Location = new System.Drawing.Point(0, 538);
-            this.pnlSettingsSubTab.Name = "pnlSettingsSubTab";
-            this.pnlSettingsSubTab.Size = new System.Drawing.Size(276, 209);
-            this.pnlSettingsSubTab.TabIndex = 30;
+            this.button1.Location = new System.Drawing.Point(791, 258);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 82);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MAIN
             // 
@@ -582,6 +592,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1170, 726);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.customPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -591,6 +602,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnmenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.sidebar.ResumeLayout(false);
+            this.pnlSettingsSubTab.ResumeLayout(false);
+            this.pnlArchiveSubTab.ResumeLayout(false);
             this.pnlGownsSubTab.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -599,8 +612,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
-            this.pnlArchiveSubTab.ResumeLayout(false);
-            this.pnlSettingsSubTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -632,6 +643,7 @@
         private CustomButton btnArchGown;
         private CustomButton btnArchEmp;
         private CustomPanel pnlSettingsSubTab;
+        private System.Windows.Forms.Button button1;
     }
 }
 
