@@ -35,7 +35,7 @@ namespace GownGuru_MainSystem
             }
         }
 
-        //change color btn
+        //change color button
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
             btnClose.BackColor = Color.FromArgb(231, 184, 8);
