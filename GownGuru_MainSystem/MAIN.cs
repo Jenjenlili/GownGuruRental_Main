@@ -101,12 +101,12 @@ namespace GownGuru_MainSystem
         {
             btnLogout.BackColor = Color.FromArgb(231, 184, 8);
         }
-
+          
         private void btnLogout_MouseLeave(object sender, EventArgs e)
         {
             btnLogout.BackColor = Color.Transparent;
         }
-          
+           
         //sidebar slide
         bool sidebarExpanded = false;
         private void btnmenu_Click_1(object sender, EventArgs e)
