@@ -293,8 +293,6 @@ namespace GownGuru_MainSystem
             btnArchGown.BackColor = Color.FromArgb(36, 36, 36);
         }
 
-
-
         //SUB TABS
         private void CustomDesign()
         {
