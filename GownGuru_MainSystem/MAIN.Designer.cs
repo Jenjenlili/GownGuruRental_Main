@@ -56,7 +56,6 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnmenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -575,15 +574,6 @@
             this.btnMin.MouseEnter += new System.EventHandler(this.btnMin_MouseEnter);
             this.btnMin.MouseLeave += new System.EventHandler(this.btnMin_MouseLeave);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(791, 258);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 82);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MAIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -592,7 +582,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1170, 726);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.customPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -643,7 +632,6 @@
         private CustomButton btnArchGown;
         private CustomButton btnArchEmp;
         private CustomPanel pnlSettingsSubTab;
-        private System.Windows.Forms.Button button1;
     }
 }
 
