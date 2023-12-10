@@ -211,6 +211,78 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminModule\frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\frmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\frmPOS.Designer.cs">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmGown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmGown.Designer.cs">
+      <DependentUpon>frmGown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmRented.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmRented.Designer.cs">
+      <DependentUpon>frmRented.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmReturned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\GOWN\frmReturned.Designer.cs">
+      <DependentUpon>frmReturned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmAccounts.Designer.cs">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmArchive.Designer.cs">
+      <DependentUpon>frmArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmArchivedGowns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmArchivedGowns.Designer.cs">
+      <DependentUpon>frmArchivedGowns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmFormerEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmFormerEmployees.Designer.cs">
+      <DependentUpon>frmFormerEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmTransactionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SETTINGS\frmTransactionLog.Designer.cs">
+      <DependentUpon>frmTransactionLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customized\AnimatedButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -299,6 +371,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconDropdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SchedulerModule\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
