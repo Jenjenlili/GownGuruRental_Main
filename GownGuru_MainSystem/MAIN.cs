@@ -106,7 +106,7 @@ namespace GownGuru_MainSystem
         {
             btnLogout.BackColor = Color.Transparent;
         }
-
+          
         //sidebar slide
         bool sidebarExpanded = false;
         private void btnmenu_Click_1(object sender, EventArgs e)
