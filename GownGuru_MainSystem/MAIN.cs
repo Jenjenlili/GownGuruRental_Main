@@ -17,7 +17,7 @@ namespace GownGuru_MainSystem
         {
             InitializeComponent();
         }
-        
+
         private void logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to Logout?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -84,7 +84,7 @@ namespace GownGuru_MainSystem
         {
             if (gownCollapsed)
             {
-                pnlGown.Height -= 10;
+                pnlGown.Height -= 30;
                 if (pnlGown.Height <= pnlGown.MinimumSize.Height)
                 {
                     pnlGown.Height = pnlGown.MinimumSize.Height;
@@ -94,7 +94,7 @@ namespace GownGuru_MainSystem
             }
             else
             {
-                pnlGown.Height += 10;
+                pnlGown.Height += 30;
                 if (pnlGown.Height >= pnlGown.MaximumSize.Height)
                 {
                     pnlGown.Height = pnlGown.MaximumSize.Height;
@@ -126,7 +126,7 @@ namespace GownGuru_MainSystem
         {
             if (settingsCollapsed)
             {
-                pnlSettings.Height -= 10;
+                pnlSettings.Height -= 30;
                 if (pnlSettings.Height <= pnlSettings.MinimumSize.Height)
                 {
                     pnlSettings.Height = pnlSettings.MinimumSize.Height;
@@ -136,7 +136,7 @@ namespace GownGuru_MainSystem
             }
             else
             {
-                pnlSettings.Height += 10;
+                pnlSettings.Height += 30;
                 if (pnlSettings.Height >= pnlSettings.MaximumSize.Height)
                 {
                     pnlSettings.Height = pnlSettings.MaximumSize.Height;
@@ -263,6 +263,8 @@ namespace GownGuru_MainSystem
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmDashboard());
+
             ResetButtonAppearance(btnDashboard);
 
             btnDashboard.ForeColor = Color.White;
@@ -407,31 +409,66 @@ namespace GownGuru_MainSystem
                 pnlGown.Height = pnlGown.MinimumSize.Height;
                 gownCollapsed = false;
             }
+
+            // Adjust the anchor and position when the sidebar is collapsed or expanded
+            if (sideBarCollapsed)
+            {
+                CenterPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+                sidebar.Width = ExpandedSidebarWidth;
+                CenterPanel.Location = new Point(sidebar.Width, CenterPanel.Location.Y);
+                CenterPanel.Width = this.Width - sidebar.Width; // Adjust the width based on the current form width minus the sidebar width
+            }
+            else
+            {
+                CenterPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
+                sidebar.Width = CollapsedSidebarWidth;
+                CenterPanel.Location = new Point(sidebar.Width, CenterPanel.Location.Y);
+                CenterPanel.Width = this.Width - sidebar.Width; // Adjust the width based on the current form width minus the sidebar width
+            }
         }
 
         bool sideBarCollapsed;
+        private const int CollapsedSidebarWidth = 40; // Define the collapsed sidebar width
+        private const int ExpandedSidebarWidth = 200; // Define the expanded sidebar width
         private void SidebarTimer_Tick(object sender, EventArgs e)
         {
             if (sideBarCollapsed)
             {
-                sidebar.Width += 25;
-                if (sidebar.Width >= 200) // Change the condition to fit your desired width
+                sidebar.Width += 50;
+                if (sidebar.Width >= ExpandedSidebarWidth) // Change the condition to fit your desired width
                 {
                     sideBarCollapsed = false;
                     SidebarTimer.Stop();
-                    sidebar.Width = 200; // Set the width directly to the desired value
+                    sidebar.Width = ExpandedSidebarWidth; // Set the width directly to the desired value
                 }
             }
             else
             {
-                sidebar.Width -= 25;
-                if (sidebar.Width <= 35)
+                sidebar.Width -= 50;
+                if (sidebar.Width <= CollapsedSidebarWidth)
                 {
                     sideBarCollapsed = true;
                     SidebarTimer.Stop();
-                    sidebar.Width = 35; // Set the width directly to the minimum size
+                    sidebar.Width = CollapsedSidebarWidth; // Set the width directly to the minimum size
                 }
             }
+        }
+
+
+        //toshow subform form in mainform
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            CenterPanel.Controls.Add(childForm);
+            CenterPanel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }
