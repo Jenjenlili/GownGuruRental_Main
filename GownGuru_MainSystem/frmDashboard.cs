@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GownGuru_MainSystem.AdminModule.GOWN
+namespace GownGuru_MainSystem
 {
-    public partial class frmRented : Form
+    public partial class frmDashboard : Form
     {
-        public frmRented()
+        public frmDashboard()
         {
             InitializeComponent();
         }

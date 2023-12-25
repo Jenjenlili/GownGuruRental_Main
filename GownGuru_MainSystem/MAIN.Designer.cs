@@ -37,29 +37,30 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.logout = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.pnlGown = new System.Windows.Forms.Panel();
             this.pnlSettings = new System.Windows.Forms.Panel();
-            this.GownTimer = new System.Windows.Forms.Timer(this.components);
-            this.SettingsTimer = new System.Windows.Forms.Timer(this.components);
             this.btnSettings = new GownGuru_MainSystem.CustomButton();
             this.btnTransactionLog = new GownGuru_MainSystem.CustomButton();
             this.btnArchive = new GownGuru_MainSystem.CustomButton();
             this.btnFormerEmp = new GownGuru_MainSystem.CustomButton();
             this.btnEmployee = new GownGuru_MainSystem.CustomButton();
             this.btnPOS = new GownGuru_MainSystem.CustomButton();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.PictureBox();
             this.btnCustomers = new GownGuru_MainSystem.CustomButton();
-            this.btnDashboard = new GownGuru_MainSystem.CustomButton();
+            this.pnlGown = new System.Windows.Forms.Panel();
             this.btnReturned = new GownGuru_MainSystem.CustomButton();
             this.btnRented = new GownGuru_MainSystem.CustomButton();
             this.btnCategory = new GownGuru_MainSystem.CustomButton();
             this.btnManage = new GownGuru_MainSystem.CustomButton();
             this.btnGown = new GownGuru_MainSystem.CustomButton();
+            this.btnDashboard = new GownGuru_MainSystem.CustomButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.GownTimer = new System.Windows.Forms.Timer(this.components);
+            this.SettingsTimer = new System.Windows.Forms.Timer(this.components);
             this.SidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.pnlForms = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -68,13 +69,13 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.sidebar.SuspendLayout();
+            this.pnlSettings.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
+            this.pnlGown.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            this.pnlGown.SuspendLayout();
-            this.pnlSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -182,79 +183,6 @@
             this.sidebar.Size = new System.Drawing.Size(303, 745);
             this.sidebar.TabIndex = 2;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.logout);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 697);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(303, 48);
-            this.panel6.TabIndex = 10;
-            // 
-            // logout
-            // 
-            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logout.Image = global::GownGuru_MainSystem.Properties.Resources.iconLogout;
-            this.logout.Location = new System.Drawing.Point(6, 6);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(46, 38);
-            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logout.TabIndex = 4;
-            this.logout.TabStop = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
-            this.logout.MouseEnter += new System.EventHandler(this.logout_MouseEnter);
-            this.logout.MouseLeave += new System.EventHandler(this.logout_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Image = global::GownGuru_MainSystem.Properties.Resources.Final_Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 48);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(303, 195);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnMenu);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(303, 48);
-            this.panel3.TabIndex = 3;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Image = global::GownGuru_MainSystem.Properties.Resources.menu;
-            this.btnMenu.Location = new System.Drawing.Point(6, 6);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(46, 38);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMenu.TabIndex = 4;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            this.btnMenu.MouseEnter += new System.EventHandler(this.btnMenu_MouseEnter);
-            this.btnMenu.MouseLeave += new System.EventHandler(this.btnMenu_MouseLeave);
-            // 
-            // pnlGown
-            // 
-            this.pnlGown.Controls.Add(this.btnReturned);
-            this.pnlGown.Controls.Add(this.btnRented);
-            this.pnlGown.Controls.Add(this.btnCategory);
-            this.pnlGown.Controls.Add(this.btnManage);
-            this.pnlGown.Controls.Add(this.btnGown);
-            this.pnlGown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlGown.Location = new System.Drawing.Point(0, 293);
-            this.pnlGown.MaximumSize = new System.Drawing.Size(309, 265);
-            this.pnlGown.MinimumSize = new System.Drawing.Size(309, 50);
-            this.pnlGown.Name = "pnlGown";
-            this.pnlGown.Size = new System.Drawing.Size(309, 50);
-            this.pnlGown.TabIndex = 3;
-            // 
             // pnlSettings
             // 
             this.pnlSettings.Controls.Add(this.btnSettings);
@@ -269,16 +197,6 @@
             this.pnlSettings.Name = "pnlSettings";
             this.pnlSettings.Size = new System.Drawing.Size(307, 57);
             this.pnlSettings.TabIndex = 10;
-            // 
-            // GownTimer
-            // 
-            this.GownTimer.Interval = 5;
-            this.GownTimer.Tick += new System.EventHandler(this.GownTimer_Tick);
-            // 
-            // SettingsTimer
-            // 
-            this.SettingsTimer.Interval = 5;
-            this.SettingsTimer.Tick += new System.EventHandler(this.SettingsTimer_Tick);
             // 
             // btnSettings
             // 
@@ -433,6 +351,29 @@
             this.btnPOS.UseVisualStyleBackColor = false;
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.logout);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 697);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(303, 48);
+            this.panel6.TabIndex = 10;
+            // 
+            // logout
+            // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.Image = global::GownGuru_MainSystem.Properties.Resources.iconLogout;
+            this.logout.Location = new System.Drawing.Point(6, 6);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(46, 38);
+            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logout.TabIndex = 4;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            this.logout.MouseEnter += new System.EventHandler(this.logout_MouseEnter);
+            this.logout.MouseLeave += new System.EventHandler(this.logout_MouseLeave);
+            // 
             // btnCustomers
             // 
             this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
@@ -460,32 +401,20 @@
             this.btnCustomers.UseVisualStyleBackColor = false;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
-            // btnDashboard
+            // pnlGown
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnDashboard.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDashboard.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDashboard.BorderRadius = 14;
-            this.btnDashboard.BorderSize = 0;
-            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
-            this.btnDashboard.Image = global::GownGuru_MainSystem.Properties.Resources.iconsHome_24;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 243);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(303, 50);
-            this.btnDashboard.TabIndex = 3;
-            this.btnDashboard.Text = "         Dashboard";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.TextColor = System.Drawing.Color.Black;
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.pnlGown.Controls.Add(this.btnReturned);
+            this.pnlGown.Controls.Add(this.btnRented);
+            this.pnlGown.Controls.Add(this.btnCategory);
+            this.pnlGown.Controls.Add(this.btnManage);
+            this.pnlGown.Controls.Add(this.btnGown);
+            this.pnlGown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlGown.Location = new System.Drawing.Point(0, 293);
+            this.pnlGown.MaximumSize = new System.Drawing.Size(309, 265);
+            this.pnlGown.MinimumSize = new System.Drawing.Size(309, 50);
+            this.pnlGown.Name = "pnlGown";
+            this.pnlGown.Size = new System.Drawing.Size(309, 50);
+            this.pnlGown.TabIndex = 3;
             // 
             // btnReturned
             // 
@@ -612,10 +541,89 @@
             this.btnGown.UseVisualStyleBackColor = false;
             this.btnGown.Click += new System.EventHandler(this.btnGown_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnDashboard.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDashboard.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDashboard.BorderRadius = 14;
+            this.btnDashboard.BorderSize = 0;
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
+            this.btnDashboard.Image = global::GownGuru_MainSystem.Properties.Resources.iconsHome_24;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 243);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(303, 50);
+            this.btnDashboard.TabIndex = 3;
+            this.btnDashboard.Text = "         Dashboard";
+            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.TextColor = System.Drawing.Color.Black;
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Image = global::GownGuru_MainSystem.Properties.Resources.Final_Logo;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 48);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(303, 195);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnMenu);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(303, 48);
+            this.panel3.TabIndex = 3;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = global::GownGuru_MainSystem.Properties.Resources.menu;
+            this.btnMenu.Location = new System.Drawing.Point(6, 6);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(46, 38);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.btnMenu.MouseEnter += new System.EventHandler(this.btnMenu_MouseEnter);
+            this.btnMenu.MouseLeave += new System.EventHandler(this.btnMenu_MouseLeave);
+            // 
+            // GownTimer
+            // 
+            this.GownTimer.Interval = 5;
+            this.GownTimer.Tick += new System.EventHandler(this.GownTimer_Tick);
+            // 
+            // SettingsTimer
+            // 
+            this.SettingsTimer.Interval = 5;
+            this.SettingsTimer.Tick += new System.EventHandler(this.SettingsTimer_Tick);
+            // 
             // SidebarTimer
             // 
             this.SidebarTimer.Interval = 10;
             this.SidebarTimer.Tick += new System.EventHandler(this.SidebarTimer_Tick);
+            // 
+            // pnlForms
+            // 
+            this.pnlForms.Location = new System.Drawing.Point(306, 51);
+            this.pnlForms.Name = "pnlForms";
+            this.pnlForms.Size = new System.Drawing.Size(985, 694);
+            this.pnlForms.TabIndex = 3;
             // 
             // MAIN
             // 
@@ -624,6 +632,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(1297, 745);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlForms);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -637,13 +646,13 @@
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.sidebar.ResumeLayout(false);
+            this.pnlSettings.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
+            this.pnlGown.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            this.pnlGown.ResumeLayout(false);
-            this.pnlSettings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -680,5 +689,6 @@
         private CustomButton btnPOS;
         private CustomButton btnCustomers;
         private System.Windows.Forms.Timer SidebarTimer;
+        private System.Windows.Forms.Panel pnlForms;
     }
 }
