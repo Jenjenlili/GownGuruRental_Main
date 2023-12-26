@@ -226,11 +226,47 @@
     <Compile Include="Customized\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPOS.Designer.cs">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GOWN\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GOWN\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GOWN\frmManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GOWN\frmManage.Designer.cs">
+      <DependentUpon>frmManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GOWN\frmRented.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GOWN\frmRented.Designer.cs">
+      <DependentUpon>frmRented.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GOWN\frmReturned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GOWN\frmReturned.Designer.cs">
+      <DependentUpon>frmReturned.cs</DependentUpon>
     </Compile>
     <Compile Include="LOGIN\Login.cs">
       <SubType>Form</SubType>
@@ -251,17 +287,53 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SchedulerModule\frmRentalManagement.cs">
+    <Compile Include="SETTINGS\frmArchive.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SchedulerModule\frmRentalManagement.Designer.cs">
-      <DependentUpon>frmRentalManagement.cs</DependentUpon>
+    <Compile Include="SETTINGS\frmArchive.Designer.cs">
+      <DependentUpon>frmArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SETTINGS\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SETTINGS\frmFormerEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmFormerEmp.Designer.cs">
+      <DependentUpon>frmFormerEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SETTINGS\frmTransacLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmTransacLog.Designer.cs">
+      <DependentUpon>frmTransacLog.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Customized\CustomizedTextbox.resx">
       <DependentUpon>CustomizedTextbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPOS.resx">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GOWN\frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GOWN\frmManage.resx">
+      <DependentUpon>frmManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GOWN\frmRented.resx">
+      <DependentUpon>frmRented.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GOWN\frmReturned.resx">
+      <DependentUpon>frmReturned.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -273,6 +345,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmArchive.resx">
+      <DependentUpon>frmArchive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmFormerEmp.resx">
+      <DependentUpon>frmFormerEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmTransacLog.resx">
+      <DependentUpon>frmTransacLog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

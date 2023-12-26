@@ -1,6 +1,6 @@
-﻿namespace GownGuru_MainSystem.SchedulerModule
+﻿namespace GownGuru_MainSystem.SETTINGS
 {
-    partial class frmRentalManagement
+    partial class frmFormerEmp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmFormerEmp
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmRentalManagement";
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.ClientSize = new System.Drawing.Size(993, 694);
+            this.ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmFormerEmp";
+            this.Text = "frmFormerEmp";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -1,4 +1,6 @@
 ﻿using GownGuru_MainSystem.LOGIN;
+using GownGuru_MainSystem.GOWN;
+using GownGuru_MainSystem.SETTINGS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -266,6 +268,8 @@ namespace GownGuru_MainSystem
 
         private void btnCustomers_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmCustomer());
+
             ResetButtonAppearance(btnCustomers);
 
             btnCustomers.ForeColor = Color.White;
@@ -279,6 +283,7 @@ namespace GownGuru_MainSystem
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmPOS());
             ResetButtonAppearance(btnPOS);
 
             btnPOS.ForeColor = Color.White;
@@ -305,24 +310,32 @@ namespace GownGuru_MainSystem
 
         private void btnManage_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmManage());
+
             ResetButtonAppearance(btnManage);
             btnManage.ForeColor = Color.White;
             btnManage.BackColor = Color.FromArgb(36, 36, 36);
         }
         private void btnCategory_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmCategory());
+
             ResetButtonAppearance(btnCategory);
             btnCategory.ForeColor = Color.White;
             btnCategory.BackColor = Color.FromArgb(36, 36, 36);
         }
         private void btnRented_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmRented());
+
             ResetButtonAppearance(btnRented);
             btnRented.ForeColor = Color.White;
             btnRented.BackColor = Color.FromArgb(36, 36, 36);
         }
         private void btnReturned_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmReturned());
+
             ResetButtonAppearance(btnReturned);
             btnReturned.ForeColor = Color.White;
             btnReturned.BackColor = Color.FromArgb(36, 36, 36);
@@ -330,6 +343,8 @@ namespace GownGuru_MainSystem
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmEmployee());
+
             ResetButtonAppearance(btnEmployee);
             btnEmployee.ForeColor = Color.White;
             btnEmployee.BackColor = Color.FromArgb(36, 36, 36);
@@ -337,6 +352,8 @@ namespace GownGuru_MainSystem
 
         private void btnFormerEmp_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmFormerEmp());
+
             ResetButtonAppearance(btnFormerEmp);
             btnFormerEmp.ForeColor = Color.White;
             btnFormerEmp.BackColor = Color.FromArgb(36, 36, 36);
@@ -344,6 +361,8 @@ namespace GownGuru_MainSystem
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmArchive());
+
             ResetButtonAppearance(btnArchive);
             btnArchive.ForeColor = Color.White;
             btnArchive.BackColor = Color.FromArgb(36, 36, 36);
@@ -351,6 +370,8 @@ namespace GownGuru_MainSystem
 
         private void btnTransactionLog_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmTransacLog());
+
             ResetButtonAppearance(btnTransactionLog);
             btnTransactionLog.ForeColor = Color.White;
             btnTransactionLog.BackColor = Color.FromArgb(36, 36, 36);

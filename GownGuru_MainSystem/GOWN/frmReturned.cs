@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GownGuru_MainSystem.SchedulerModule
+namespace GownGuru_MainSystem.GOWN
 {
-    public partial class frmRentalManagement : Form
+    public partial class frmReturned : Form
     {
-        public frmRentalManagement()
+        public frmReturned()
         {
             InitializeComponent();
         }
