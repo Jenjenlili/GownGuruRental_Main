@@ -38,27 +38,25 @@
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.Panel();
             this.pnlSettings = new System.Windows.Forms.Panel();
-            this.btnSettings = new GownGuru_MainSystem.CustomButton();
             this.btnTransactionLog = new GownGuru_MainSystem.CustomButton();
             this.btnArchive = new GownGuru_MainSystem.CustomButton();
             this.btnFormerEmp = new GownGuru_MainSystem.CustomButton();
             this.btnEmployee = new GownGuru_MainSystem.CustomButton();
+            this.btnSettings = new GownGuru_MainSystem.CustomButton();
             this.btnPOS = new GownGuru_MainSystem.CustomButton();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.logout = new System.Windows.Forms.PictureBox();
             this.btnCustomers = new GownGuru_MainSystem.CustomButton();
             this.pnlGown = new System.Windows.Forms.Panel();
             this.btnReturned = new GownGuru_MainSystem.CustomButton();
             this.btnRented = new GownGuru_MainSystem.CustomButton();
             this.btnCategory = new GownGuru_MainSystem.CustomButton();
             this.btnManage = new GownGuru_MainSystem.CustomButton();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.PictureBox();
             this.btnGown = new GownGuru_MainSystem.CustomButton();
             this.btnDashboard = new GownGuru_MainSystem.CustomButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.GownTimer = new System.Windows.Forms.Timer(this.components);
-            this.SettingsTimer = new System.Windows.Forms.Timer(this.components);
             this.SidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -70,9 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.sidebar.SuspendLayout();
             this.pnlSettings.SuspendLayout();
+            this.pnlGown.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
-            this.pnlGown.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -171,10 +169,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
             this.sidebar.Controls.Add(this.pnlSettings);
+            this.sidebar.Controls.Add(this.btnSettings);
             this.sidebar.Controls.Add(this.btnPOS);
-            this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Controls.Add(this.btnCustomers);
             this.sidebar.Controls.Add(this.pnlGown);
+            this.sidebar.Controls.Add(this.panel6);
+            this.sidebar.Controls.Add(this.btnGown);
             this.sidebar.Controls.Add(this.btnDashboard);
             this.sidebar.Controls.Add(this.pictureBox2);
             this.sidebar.Controls.Add(this.panel3);
@@ -182,47 +182,20 @@
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(303, 745);
             this.sidebar.TabIndex = 2;
+            this.sidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_Paint);
             // 
             // pnlSettings
             // 
-            this.pnlSettings.Controls.Add(this.btnSettings);
             this.pnlSettings.Controls.Add(this.btnTransactionLog);
             this.pnlSettings.Controls.Add(this.btnArchive);
             this.pnlSettings.Controls.Add(this.btnFormerEmp);
             this.pnlSettings.Controls.Add(this.btnEmployee);
-            this.pnlSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSettings.Location = new System.Drawing.Point(0, 452);
+            this.pnlSettings.Location = new System.Drawing.Point(0, 712);
             this.pnlSettings.MaximumSize = new System.Drawing.Size(307, 260);
             this.pnlSettings.MinimumSize = new System.Drawing.Size(307, 57);
             this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.Size = new System.Drawing.Size(307, 57);
+            this.pnlSettings.Size = new System.Drawing.Size(307, 210);
             this.pnlSettings.TabIndex = 10;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnSettings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSettings.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSettings.BorderRadius = 14;
-            this.btnSettings.BorderSize = 0;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.Black;
-            this.btnSettings.Image = global::GownGuru_MainSystem.Properties.Resources.iconsSettings_26;
-            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 0);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(303, 50);
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.Text = "         Settings";
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.TextColor = System.Drawing.Color.Black;
-            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSettings.UseVisualStyleBackColor = false;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnTransactionLog
             // 
@@ -238,7 +211,7 @@
             this.btnTransactionLog.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransactionLog.ForeColor = System.Drawing.Color.Black;
             this.btnTransactionLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransactionLog.Location = new System.Drawing.Point(3, 205);
+            this.btnTransactionLog.Location = new System.Drawing.Point(3, 152);
             this.btnTransactionLog.Name = "btnTransactionLog";
             this.btnTransactionLog.Size = new System.Drawing.Size(319, 50);
             this.btnTransactionLog.TabIndex = 8;
@@ -263,7 +236,7 @@
             this.btnArchive.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArchive.ForeColor = System.Drawing.Color.Black;
             this.btnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchive.Location = new System.Drawing.Point(3, 155);
+            this.btnArchive.Location = new System.Drawing.Point(3, 102);
             this.btnArchive.Name = "btnArchive";
             this.btnArchive.Size = new System.Drawing.Size(319, 50);
             this.btnArchive.TabIndex = 7;
@@ -288,7 +261,7 @@
             this.btnFormerEmp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormerEmp.ForeColor = System.Drawing.Color.Black;
             this.btnFormerEmp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormerEmp.Location = new System.Drawing.Point(3, 105);
+            this.btnFormerEmp.Location = new System.Drawing.Point(3, 52);
             this.btnFormerEmp.Name = "btnFormerEmp";
             this.btnFormerEmp.Size = new System.Drawing.Size(319, 50);
             this.btnFormerEmp.TabIndex = 6;
@@ -313,7 +286,7 @@
             this.btnEmployee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.ForeColor = System.Drawing.Color.Black;
             this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.Location = new System.Drawing.Point(3, 56);
+            this.btnEmployee.Location = new System.Drawing.Point(3, 3);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(319, 50);
             this.btnEmployee.TabIndex = 5;
@@ -323,6 +296,33 @@
             this.btnEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEmployee.UseVisualStyleBackColor = false;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnSettings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSettings.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSettings.BorderRadius = 14;
+            this.btnSettings.BorderSize = 0;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.Black;
+            this.btnSettings.Image = global::GownGuru_MainSystem.Properties.Resources.iconsSettings_26;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(0, 662);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(303, 50);
+            this.btnSettings.TabIndex = 12;
+            this.btnSettings.Text = "         Settings";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.TextColor = System.Drawing.Color.Black;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click_1);
             // 
             // btnPOS
             // 
@@ -340,7 +340,7 @@
             this.btnPOS.ForeColor = System.Drawing.Color.Black;
             this.btnPOS.Image = global::GownGuru_MainSystem.Properties.Resources.iconPOS;
             this.btnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPOS.Location = new System.Drawing.Point(0, 402);
+            this.btnPOS.Location = new System.Drawing.Point(0, 612);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Size = new System.Drawing.Size(303, 50);
             this.btnPOS.TabIndex = 12;
@@ -350,6 +350,147 @@
             this.btnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPOS.UseVisualStyleBackColor = false;
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
+            // 
+            // btnCustomers
+            // 
+            this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
+            this.btnCustomers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCustomers.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCustomers.BorderRadius = 14;
+            this.btnCustomers.BorderSize = 0;
+            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomers.FlatAppearance.BorderSize = 0;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.ForeColor = System.Drawing.Color.Black;
+            this.btnCustomers.Image = global::GownGuru_MainSystem.Properties.Resources.iconsCustomers_26;
+            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.Location = new System.Drawing.Point(0, 562);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(303, 50);
+            this.btnCustomers.TabIndex = 13;
+            this.btnCustomers.Text = "         Customers";
+            this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.TextColor = System.Drawing.Color.Black;
+            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click_1);
+            // 
+            // pnlGown
+            // 
+            this.pnlGown.Controls.Add(this.btnReturned);
+            this.pnlGown.Controls.Add(this.btnRented);
+            this.pnlGown.Controls.Add(this.btnCategory);
+            this.pnlGown.Controls.Add(this.btnManage);
+            this.pnlGown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlGown.Location = new System.Drawing.Point(0, 352);
+            this.pnlGown.MaximumSize = new System.Drawing.Size(309, 265);
+            this.pnlGown.MinimumSize = new System.Drawing.Size(309, 50);
+            this.pnlGown.Name = "pnlGown";
+            this.pnlGown.Size = new System.Drawing.Size(309, 210);
+            this.pnlGown.TabIndex = 13;
+            // 
+            // btnReturned
+            // 
+            this.btnReturned.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnReturned.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnReturned.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReturned.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnReturned.BorderRadius = 14;
+            this.btnReturned.BorderSize = 0;
+            this.btnReturned.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturned.FlatAppearance.BorderSize = 0;
+            this.btnReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturned.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturned.ForeColor = System.Drawing.Color.Black;
+            this.btnReturned.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturned.Location = new System.Drawing.Point(3, 153);
+            this.btnReturned.Name = "btnReturned";
+            this.btnReturned.Size = new System.Drawing.Size(319, 50);
+            this.btnReturned.TabIndex = 8;
+            this.btnReturned.Text = "           Returned";
+            this.btnReturned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturned.TextColor = System.Drawing.Color.Black;
+            this.btnReturned.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReturned.UseVisualStyleBackColor = false;
+            this.btnReturned.Click += new System.EventHandler(this.btnReturned_Click_1);
+            // 
+            // btnRented
+            // 
+            this.btnRented.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnRented.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnRented.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRented.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRented.BorderRadius = 14;
+            this.btnRented.BorderSize = 0;
+            this.btnRented.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRented.FlatAppearance.BorderSize = 0;
+            this.btnRented.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRented.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRented.ForeColor = System.Drawing.Color.Black;
+            this.btnRented.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRented.Location = new System.Drawing.Point(3, 103);
+            this.btnRented.Name = "btnRented";
+            this.btnRented.Size = new System.Drawing.Size(319, 50);
+            this.btnRented.TabIndex = 7;
+            this.btnRented.Text = "           Rented";
+            this.btnRented.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRented.TextColor = System.Drawing.Color.Black;
+            this.btnRented.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRented.UseVisualStyleBackColor = false;
+            this.btnRented.Click += new System.EventHandler(this.btnRented_Click_1);
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCategory.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCategory.BorderRadius = 14;
+            this.btnCategory.BorderSize = 0;
+            this.btnCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategory.FlatAppearance.BorderSize = 0;
+            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.ForeColor = System.Drawing.Color.Black;
+            this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategory.Location = new System.Drawing.Point(3, 53);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(319, 50);
+            this.btnCategory.TabIndex = 6;
+            this.btnCategory.Text = "           Category";
+            this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategory.TextColor = System.Drawing.Color.Black;
+            this.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click_1);
+            // 
+            // btnManage
+            // 
+            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnManage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnManage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnManage.BorderRadius = 14;
+            this.btnManage.BorderSize = 0;
+            this.btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManage.FlatAppearance.BorderSize = 0;
+            this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManage.ForeColor = System.Drawing.Color.Black;
+            this.btnManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManage.Location = new System.Drawing.Point(3, 3);
+            this.btnManage.Name = "btnManage";
+            this.btnManage.Size = new System.Drawing.Size(319, 50);
+            this.btnManage.TabIndex = 5;
+            this.btnManage.Text = "           Manage";
+            this.btnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManage.TextColor = System.Drawing.Color.Black;
+            this.btnManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click_1);
             // 
             // panel6
             // 
@@ -374,148 +515,6 @@
             this.logout.MouseEnter += new System.EventHandler(this.logout_MouseEnter);
             this.logout.MouseLeave += new System.EventHandler(this.logout_MouseLeave);
             // 
-            // btnCustomers
-            // 
-            this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
-            this.btnCustomers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCustomers.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCustomers.BorderRadius = 14;
-            this.btnCustomers.BorderSize = 0;
-            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCustomers.FlatAppearance.BorderSize = 0;
-            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomers.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomers.Image = global::GownGuru_MainSystem.Properties.Resources.iconsCustomers_26;
-            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomers.Location = new System.Drawing.Point(0, 352);
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(303, 50);
-            this.btnCustomers.TabIndex = 11;
-            this.btnCustomers.Text = "         Customers";
-            this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomers.TextColor = System.Drawing.Color.Black;
-            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCustomers.UseVisualStyleBackColor = false;
-            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
-            // 
-            // pnlGown
-            // 
-            this.pnlGown.Controls.Add(this.btnReturned);
-            this.pnlGown.Controls.Add(this.btnRented);
-            this.pnlGown.Controls.Add(this.btnCategory);
-            this.pnlGown.Controls.Add(this.btnManage);
-            this.pnlGown.Controls.Add(this.btnGown);
-            this.pnlGown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlGown.Location = new System.Drawing.Point(0, 302);
-            this.pnlGown.MaximumSize = new System.Drawing.Size(309, 265);
-            this.pnlGown.MinimumSize = new System.Drawing.Size(309, 50);
-            this.pnlGown.Name = "pnlGown";
-            this.pnlGown.Size = new System.Drawing.Size(309, 50);
-            this.pnlGown.TabIndex = 3;
-            // 
-            // btnReturned
-            // 
-            this.btnReturned.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnReturned.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnReturned.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReturned.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnReturned.BorderRadius = 14;
-            this.btnReturned.BorderSize = 0;
-            this.btnReturned.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturned.FlatAppearance.BorderSize = 0;
-            this.btnReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturned.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturned.ForeColor = System.Drawing.Color.Black;
-            this.btnReturned.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturned.Location = new System.Drawing.Point(3, 208);
-            this.btnReturned.Name = "btnReturned";
-            this.btnReturned.Size = new System.Drawing.Size(319, 50);
-            this.btnReturned.TabIndex = 8;
-            this.btnReturned.Text = "           Returned";
-            this.btnReturned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturned.TextColor = System.Drawing.Color.Black;
-            this.btnReturned.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReturned.UseVisualStyleBackColor = false;
-            this.btnReturned.Click += new System.EventHandler(this.btnReturned_Click);
-            // 
-            // btnRented
-            // 
-            this.btnRented.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnRented.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnRented.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRented.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRented.BorderRadius = 14;
-            this.btnRented.BorderSize = 0;
-            this.btnRented.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRented.FlatAppearance.BorderSize = 0;
-            this.btnRented.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRented.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRented.ForeColor = System.Drawing.Color.Black;
-            this.btnRented.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRented.Location = new System.Drawing.Point(3, 158);
-            this.btnRented.Name = "btnRented";
-            this.btnRented.Size = new System.Drawing.Size(319, 50);
-            this.btnRented.TabIndex = 7;
-            this.btnRented.Text = "           Rented";
-            this.btnRented.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRented.TextColor = System.Drawing.Color.Black;
-            this.btnRented.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnRented.UseVisualStyleBackColor = false;
-            this.btnRented.Click += new System.EventHandler(this.btnRented_Click);
-            // 
-            // btnCategory
-            // 
-            this.btnCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCategory.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCategory.BorderRadius = 14;
-            this.btnCategory.BorderSize = 0;
-            this.btnCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCategory.FlatAppearance.BorderSize = 0;
-            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategory.ForeColor = System.Drawing.Color.Black;
-            this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategory.Location = new System.Drawing.Point(3, 108);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(319, 50);
-            this.btnCategory.TabIndex = 6;
-            this.btnCategory.Text = "           Category";
-            this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategory.TextColor = System.Drawing.Color.Black;
-            this.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCategory.UseVisualStyleBackColor = false;
-            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
-            // 
-            // btnManage
-            // 
-            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnManage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnManage.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnManage.BorderRadius = 14;
-            this.btnManage.BorderSize = 0;
-            this.btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManage.FlatAppearance.BorderSize = 0;
-            this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManage.ForeColor = System.Drawing.Color.Black;
-            this.btnManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManage.Location = new System.Drawing.Point(3, 58);
-            this.btnManage.Name = "btnManage";
-            this.btnManage.Size = new System.Drawing.Size(319, 50);
-            this.btnManage.TabIndex = 5;
-            this.btnManage.Text = "           Manage";
-            this.btnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManage.TextColor = System.Drawing.Color.Black;
-            this.btnManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnManage.UseVisualStyleBackColor = false;
-            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
-            // 
             // btnGown
             // 
             this.btnGown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(211)))), ((int)(((byte)(66)))));
@@ -524,13 +523,15 @@
             this.btnGown.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnGown.BorderRadius = 14;
             this.btnGown.BorderSize = 0;
+            this.btnGown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGown.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGown.FlatAppearance.BorderSize = 0;
             this.btnGown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGown.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGown.ForeColor = System.Drawing.Color.Black;
             this.btnGown.Image = global::GownGuru_MainSystem.Properties.Resources.icondGown;
             this.btnGown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGown.Location = new System.Drawing.Point(0, 0);
+            this.btnGown.Location = new System.Drawing.Point(0, 302);
             this.btnGown.Name = "btnGown";
             this.btnGown.Size = new System.Drawing.Size(303, 50);
             this.btnGown.TabIndex = 4;
@@ -579,6 +580,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel3
             // 
@@ -603,16 +605,6 @@
             this.btnMenu.MouseEnter += new System.EventHandler(this.btnMenu_MouseEnter);
             this.btnMenu.MouseLeave += new System.EventHandler(this.btnMenu_MouseLeave);
             // 
-            // GownTimer
-            // 
-            this.GownTimer.Interval = 5;
-            this.GownTimer.Tick += new System.EventHandler(this.GownTimer_Tick);
-            // 
-            // SettingsTimer
-            // 
-            this.SettingsTimer.Interval = 5;
-            this.SettingsTimer.Tick += new System.EventHandler(this.SettingsTimer_Tick);
-            // 
             // SidebarTimer
             // 
             this.SidebarTimer.Interval = 10;
@@ -628,6 +620,7 @@
             this.CenterPanel.Name = "CenterPanel";
             this.CenterPanel.Size = new System.Drawing.Size(993, 694);
             this.CenterPanel.TabIndex = 3;
+            this.CenterPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.CenterPanel_Paint);
             // 
             // MAIN
             // 
@@ -651,9 +644,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.pnlSettings.ResumeLayout(false);
+            this.pnlGown.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
-            this.pnlGown.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
@@ -669,12 +662,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox btnMenu;
         private CustomButton btnGown;
-        private System.Windows.Forms.Panel pnlGown;
-        private CustomButton btnReturned;
-        private CustomButton btnRented;
-        private CustomButton btnCategory;
-        private CustomButton btnManage;
-        private CustomButton btnSettings;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox logout;
         private System.Windows.Forms.Panel pnlSettings;
@@ -688,11 +675,15 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Timer GownTimer;
-        private System.Windows.Forms.Timer SettingsTimer;
         private CustomButton btnPOS;
-        private CustomButton btnCustomers;
         private System.Windows.Forms.Timer SidebarTimer;
         private System.Windows.Forms.Panel CenterPanel;
+        private System.Windows.Forms.Panel pnlGown;
+        private CustomButton btnReturned;
+        private CustomButton btnRented;
+        private CustomButton btnCategory;
+        private CustomButton btnManage;
+        private CustomButton btnCustomers;
+        private CustomButton btnSettings;
     }
 }

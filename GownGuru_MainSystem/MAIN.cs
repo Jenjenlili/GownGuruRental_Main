@@ -5,8 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
 
 namespace GownGuru_MainSystem
@@ -16,6 +18,34 @@ namespace GownGuru_MainSystem
         public MAIN()
         {
             InitializeComponent();
+            CustomDesign();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            openChildForm(new frmDashboard());
+        }
+        //to avoid flicker elements
+        static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
+        {
+            try
+            {
+                typeof(Control).InvokeMember("DoubleBuffered",
+                    BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                    null, ctl, new object[] { DoubleBuffered });
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        //to avoid flicker forms
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // Minimize form and control flickering.
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -46,6 +76,7 @@ namespace GownGuru_MainSystem
             {
                 WindowState = FormWindowState.Normal;
             }
+            SetDoubleBuffer(btnMax, true);
         }
 
         private void btnMin_Click_1(object sender, EventArgs e)
@@ -58,6 +89,7 @@ namespace GownGuru_MainSystem
             {
                 WindowState = FormWindowState.Normal;
             }
+            SetDoubleBuffer(btnMin, true);
         }
 
         //move form
@@ -74,94 +106,6 @@ namespace GownGuru_MainSystem
                 Point mousePose = Control.MousePosition;
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
-            }
-        }
-
-        //sub buttons collapse
-        bool gownCollapsed;
-        bool settingsCollapsed;
-        private void GownTimer_Tick(object sender, EventArgs e)
-        {
-            if (gownCollapsed)
-            {
-                pnlGown.Height -= 30;
-                if (pnlGown.Height <= pnlGown.MinimumSize.Height)
-                {
-                    pnlGown.Height = pnlGown.MinimumSize.Height;
-                    gownCollapsed = false;
-                    GownTimer.Stop();
-                }
-            }
-            else
-            {
-                pnlGown.Height += 30;
-                if (pnlGown.Height >= pnlGown.MaximumSize.Height)
-                {
-                    pnlGown.Height = pnlGown.MaximumSize.Height;
-                    gownCollapsed = true;
-                    GownTimer.Stop();
-                }
-            }
-        }
-        private void btnGown_Click(object sender, EventArgs e)
-        {
-            GownTimer.Start();
-
-            ResetButtonAppearance(btnGown);
-
-            btnGown.ForeColor = Color.White;
-            btnGown.BackColor = Color.FromArgb(36, 36, 36);
-            btnGown.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconGownWhite.png");
-
-            // Close the settings panel if it's open
-            if (settingsCollapsed)
-            {
-                SettingsTimer.Stop();
-                pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                settingsCollapsed = false;
-            }
-        }
-
-        private void SettingsTimer_Tick(object sender, EventArgs e)
-        {
-            if (settingsCollapsed)
-            {
-                pnlSettings.Height -= 30;
-                if (pnlSettings.Height <= pnlSettings.MinimumSize.Height)
-                {
-                    pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                    settingsCollapsed = false;
-                    SettingsTimer.Stop();
-                }
-            }
-            else
-            {
-                pnlSettings.Height += 30;
-                if (pnlSettings.Height >= pnlSettings.MaximumSize.Height)
-                {
-                    pnlSettings.Height = pnlSettings.MaximumSize.Height;
-                    settingsCollapsed = true;
-                    SettingsTimer.Stop();
-                }
-            }
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SettingsTimer.Start();
-
-            ResetButtonAppearance(btnSettings);
-
-            btnSettings.ForeColor = Color.White;
-            btnSettings.BackColor = Color.FromArgb(36, 36, 36);
-            btnSettings.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconSettingsWhite-26.png");
-
-            // Close the gown panel if it's open
-            if (gownCollapsed)
-            {
-                GownTimer.Stop();
-                pnlGown.Height = pnlGown.MinimumSize.Height;
-                gownCollapsed = false;
             }
         }
 
@@ -261,6 +205,37 @@ namespace GownGuru_MainSystem
 
         }
 
+        //SUB TABS
+        private void CustomDesign()
+        {
+            pnlGown.Visible = false;
+            pnlSettings.Visible = false;
+
+        }
+        private void hideSubTab()
+        {
+            if (pnlGown.Visible == true)
+            {
+                pnlGown.Visible = false;
+            }
+            if (pnlSettings.Visible == true)
+            {
+                pnlSettings.Visible = false;
+            }
+        }
+
+        private void showSubTab(Panel SubTab)
+        {
+            if (SubTab.Visible == false)
+            {
+                hideSubTab();
+                SubTab.Visible = true;
+            }
+            else
+            {
+                SubTab.Visible = false;
+            }
+        }
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDashboard());
@@ -271,23 +246,25 @@ namespace GownGuru_MainSystem
             btnDashboard.BackColor = Color.FromArgb(36, 36, 36);
             btnDashboard.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconHome-24 white.png");
 
-            // Close the settings panel if it's open
-            if (settingsCollapsed)
-            {
-                SettingsTimer.Stop();
-                pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                settingsCollapsed = false;
-            }
-            // Close the gown panel if it's open
-            if (gownCollapsed)
-            {
-                GownTimer.Stop();
-                pnlGown.Height = pnlGown.MinimumSize.Height;
-                gownCollapsed = false;
-            }
+            hideSubTab();
+
+            SetDoubleBuffer(btnDashboard, true);
+        }
+        private void btnGown_Click(object sender, EventArgs e)
+        {
+            showSubTab(pnlGown);
+            //GownTimer.Start();
+
+            ResetButtonAppearance(btnGown);
+
+            btnGown.ForeColor = Color.White;
+            btnGown.BackColor = Color.FromArgb(36, 36, 36);
+            btnGown.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconGownWhite.png");
+
+            SetDoubleBuffer(btnGown, true);
         }
 
-        private void btnCustomers_Click(object sender, EventArgs e)
+        private void btnCustomers_Click_1(object sender, EventArgs e)
         {
             ResetButtonAppearance(btnCustomers);
 
@@ -295,20 +272,9 @@ namespace GownGuru_MainSystem
             btnCustomers.BackColor = Color.FromArgb(36, 36, 36);
             btnCustomers.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsCustomersWhite.png");
 
-            // Close the settings panel if it's open
-            if (settingsCollapsed)
-            {
-                SettingsTimer.Stop();
-                pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                settingsCollapsed = false;
-            }
-            // Close the gown panel if it's open
-            if (gownCollapsed)
-            {
-                GownTimer.Stop();
-                pnlGown.Height = pnlGown.MinimumSize.Height;
-                gownCollapsed = false;
-            }
+            hideSubTab();
+
+            SetDoubleBuffer(btnCustomers, true);
         }
 
         private void btnPOS_Click(object sender, EventArgs e)
@@ -319,44 +285,43 @@ namespace GownGuru_MainSystem
             btnPOS.BackColor = Color.FromArgb(36, 36, 36);
             btnPOS.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconPOSWhite.png");
 
-            // Close the settings panel if it's open
-            if (settingsCollapsed)
-            {
-                SettingsTimer.Stop();
-                pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                settingsCollapsed = false;
-            }
-            // Close the gown panel if it's open
-            if (gownCollapsed)
-            {
-                GownTimer.Stop();
-                pnlGown.Height = pnlGown.MinimumSize.Height;
-                gownCollapsed = false;
-            }
+            hideSubTab();
+
+            SetDoubleBuffer(btnPOS, true);
+        }
+        private void btnSettings_Click_1(object sender, EventArgs e)
+        {
+            showSubTab(pnlSettings);
+            //SettingsTimer.Start();
+
+            ResetButtonAppearance(btnSettings);
+
+            btnSettings.ForeColor = Color.White;
+            btnSettings.BackColor = Color.FromArgb(36, 36, 36);
+            btnSettings.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconSettingsWhite-26.png");
+
+            SetDoubleBuffer(btnSettings, true);
         }
 
-        private void btnManage_Click(object sender, EventArgs e)
+        private void btnManage_Click_1(object sender, EventArgs e)
         {
             ResetButtonAppearance(btnManage);
             btnManage.ForeColor = Color.White;
             btnManage.BackColor = Color.FromArgb(36, 36, 36);
         }
-
-        private void btnCategory_Click(object sender, EventArgs e)
+        private void btnCategory_Click_1(object sender, EventArgs e)
         {
             ResetButtonAppearance(btnCategory);
             btnCategory.ForeColor = Color.White;
             btnCategory.BackColor = Color.FromArgb(36, 36, 36);
         }
-
-        private void btnRented_Click(object sender, EventArgs e)
+        private void btnRented_Click_1(object sender, EventArgs e)
         {
             ResetButtonAppearance(btnRented);
             btnRented.ForeColor = Color.White;
             btnRented.BackColor = Color.FromArgb(36, 36, 36);
         }
-
-        private void btnReturned_Click(object sender, EventArgs e)
+        private void btnReturned_Click_1(object sender, EventArgs e)
         {
             ResetButtonAppearance(btnReturned);
             btnReturned.ForeColor = Color.White;
@@ -395,20 +360,6 @@ namespace GownGuru_MainSystem
         {
             SidebarTimer.Start();
             ResetButtonAppearance(btnDashboard);
-            // Close the settings panel if it's open
-            if (settingsCollapsed)
-            {
-                SettingsTimer.Stop();
-                pnlSettings.Height = pnlSettings.MinimumSize.Height;
-                settingsCollapsed = false;
-            }
-            // Close the gown panel if it's open
-            if (gownCollapsed)
-            {
-                GownTimer.Stop();
-                pnlGown.Height = pnlGown.MinimumSize.Height;
-                gownCollapsed = false;
-            }
 
             // Adjust the anchor and position when the sidebar is collapsed or expanded
             if (sideBarCollapsed)
@@ -434,7 +385,7 @@ namespace GownGuru_MainSystem
         {
             if (sideBarCollapsed)
             {
-                sidebar.Width += 50;
+                sidebar.Width += 10;
                 if (sidebar.Width >= ExpandedSidebarWidth) // Change the condition to fit your desired width
                 {
                     sideBarCollapsed = false;
@@ -444,7 +395,7 @@ namespace GownGuru_MainSystem
             }
             else
             {
-                sidebar.Width -= 50;
+                sidebar.Width -= 10;
                 if (sidebar.Width <= CollapsedSidebarWidth)
                 {
                     sideBarCollapsed = true;
@@ -470,5 +421,24 @@ namespace GownGuru_MainSystem
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDashboard());
+
+            hideSubTab();
+        }
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+            //SetDoubleBuffer(sidebar, true);
+        }
+
+        private void CenterPanel_Paint(object sender, PaintEventArgs e)
+        {
+            SetDoubleBuffer(CenterPanel, true);
+        }
+
+
     }
 }
