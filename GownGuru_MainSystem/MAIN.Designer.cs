@@ -187,9 +187,10 @@
             // pnlSettings
             // 
             this.pnlSettings.Controls.Add(this.btnTransactionLog);
+            this.pnlSettings.Controls.Add(this.btnEmployee);
             this.pnlSettings.Controls.Add(this.btnArchive);
             this.pnlSettings.Controls.Add(this.btnFormerEmp);
-            this.pnlSettings.Controls.Add(this.btnEmployee);
+            this.pnlSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSettings.Location = new System.Drawing.Point(0, 712);
             this.pnlSettings.MaximumSize = new System.Drawing.Size(307, 260);
             this.pnlSettings.MinimumSize = new System.Drawing.Size(307, 57);
@@ -615,7 +616,7 @@
             this.CenterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CenterPanel.BackColor = System.Drawing.Color.White;
+            this.CenterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.CenterPanel.Location = new System.Drawing.Point(303, 51);
             this.CenterPanel.Name = "CenterPanel";
             this.CenterPanel.Size = new System.Drawing.Size(993, 694);

@@ -17,15 +17,6 @@ namespace GownGuru_MainSystem
         {
             InitializeComponent();
             //SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-
-            SetDoubleBuffer(GownBox, true);
-            SetDoubleBuffer(AvailableGownBox, true);
-            SetDoubleBuffer(customerBox, true);
-            SetDoubleBuffer(gownRentedBox, true);
-            SetDoubleBuffer(revenueBox, true);
-            SetDoubleBuffer(damageLostBox, true);
-            SetDoubleBuffer(inPossessionBox, true);
-            SetDoubleBuffer(gownReturnedBox, true);
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -59,7 +50,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             GownBox.BackColor = Color.FromArgb(90, GownBox.BackColor);
 
-            
+            SetDoubleBuffer(GownBox, true);
         }
 
         private void AvailableGownBox_Paint(object sender, PaintEventArgs e)
@@ -67,7 +58,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             AvailableGownBox.BackColor = Color.FromArgb(90, AvailableGownBox.BackColor);
 
-            //SetDoubleBuffer(AvailableGownBox, true);
+            SetDoubleBuffer(AvailableGownBox, true);
         }
 
         private void customerBox_Paint(object sender, PaintEventArgs e)
@@ -75,7 +66,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             customerBox.BackColor = Color.FromArgb(90, customerBox.BackColor);
 
-            //SetDoubleBuffer(customerBox, true);
+            SetDoubleBuffer(customerBox, true);
         }
 
         private void gownRentedBox_Paint(object sender, PaintEventArgs e)
@@ -83,7 +74,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             gownRentedBox.BackColor = Color.FromArgb(90, gownRentedBox.BackColor);
 
-            //SetDoubleBuffer(gownRentedBox, true);
+            SetDoubleBuffer(gownRentedBox, true);
         }
 
         private void revenueBox_Paint(object sender, PaintEventArgs e)
@@ -91,7 +82,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             revenueBox.BackColor = Color.FromArgb(90, revenueBox.BackColor);
 
-            //SetDoubleBuffer(revenueBox, true);
+            SetDoubleBuffer(revenueBox, true);
         }
 
         private void damageLostBox_Paint(object sender, PaintEventArgs e)
@@ -99,7 +90,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             damageLostBox.BackColor = Color.FromArgb(90, damageLostBox.BackColor);
 
-            //SetDoubleBuffer(damageLostBox, true);
+            SetDoubleBuffer(damageLostBox, true);
         }
 
         private void inPossessionBox_Paint(object sender, PaintEventArgs e)
@@ -107,7 +98,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             inPossessionBox.BackColor = Color.FromArgb(90, inPossessionBox.BackColor);
 
-            //SetDoubleBuffer(inPossessionBox, true);
+            SetDoubleBuffer(inPossessionBox, true);
         }
 
         private void gownReturnedBox_Paint(object sender, PaintEventArgs e)
@@ -115,7 +106,7 @@ namespace GownGuru_MainSystem
             //opacity of panel
             gownReturnedBox.BackColor = Color.FromArgb(90, gownReturnedBox.BackColor);
 
-            //SetDoubleBuffer(gownReturnedBox, true);
+            SetDoubleBuffer(gownReturnedBox, true);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -127,6 +118,13 @@ namespace GownGuru_MainSystem
         private void frmDashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pnlTodayTransac_Paint(object sender, PaintEventArgs e)
+        {
+            pnlTodayTransac.BackColor = Color.FromArgb(90, pnlTodayTransac.BackColor);
+
+            SetDoubleBuffer(pnlTodayTransac, true);
         }
     }
 }
