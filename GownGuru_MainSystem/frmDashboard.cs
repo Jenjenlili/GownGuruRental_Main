@@ -126,5 +126,10 @@ namespace GownGuru_MainSystem
 
             SetDoubleBuffer(pnlTodayTransac, true);
         }
+
+        private void dgvTodayTransac_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -63,6 +63,46 @@ namespace GownGuru_MainSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_white {
+            get {
+                object obj = ResourceManager.GetObject("add-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_button_RED23 {
+            get {
+                object obj = ResourceManager.GetObject("delete-button-RED23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_button_white_23 {
+            get {
+                object obj = ResourceManager.GetObject("delete-button-white-23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_23 {
+            get {
+                object obj = ResourceManager.GetObject("edit-23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Final_Logo {
             get {
                 object obj = ResourceManager.GetObject("Final Logo", resourceCulture);
@@ -86,6 +126,16 @@ namespace GownGuru_MainSystem.Properties {
         internal static System.Drawing.Bitmap iconDropdown {
             get {
                 object obj = ResourceManager.GetObject("iconDropdown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconDropdown1 {
+            get {
+                object obj = ResourceManager.GetObject("iconDropdown1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

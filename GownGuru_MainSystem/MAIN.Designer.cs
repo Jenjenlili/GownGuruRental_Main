@@ -39,9 +39,9 @@
             this.sidebar = new System.Windows.Forms.Panel();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.btnTransactionLog = new GownGuru_MainSystem.CustomButton();
+            this.btnEmployee = new GownGuru_MainSystem.CustomButton();
             this.btnArchive = new GownGuru_MainSystem.CustomButton();
             this.btnFormerEmp = new GownGuru_MainSystem.CustomButton();
-            this.btnEmployee = new GownGuru_MainSystem.CustomButton();
             this.btnSettings = new GownGuru_MainSystem.CustomButton();
             this.btnPOS = new GownGuru_MainSystem.CustomButton();
             this.btnCustomers = new GownGuru_MainSystem.CustomButton();
@@ -223,6 +223,31 @@
             this.btnTransactionLog.UseVisualStyleBackColor = false;
             this.btnTransactionLog.Click += new System.EventHandler(this.btnTransactionLog_Click);
             // 
+            // btnEmployee
+            // 
+            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
+            this.btnEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmployee.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEmployee.BorderRadius = 14;
+            this.btnEmployee.BorderSize = 0;
+            this.btnEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmployee.FlatAppearance.BorderSize = 0;
+            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployee.ForeColor = System.Drawing.Color.Black;
+            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.Location = new System.Drawing.Point(3, 3);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(319, 50);
+            this.btnEmployee.TabIndex = 5;
+            this.btnEmployee.Text = "           Employee";
+            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.TextColor = System.Drawing.Color.Black;
+            this.btnEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
+            // 
             // btnArchive
             // 
             this.btnArchive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
@@ -272,31 +297,6 @@
             this.btnFormerEmp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFormerEmp.UseVisualStyleBackColor = false;
             this.btnFormerEmp.Click += new System.EventHandler(this.btnFormerEmp_Click);
-            // 
-            // btnEmployee
-            // 
-            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(42)))));
-            this.btnEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmployee.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEmployee.BorderRadius = 14;
-            this.btnEmployee.BorderSize = 0;
-            this.btnEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployee.FlatAppearance.BorderSize = 0;
-            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.ForeColor = System.Drawing.Color.Black;
-            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.Location = new System.Drawing.Point(3, 3);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(319, 50);
-            this.btnEmployee.TabIndex = 5;
-            this.btnEmployee.Text = "           Employee";
-            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.TextColor = System.Drawing.Color.Black;
-            this.btnEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEmployee.UseVisualStyleBackColor = false;
-            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnSettings
             // 

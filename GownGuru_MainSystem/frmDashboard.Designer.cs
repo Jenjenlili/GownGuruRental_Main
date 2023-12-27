@@ -31,6 +31,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlTodayTransac = new System.Windows.Forms.Panel();
+            this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
+            this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conditionBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conditionAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.gownReturnedBox = new GownGuru_MainSystem.CustomPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,18 +66,9 @@
             this.GownBox = new GownGuru_MainSystem.CustomPanel();
             this.GownCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlTodayTransac = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
-            this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlTodayTransac.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).BeginInit();
             this.gownReturnedBox.SuspendLayout();
             this.inPossessionBox.SuspendLayout();
             this.damageLostBox.SuspendLayout();
@@ -75,8 +77,6 @@
             this.customerBox.SuspendLayout();
             this.AvailableGownBox.SuspendLayout();
             this.GownBox.SuspendLayout();
-            this.pnlTodayTransac.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -104,6 +104,134 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 308);
             this.tableLayoutPanel1.TabIndex = 3;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // pnlTodayTransac
+            // 
+            this.pnlTodayTransac.BackColor = System.Drawing.Color.Black;
+            this.pnlTodayTransac.Controls.Add(this.dgvTodayTransac);
+            this.pnlTodayTransac.Controls.Add(this.textBox1);
+            this.pnlTodayTransac.Controls.Add(this.label16);
+            this.pnlTodayTransac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTodayTransac.Location = new System.Drawing.Point(0, 308);
+            this.pnlTodayTransac.Name = "pnlTodayTransac";
+            this.pnlTodayTransac.Size = new System.Drawing.Size(993, 386);
+            this.pnlTodayTransac.TabIndex = 0;
+            this.pnlTodayTransac.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTodayTransac_Paint);
+            // 
+            // dgvTodayTransac
+            // 
+            this.dgvTodayTransac.AllowUserToAddRows = false;
+            this.dgvTodayTransac.AllowUserToDeleteRows = false;
+            this.dgvTodayTransac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTodayTransac.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTodayTransac.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTodayTransac.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rentDate,
+            this.gown,
+            this.customer,
+            this.conditionBefore,
+            this.conditionAfter,
+            this.returnDate,
+            this.total});
+            this.dgvTodayTransac.Location = new System.Drawing.Point(23, 97);
+            this.dgvTodayTransac.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTodayTransac.Name = "dgvTodayTransac";
+            this.dgvTodayTransac.ReadOnly = true;
+            this.dgvTodayTransac.RowHeadersVisible = false;
+            this.dgvTodayTransac.RowHeadersWidth = 62;
+            this.dgvTodayTransac.RowTemplate.Height = 28;
+            this.dgvTodayTransac.Size = new System.Drawing.Size(948, 261);
+            this.dgvTodayTransac.TabIndex = 4;
+            this.dgvTodayTransac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodayTransac_CellContentClick);
+            // 
+            // rentDate
+            // 
+            this.rentDate.HeaderText = "Rent Date";
+            this.rentDate.MinimumWidth = 8;
+            this.rentDate.Name = "rentDate";
+            this.rentDate.ReadOnly = true;
+            this.rentDate.Width = 150;
+            // 
+            // gown
+            // 
+            this.gown.HeaderText = "Gown";
+            this.gown.MinimumWidth = 8;
+            this.gown.Name = "gown";
+            this.gown.ReadOnly = true;
+            this.gown.Width = 150;
+            // 
+            // customer
+            // 
+            this.customer.HeaderText = "Customer";
+            this.customer.MinimumWidth = 8;
+            this.customer.Name = "customer";
+            this.customer.ReadOnly = true;
+            this.customer.Width = 150;
+            // 
+            // conditionBefore
+            // 
+            this.conditionBefore.HeaderText = "Condition Before";
+            this.conditionBefore.MinimumWidth = 8;
+            this.conditionBefore.Name = "conditionBefore";
+            this.conditionBefore.ReadOnly = true;
+            this.conditionBefore.Width = 150;
+            // 
+            // conditionAfter
+            // 
+            this.conditionAfter.HeaderText = "Condition After";
+            this.conditionAfter.MinimumWidth = 8;
+            this.conditionAfter.Name = "conditionAfter";
+            this.conditionAfter.ReadOnly = true;
+            this.conditionAfter.Width = 150;
+            // 
+            // returnDate
+            // 
+            this.returnDate.HeaderText = "Return Date";
+            this.returnDate.MinimumWidth = 8;
+            this.returnDate.Name = "returnDate";
+            this.returnDate.ReadOnly = true;
+            this.returnDate.Width = 150;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.MinimumWidth = 8;
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 150;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(23, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(302, 32);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "  Search Here";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(18, 14);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(221, 26);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Today\'s Transaction";
             // 
             // gownReturnedBox
             // 
@@ -446,132 +574,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Gown";
             // 
-            // pnlTodayTransac
-            // 
-            this.pnlTodayTransac.BackColor = System.Drawing.Color.Black;
-            this.pnlTodayTransac.Controls.Add(this.dgvTodayTransac);
-            this.pnlTodayTransac.Controls.Add(this.textBox1);
-            this.pnlTodayTransac.Controls.Add(this.label16);
-            this.pnlTodayTransac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTodayTransac.Location = new System.Drawing.Point(0, 308);
-            this.pnlTodayTransac.Name = "pnlTodayTransac";
-            this.pnlTodayTransac.Size = new System.Drawing.Size(993, 386);
-            this.pnlTodayTransac.TabIndex = 0;
-            this.pnlTodayTransac.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTodayTransac_Paint);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(18, 14);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(221, 26);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Today\'s Transaction";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(23, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 32);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "  Search Here";
-            // 
-            // dgvTodayTransac
-            // 
-            this.dgvTodayTransac.AllowUserToAddRows = false;
-            this.dgvTodayTransac.AllowUserToDeleteRows = false;
-            this.dgvTodayTransac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTodayTransac.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvTodayTransac.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rentDate,
-            this.gown,
-            this.customer,
-            this.conditionBefore,
-            this.conditionAfter,
-            this.returnDate,
-            this.total});
-            this.dgvTodayTransac.Location = new System.Drawing.Point(23, 97);
-            this.dgvTodayTransac.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvTodayTransac.Name = "dgvTodayTransac";
-            this.dgvTodayTransac.ReadOnly = true;
-            this.dgvTodayTransac.RowHeadersVisible = false;
-            this.dgvTodayTransac.RowHeadersWidth = 62;
-            this.dgvTodayTransac.RowTemplate.Height = 28;
-            this.dgvTodayTransac.Size = new System.Drawing.Size(948, 261);
-            this.dgvTodayTransac.TabIndex = 4;
-            // 
-            // rentDate
-            // 
-            this.rentDate.HeaderText = "Rent Date";
-            this.rentDate.MinimumWidth = 8;
-            this.rentDate.Name = "rentDate";
-            this.rentDate.ReadOnly = true;
-            this.rentDate.Width = 150;
-            // 
-            // gown
-            // 
-            this.gown.HeaderText = "Gown";
-            this.gown.MinimumWidth = 8;
-            this.gown.Name = "gown";
-            this.gown.ReadOnly = true;
-            this.gown.Width = 150;
-            // 
-            // customer
-            // 
-            this.customer.HeaderText = "Customer";
-            this.customer.MinimumWidth = 8;
-            this.customer.Name = "customer";
-            this.customer.ReadOnly = true;
-            this.customer.Width = 150;
-            // 
-            // conditionBefore
-            // 
-            this.conditionBefore.HeaderText = "Condition Before";
-            this.conditionBefore.MinimumWidth = 8;
-            this.conditionBefore.Name = "conditionBefore";
-            this.conditionBefore.ReadOnly = true;
-            this.conditionBefore.Width = 150;
-            // 
-            // conditionAfter
-            // 
-            this.conditionAfter.HeaderText = "Condition After";
-            this.conditionAfter.MinimumWidth = 8;
-            this.conditionAfter.Name = "conditionAfter";
-            this.conditionAfter.ReadOnly = true;
-            this.conditionAfter.Width = 150;
-            // 
-            // returnDate
-            // 
-            this.returnDate.HeaderText = "Return Date";
-            this.returnDate.MinimumWidth = 8;
-            this.returnDate.Name = "returnDate";
-            this.returnDate.ReadOnly = true;
-            this.returnDate.Width = 150;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.MinimumWidth = 8;
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 150;
-            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -588,6 +590,9 @@
             this.Text = "frmDashboard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnlTodayTransac.ResumeLayout(false);
+            this.pnlTodayTransac.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).EndInit();
             this.gownReturnedBox.ResumeLayout(false);
             this.gownReturnedBox.PerformLayout();
             this.inPossessionBox.ResumeLayout(false);
@@ -604,9 +609,6 @@
             this.AvailableGownBox.PerformLayout();
             this.GownBox.ResumeLayout(false);
             this.GownBox.PerformLayout();
-            this.pnlTodayTransac.ResumeLayout(false);
-            this.pnlTodayTransac.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).EndInit();
             this.ResumeLayout(false);
 
         }
