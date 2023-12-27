@@ -87,7 +87,7 @@ namespace GownGuru_MainSystem.GOWN
         private void dgvGown_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvGown.Columns[e.ColumnIndex].Name;
-            if (colName == "Edit")
+            if (colName == "edit")
             {
                 frmGownAdd gownAdd = new frmGownAdd();
                 gownAdd.lblGid.Text = dgvGown.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -105,12 +105,12 @@ namespace GownGuru_MainSystem.GOWN
                 gownAdd.btnUpdate.Enabled = true;
                 gownAdd.ShowDialog();
             }
-            else if (colName == "Delete")
+            else if (colName == "delete")
             {
                 if (MessageBox.Show("Are you sure you want to delete this gown?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
-                    cm = new SqlCommand("DELETE FROM tblGown WHERE gid LIKE '" + dgvGown.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("DELETE FROM tblGown WHERE gownID LIKE '" + dgvGown.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");
