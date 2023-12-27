@@ -33,13 +33,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTodayTransac = new System.Windows.Forms.Panel();
             this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
-            this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.gownReturnedBox = new GownGuru_MainSystem.CustomPanel();
@@ -66,6 +59,13 @@
             this.GownBox = new GownGuru_MainSystem.CustomPanel();
             this.GownCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conditionBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conditionAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlTodayTransac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).BeginInit();
@@ -136,7 +136,8 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodayTransac.ColumnHeadersHeight = 34;
+            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rentDate,
             this.gown,
@@ -155,62 +156,6 @@
             this.dgvTodayTransac.Size = new System.Drawing.Size(948, 261);
             this.dgvTodayTransac.TabIndex = 4;
             this.dgvTodayTransac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodayTransac_CellContentClick);
-            // 
-            // rentDate
-            // 
-            this.rentDate.HeaderText = "Rent Date";
-            this.rentDate.MinimumWidth = 8;
-            this.rentDate.Name = "rentDate";
-            this.rentDate.ReadOnly = true;
-            this.rentDate.Width = 150;
-            // 
-            // gown
-            // 
-            this.gown.HeaderText = "Gown";
-            this.gown.MinimumWidth = 8;
-            this.gown.Name = "gown";
-            this.gown.ReadOnly = true;
-            this.gown.Width = 150;
-            // 
-            // customer
-            // 
-            this.customer.HeaderText = "Customer";
-            this.customer.MinimumWidth = 8;
-            this.customer.Name = "customer";
-            this.customer.ReadOnly = true;
-            this.customer.Width = 150;
-            // 
-            // conditionBefore
-            // 
-            this.conditionBefore.HeaderText = "Condition Before";
-            this.conditionBefore.MinimumWidth = 8;
-            this.conditionBefore.Name = "conditionBefore";
-            this.conditionBefore.ReadOnly = true;
-            this.conditionBefore.Width = 150;
-            // 
-            // conditionAfter
-            // 
-            this.conditionAfter.HeaderText = "Condition After";
-            this.conditionAfter.MinimumWidth = 8;
-            this.conditionAfter.Name = "conditionAfter";
-            this.conditionAfter.ReadOnly = true;
-            this.conditionAfter.Width = 150;
-            // 
-            // returnDate
-            // 
-            this.returnDate.HeaderText = "Return Date";
-            this.returnDate.MinimumWidth = 8;
-            this.returnDate.Name = "returnDate";
-            this.returnDate.ReadOnly = true;
-            this.returnDate.Width = 150;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.MinimumWidth = 8;
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 150;
             // 
             // textBox1
             // 
@@ -573,6 +518,62 @@
             this.label1.Size = new System.Drawing.Size(75, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gown";
+            // 
+            // rentDate
+            // 
+            this.rentDate.HeaderText = "Rent Date";
+            this.rentDate.MinimumWidth = 8;
+            this.rentDate.Name = "rentDate";
+            this.rentDate.ReadOnly = true;
+            this.rentDate.Width = 150;
+            // 
+            // gown
+            // 
+            this.gown.HeaderText = "Gown";
+            this.gown.MinimumWidth = 8;
+            this.gown.Name = "gown";
+            this.gown.ReadOnly = true;
+            this.gown.Width = 150;
+            // 
+            // customer
+            // 
+            this.customer.HeaderText = "Customer";
+            this.customer.MinimumWidth = 8;
+            this.customer.Name = "customer";
+            this.customer.ReadOnly = true;
+            this.customer.Width = 150;
+            // 
+            // conditionBefore
+            // 
+            this.conditionBefore.HeaderText = "Condition Before";
+            this.conditionBefore.MinimumWidth = 8;
+            this.conditionBefore.Name = "conditionBefore";
+            this.conditionBefore.ReadOnly = true;
+            this.conditionBefore.Width = 150;
+            // 
+            // conditionAfter
+            // 
+            this.conditionAfter.HeaderText = "Condition After";
+            this.conditionAfter.MinimumWidth = 8;
+            this.conditionAfter.Name = "conditionAfter";
+            this.conditionAfter.ReadOnly = true;
+            this.conditionAfter.Width = 150;
+            // 
+            // returnDate
+            // 
+            this.returnDate.HeaderText = "Return Date";
+            this.returnDate.MinimumWidth = 8;
+            this.returnDate.Name = "returnDate";
+            this.returnDate.ReadOnly = true;
+            this.returnDate.Width = 150;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.MinimumWidth = 8;
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 150;
             // 
             // frmDashboard
             // 

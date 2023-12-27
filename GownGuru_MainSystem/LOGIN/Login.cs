@@ -13,7 +13,7 @@ namespace GownGuru_MainSystem.LOGIN
 {
     public partial class Login : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source = LIYAN\\SQLEXPRESS; Initial Catalog = Finals; Integrated Security = True");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
 

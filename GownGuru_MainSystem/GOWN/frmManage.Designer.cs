@@ -40,17 +40,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManage));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.dgvGown = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAdd = new System.Windows.Forms.PictureBox();
             this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +60,11 @@
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.archive = new System.Windows.Forms.DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).BeginInit();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGown)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // label16
@@ -82,23 +79,23 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "Gown List";
             // 
-            // textBox1
+            // searchBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(35, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 32);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "  Search Here";
+            this.searchBox.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(35, 58);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(302, 32);
+            this.searchBox.TabIndex = 4;
+            this.searchBox.Text = "  Search Here";
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
-            // dgvTodayTransac
+            // dgvGown
             // 
-            this.dgvTodayTransac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvGown.AllowUserToAddRows = false;
+            this.dgvGown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTodayTransac.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTodayTransac.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvTodayTransac.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvGown.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
@@ -106,9 +103,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvGown.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvGown.ColumnHeadersHeight = 30;
+            this.dgvGown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvGown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.no,
             this.gownID,
             this.name,
@@ -121,15 +119,16 @@
             this.category,
             this.status,
             this.edit,
-            this.archive});
-            this.dgvTodayTransac.Location = new System.Drawing.Point(11, 118);
-            this.dgvTodayTransac.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvTodayTransac.Name = "dgvTodayTransac";
-            this.dgvTodayTransac.RowHeadersVisible = false;
-            this.dgvTodayTransac.RowHeadersWidth = 62;
-            this.dgvTodayTransac.RowTemplate.Height = 28;
-            this.dgvTodayTransac.Size = new System.Drawing.Size(970, 562);
-            this.dgvTodayTransac.TabIndex = 7;
+            this.delete});
+            this.dgvGown.Location = new System.Drawing.Point(11, 118);
+            this.dgvGown.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvGown.Name = "dgvGown";
+            this.dgvGown.RowHeadersVisible = false;
+            this.dgvGown.RowHeadersWidth = 62;
+            this.dgvGown.RowTemplate.Height = 28;
+            this.dgvGown.Size = new System.Drawing.Size(970, 562);
+            this.dgvGown.TabIndex = 7;
+            this.dgvGown.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGown_CellContentClick);
             // 
             // panel2
             // 
@@ -138,7 +137,7 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.searchBox);
             this.panel2.Location = new System.Drawing.Point(-7, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1015, 110);
@@ -147,7 +146,7 @@
             // panel1
             // 
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(929, 0);
             this.panel1.Name = "panel1";
@@ -176,16 +175,17 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 27;
             // 
-            // pictureBox1
+            // btnAdd
             // 
-            this.pictureBox1.BackgroundImage = global::GownGuru_MainSystem.Properties.Resources.add_white;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 50);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.btnAdd.BackgroundImage = global::GownGuru_MainSystem.Properties.Resources.add_white;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Location = new System.Drawing.Point(4, 50);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(40, 40);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TabStop = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // no
             // 
@@ -311,33 +311,22 @@
             // edit
             // 
             this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle13.NullValue")));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.edit.DefaultCellStyle = dataGridViewCellStyle13;
             this.edit.HeaderText = "";
             this.edit.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
+            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.edit.MinimumWidth = 8;
             this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.Width = 27;
+            this.edit.Width = 8;
             // 
-            // archive
+            // delete
             // 
-            this.archive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle14.NullValue")));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            this.archive.DefaultCellStyle = dataGridViewCellStyle14;
-            this.archive.HeaderText = "";
-            this.archive.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_RED23;
-            this.archive.MinimumWidth = 8;
-            this.archive.Name = "archive";
-            this.archive.Width = 27;
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_RED23;
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.MinimumWidth = 8;
+            this.delete.Name = "delete";
+            this.delete.Width = 8;
             // 
             // frmManage
             // 
@@ -347,16 +336,16 @@
             this.ClientSize = new System.Drawing.Size(993, 694);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgvTodayTransac);
+            this.Controls.Add(this.dgvGown);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManage";
             this.Text = "frmManage";
             this.Load += new System.EventHandler(this.frmManage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGown)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,13 +353,13 @@
         #endregion
 
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridView dgvTodayTransac;
+        private System.Windows.Forms.DataGridView dgvGown;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn no;
         private System.Windows.Forms.DataGridViewTextBoxColumn gownID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -383,6 +372,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewImageColumn edit;
-        private System.Windows.Forms.DataGridViewImageColumn archive;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }
