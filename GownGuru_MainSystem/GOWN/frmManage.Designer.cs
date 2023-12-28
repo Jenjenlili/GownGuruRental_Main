@@ -32,39 +32,32 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label16 = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.dgvGown = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAdd = new System.Windows.Forms.PictureBox();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGown)).BeginInit();
+            this.dgvGowns = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGowns)).BeginInit();
             this.SuspendLayout();
             // 
             // label16
@@ -82,59 +75,18 @@
             // searchBox
             // 
             this.searchBox.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(35, 58);
+            this.searchBox.Location = new System.Drawing.Point(159, 62);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(302, 32);
             this.searchBox.TabIndex = 4;
-            this.searchBox.Text = "  Search Here";
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
-            // 
-            // dgvGown
-            // 
-            this.dgvGown.AllowUserToAddRows = false;
-            this.dgvGown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvGown.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGown.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGown.ColumnHeadersHeight = 30;
-            this.dgvGown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvGown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.no,
-            this.gownID,
-            this.name,
-            this.description,
-            this.size,
-            this.color,
-            this.condition,
-            this.price,
-            this.dateAdded,
-            this.category,
-            this.status,
-            this.edit,
-            this.delete});
-            this.dgvGown.Location = new System.Drawing.Point(11, 118);
-            this.dgvGown.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvGown.Name = "dgvGown";
-            this.dgvGown.RowHeadersVisible = false;
-            this.dgvGown.RowHeadersWidth = 62;
-            this.dgvGown.RowTemplate.Height = 28;
-            this.dgvGown.Size = new System.Drawing.Size(970, 562);
-            this.dgvGown.TabIndex = 7;
-            this.dgvGown.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGown_CellContentClick);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.searchBox);
@@ -142,6 +94,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1015, 110);
             this.panel2.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(33, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Search box :";
             // 
             // panel1
             // 
@@ -152,28 +116,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(86, 110);
             this.panel1.TabIndex = 5;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 27;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_white_23;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 8;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 27;
             // 
             // btnAdd
             // 
@@ -187,146 +129,184 @@
             this.btnAdd.TabStop = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // no
+            // dataGridViewImageColumn1
             // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 150;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_white_23;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 8;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 150;
+            // 
+            // dgvGowns
+            // 
+            this.dgvGowns.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvGowns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvGowns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGowns.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.no.DefaultCellStyle = dataGridViewCellStyle2;
-            this.no.HeaderText = "No.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.ReadOnly = true;
-            this.no.Width = 50;
-            // 
-            // gownID
-            // 
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGowns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvGowns.ColumnHeadersHeight = 30;
+            this.dgvGowns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvGowns.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column1,
+            this.Column2,
+            this.Column8,
+            this.Column5,
+            this.Column9,
+            this.Column7,
+            this.Column6,
+            this.Column10,
+            this.Column11,
+            this.Column4,
+            this.Edit,
+            this.Delete});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.gownID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gownID.HeaderText = "Gown Id";
-            this.gownID.MinimumWidth = 8;
-            this.gownID.Name = "gownID";
-            this.gownID.ReadOnly = true;
-            this.gownID.Width = 150;
-            // 
-            // name
-            // 
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGowns.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvGowns.Location = new System.Drawing.Point(14, 120);
+            this.dgvGowns.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dgvGowns.Name = "dgvGowns";
+            this.dgvGowns.RowHeadersVisible = false;
+            this.dgvGowns.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.name.DefaultCellStyle = dataGridViewCellStyle4;
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 8;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 150;
+            this.dgvGowns.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvGowns.Size = new System.Drawing.Size(967, 552);
+            this.dgvGowns.TabIndex = 11;
+            this.dgvGowns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGown_CellContentClick_1);
             // 
-            // description
+            // Column3
             // 
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.description.DefaultCellStyle = dataGridViewCellStyle5;
-            this.description.HeaderText = "Description";
-            this.description.MinimumWidth = 8;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 150;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "No";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 70;
             // 
-            // size
+            // Column1
             // 
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.size.DefaultCellStyle = dataGridViewCellStyle6;
-            this.size.HeaderText = "Size";
-            this.size.MinimumWidth = 8;
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            this.size.Width = 80;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Gown Id";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 118;
             // 
-            // color
+            // Column2
             // 
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.color.DefaultCellStyle = dataGridViewCellStyle7;
-            this.color.HeaderText = "Color";
-            this.color.MinimumWidth = 8;
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            this.color.Width = 80;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
             // 
-            // condition
+            // Column8
             // 
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.condition.DefaultCellStyle = dataGridViewCellStyle8;
-            this.condition.HeaderText = "Condition";
-            this.condition.MinimumWidth = 8;
-            this.condition.Name = "condition";
-            this.condition.ReadOnly = true;
-            this.condition.Width = 150;
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.HeaderText = "Description";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
             // 
-            // price
+            // Column5
             // 
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.price.DefaultCellStyle = dataGridViewCellStyle9;
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 8;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 150;
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Size";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 75;
             // 
-            // dateAdded
+            // Column9
             // 
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.dateAdded.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dateAdded.HeaderText = "Date Added";
-            this.dateAdded.MinimumWidth = 8;
-            this.dateAdded.Name = "dateAdded";
-            this.dateAdded.ReadOnly = true;
-            this.dateAdded.Width = 150;
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column9.HeaderText = "Color";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 90;
             // 
-            // category
+            // Column7
             // 
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            this.category.DefaultCellStyle = dataGridViewCellStyle11;
-            this.category.HeaderText = "Category";
-            this.category.MinimumWidth = 8;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 150;
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "Condition";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 127;
             // 
-            // status
+            // Column6
             // 
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.status.DefaultCellStyle = dataGridViewCellStyle12;
-            this.status.HeaderText = "Status";
-            this.status.MinimumWidth = 8;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 150;
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Price";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
             // 
-            // edit
+            // Column10
             // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "";
-            this.edit.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
-            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.edit.MinimumWidth = 8;
-            this.edit.Name = "edit";
-            this.edit.Width = 8;
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.HeaderText = "Date Added";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
             // 
-            // delete
+            // Column11
             // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_RED23;
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.MinimumWidth = 8;
-            this.delete.Name = "delete";
-            this.delete.Width = 8;
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column11.HeaderText = "Category";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Status";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 8;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.Description = "Delete";
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_RED23;
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 8;
             // 
             // frmManage
             // 
@@ -335,17 +315,17 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(993, 694);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvGowns);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgvGown);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManage";
             this.Text = "frmManage";
             this.Load += new System.EventHandler(this.frmManage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGown)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGowns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,22 +336,23 @@
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridView dgvGown;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gownID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn color;
-        private System.Windows.Forms.DataGridViewTextBoxColumn condition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAdded;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewImageColumn edit;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridView dgvGowns;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

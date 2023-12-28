@@ -77,6 +77,7 @@ namespace GownGuru_MainSystem
             else if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
+                CenterToScreen();
             }
             SetDoubleBuffer(btnMax, true);
         }
@@ -89,7 +90,7 @@ namespace GownGuru_MainSystem
             }
             else if (WindowState == FormWindowState.Maximized)
             {
-                WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Minimized;
             }
             SetDoubleBuffer(btnMin, true);
         }
@@ -108,7 +109,12 @@ namespace GownGuru_MainSystem
                 Point mousePose = Control.MousePosition;
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
+                this.Opacity = 0.8;
             }
+        }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.Opacity = 1;
         }
 
         //CHANGE COLOR OF BUTTONS
@@ -162,48 +168,48 @@ namespace GownGuru_MainSystem
         {
             // Reset the button's appearance to its original state
             btnDashboard.ForeColor = Color.Black;
-            btnDashboard.BackColor = Color.FromArgb(249, 211, 66);
+            btnDashboard.BackColor = Color.FromArgb(236, 208, 98);
             btnDashboard.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsHome-24.png");
 
             btnGown.ForeColor = Color.Black;
-            btnGown.BackColor = Color.FromArgb(249, 211, 66);
+            btnGown.BackColor = Color.FromArgb(236, 208, 98);
             btnGown.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\icondGown.png");
 
             btnManage.ForeColor = Color.Black;
-            btnManage.BackColor = Color.FromArgb(248, 188, 42);
+            btnManage.BackColor = Color.FromArgb(233, 201, 75);
 
             btnCategory.ForeColor = Color.Black;
-            btnCategory.BackColor = Color.FromArgb(248, 188, 42);
+            btnCategory.BackColor = Color.FromArgb(233, 201, 75);
 
             btnRented.ForeColor = Color.Black;
-            btnRented.BackColor = Color.FromArgb(248, 188, 42);
+            btnRented.BackColor = Color.FromArgb(233, 201, 75);
 
             btnReturned.ForeColor = Color.Black;
-            btnReturned.BackColor = Color.FromArgb(248, 188, 42);
+            btnReturned.BackColor = Color.FromArgb(233, 201, 75);
 
             btnCustomers.ForeColor = Color.Black;
-            btnCustomers.BackColor = Color.FromArgb(249, 211, 66);
+            btnCustomers.BackColor = Color.FromArgb(236, 208, 98);
             btnCustomers.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsCustomers-26.png");
 
             btnPOS.ForeColor = Color.Black;
-            btnPOS.BackColor = Color.FromArgb(249, 211, 66);
+            btnPOS.BackColor = Color.FromArgb(236, 208, 98);
             btnPOS.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconPOS.png");
 
             btnSettings.ForeColor = Color.Black;
-            btnSettings.BackColor = Color.FromArgb(249, 211, 66);
+            btnSettings.BackColor = Color.FromArgb(236, 208, 98);
             btnSettings.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsSettings-26.png");
 
             btnEmployee.ForeColor = Color.Black;
-            btnEmployee.BackColor = Color.FromArgb(248, 188, 42);
+            btnEmployee.BackColor = Color.FromArgb(233, 201, 75);
 
             btnFormerEmp.ForeColor = Color.Black;
-            btnFormerEmp.BackColor = Color.FromArgb(248, 188, 42);
+            btnFormerEmp.BackColor = Color.FromArgb(233, 201, 75);
 
             btnArchive.ForeColor = Color.Black;
-            btnArchive.BackColor = Color.FromArgb(248, 188, 42);
+            btnArchive.BackColor = Color.FromArgb(233, 201, 75);
 
             btnTransactionLog.ForeColor = Color.Black;
-            btnTransactionLog.BackColor = Color.FromArgb(248, 188, 42);
+            btnTransactionLog.BackColor = Color.FromArgb(233, 201, 75);
 
         }
 

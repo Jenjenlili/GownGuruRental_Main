@@ -16,6 +16,7 @@ namespace GownGuru_MainSystem
         public frmDashboard()
         {
             InitializeComponent();
+            SetDoubleBuffer(dgvTodayTransac, true);
             //SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
         //to avoid flicker elements

@@ -247,6 +247,12 @@
     <Compile Include="frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerAdd.Designer.cs">
+      <DependentUpon>frmCustomerAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,12 +264,6 @@
     </Compile>
     <Compile Include="frmPOS.Designer.cs">
       <DependentUpon>frmPOS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GOWN\frmCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GOWN\frmCategory.Designer.cs">
-      <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="GOWN\frmGownAdd.cs">
       <SubType>Form</SubType>
@@ -314,11 +314,29 @@
     <Compile Include="SETTINGS\frmArchive.Designer.cs">
       <DependentUpon>frmArchive.cs</DependentUpon>
     </Compile>
+    <Compile Include="SETTINGS\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SETTINGS\frmCategoryAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmCategoryAdd.Designer.cs">
+      <DependentUpon>frmCategoryAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="SETTINGS\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SETTINGS\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SETTINGS\frmEmployeeAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTINGS\frmEmployeeAdd.Designer.cs">
+      <DependentUpon>frmEmployeeAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="SETTINGS\frmFormerEmp.cs">
       <SubType>Form</SubType>
@@ -338,14 +356,14 @@
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerAdd.resx">
+      <DependentUpon>frmCustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GOWN\frmCategory.resx">
-      <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GOWN\frmGownAdd.resx">
       <DependentUpon>frmGownAdd.cs</DependentUpon>
@@ -373,8 +391,17 @@
     <EmbeddedResource Include="SETTINGS\frmArchive.resx">
       <DependentUpon>frmArchive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmCategoryAdd.resx">
+      <DependentUpon>frmCategoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SETTINGS\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SETTINGS\frmEmployeeAdd.resx">
+      <DependentUpon>frmEmployeeAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SETTINGS\frmFormerEmp.resx">
       <DependentUpon>frmFormerEmp.cs</DependentUpon>

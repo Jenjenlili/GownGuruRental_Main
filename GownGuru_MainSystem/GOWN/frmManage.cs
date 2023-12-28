@@ -21,8 +21,9 @@ namespace GownGuru_MainSystem.GOWN
         public frmManage()
         {
             InitializeComponent();
-            SetDoubleBuffer(dgvGown, true);
+            SetDoubleBuffer(dgvGowns, true);
             LoadGown();
+
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -52,14 +53,14 @@ namespace GownGuru_MainSystem.GOWN
         public void LoadGown()
         {
             int i = 0;
-            dgvGown.Rows.Clear();
+            dgvGowns.Rows.Clear();
             cm = new SqlCommand("SELECT * FROM tblGown WHERE CONCAT(gownID,gownName,description,size,color,condition,price,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvGown.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
+                dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
 
             }
             dr.Close();
@@ -83,34 +84,33 @@ namespace GownGuru_MainSystem.GOWN
             formModule.ShowDialog();
             LoadGown();
         }
-
-        private void dgvGown_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvGown_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dgvGown.Columns[e.ColumnIndex].Name;
-            if (colName == "edit")
+            string colName = dgvGowns.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
             {
                 frmGownAdd gownAdd = new frmGownAdd();
-                gownAdd.lblGid.Text = dgvGown.Rows[e.RowIndex].Cells[1].Value.ToString();
-                gownAdd.txtName.Text = dgvGown.Rows[e.RowIndex].Cells[2].Value.ToString();
-                gownAdd.txtDesc.Text = dgvGown.Rows[e.RowIndex].Cells[3].Value.ToString();
-                gownAdd.cbSize.Text = dgvGown.Rows[e.RowIndex].Cells[4].Value.ToString();
-                gownAdd.txtColor.Text = dgvGown.Rows[e.RowIndex].Cells[5].Value.ToString();
-                gownAdd.cbCondition.Text = dgvGown.Rows[e.RowIndex].Cells[6].Value.ToString();
-                gownAdd.txtRprice.Text = dgvGown.Rows[e.RowIndex].Cells[7].Value.ToString();
-                gownAdd.dtDateAdded.Text = dgvGown.Rows[e.RowIndex].Cells[8].Value.ToString();
-                gownAdd.cbCategory.Text = dgvGown.Rows[e.RowIndex].Cells[9].Value.ToString();
-                gownAdd.cbStatus.Text = dgvGown.Rows[e.RowIndex].Cells[10].Value.ToString();
-                gownAdd.txtPic.Text = dgvGown.Rows[e.RowIndex].Cells[11].Value.ToString();
+                gownAdd.lblGownID.Text = dgvGowns.Rows[e.RowIndex].Cells[1].Value.ToString();
+                gownAdd.txtName.Text = dgvGowns.Rows[e.RowIndex].Cells[2].Value.ToString();
+                gownAdd.txtDesc.Text = dgvGowns.Rows[e.RowIndex].Cells[3].Value.ToString();
+                gownAdd.cbSize.Text = dgvGowns.Rows[e.RowIndex].Cells[4].Value.ToString();
+                gownAdd.txtColor.Text = dgvGowns.Rows[e.RowIndex].Cells[5].Value.ToString();
+                gownAdd.cbCondition.Text = dgvGowns.Rows[e.RowIndex].Cells[6].Value.ToString();
+                gownAdd.txtRprice.Text = dgvGowns.Rows[e.RowIndex].Cells[7].Value.ToString();
+                gownAdd.dtDateAdded.Text = dgvGowns.Rows[e.RowIndex].Cells[8].Value.ToString();
+                gownAdd.cbCategory.Text = dgvGowns.Rows[e.RowIndex].Cells[9].Value.ToString();
+                gownAdd.cbStatus.Text = dgvGowns.Rows[e.RowIndex].Cells[10].Value.ToString();
+                gownAdd.txtPic.Text = dgvGowns.Rows[e.RowIndex].Cells[11].Value.ToString();
                 gownAdd.btnSave.Enabled = false;
                 gownAdd.btnUpdate.Enabled = true;
                 gownAdd.ShowDialog();
             }
-            else if (colName == "delete")
+            else if (colName == "Delete")
             {
                 if (MessageBox.Show("Are you sure you want to delete this gown?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
-                    cm = new SqlCommand("DELETE FROM tblGown WHERE gownID LIKE '" + dgvGown.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("DELETE FROM tblGown WHERE gownID LIKE '" + dgvGowns.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");

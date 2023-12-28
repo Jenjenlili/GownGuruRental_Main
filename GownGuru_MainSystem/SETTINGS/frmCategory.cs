@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace GownGuru_MainSystem.SETTINGS
 {
-    public partial class frmEmployee : Form
+    public partial class frmCategory : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
-        public frmEmployee()
+        public frmCategory()
         {
             InitializeComponent();
-            SetDoubleBuffer(dgvEmployee, true);
-            LoadEmployee();
+            LoadCategory();
+            SetDoubleBuffer(dgvCategory, true);
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -48,18 +48,17 @@ namespace GownGuru_MainSystem.SETTINGS
                 return cp;
             }
         }
-
-        public void LoadEmployee()
+        public void LoadCategory()
         {
             int i = 0;
-            dgvEmployee.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con);
+            dgvCategory.Rows.Clear();
+            cm = new SqlCommand("SELECT * FROM tblCategory", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvEmployee.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
+                dgvCategory.Rows.Add(i, dr[0].ToString(), dr[1].ToString());
             }
             dr.Close();
             con.Close();
@@ -67,49 +66,42 @@ namespace GownGuru_MainSystem.SETTINGS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmEmployeeAdd userModule = new frmEmployeeAdd();
-            userModule.btnSave.Enabled = true;
-            userModule.btnUpdate.Enabled = false;
-            userModule.ShowDialog();
-            LoadEmployee();
+            frmCategoryAdd formModule = new frmCategoryAdd();
+            formModule.btnSave.Enabled = true;
+            formModule.btnUpdate.Enabled = false;
+            formModule.ShowDialog();
+            LoadCategory();
         }
 
-        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dgvEmployee.Columns[e.ColumnIndex].Name;
+            string colName = dgvCategory.Columns[e.ColumnIndex].Name;
             if (colName == "edit")
             {
-                frmEmployeeAdd userModule = new frmEmployeeAdd();
-                userModule.txtUsername.Text = dgvEmployee.Rows[e.RowIndex].Cells[1].Value.ToString();
-                userModule.txtFullname.Text = dgvEmployee.Rows[e.RowIndex].Cells[2].Value.ToString();
-                userModule.txtPass.Text = dgvEmployee.Rows[e.RowIndex].Cells[3].Value.ToString();
-                userModule.txtPhoneNum.Text = dgvEmployee.Rows[e.RowIndex].Cells[4].Value.ToString();
-                userModule.txtAddress.Text = dgvEmployee.Rows[e.RowIndex].Cells[5].Value.ToString();
-                userModule.txtRole.Text = dgvEmployee.Rows[e.RowIndex].Cells[6].Value.ToString();
-
-                userModule.btnSave.Enabled = false;
-                userModule.btnUpdate.Enabled = true;
-                userModule.txtUsername.Enabled = false;
-                userModule.ShowDialog();
+                frmCategoryAdd categoryModule = new frmCategoryAdd();
+                categoryModule.lblCategoryID.Text = dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString();
+                categoryModule.txtCatName.Text = dgvCategory.Rows[e.RowIndex].Cells[2].Value.ToString();
+                categoryModule.btnSave.Enabled = false;
+                categoryModule.btnUpdate.Enabled = true;
+                categoryModule.ShowDialog();
             }
             else if (colName == "delete")
             {
-                if (MessageBox.Show("Are you sure you want to delete this user?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete this category?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Delete record from tblEmployee
                     con.Open();
-                    cm = new SqlCommand("DELETE FROM tblEmployee WHERE username LIKE '" + dgvEmployee.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("DELETE FROM tblCategory WHERE categoryID LIKE '" + dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");
                 }
             }
-            LoadEmployee();
+            LoadCategory();
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            LoadEmployee();
+            LoadCategory();
         }
     }
 }

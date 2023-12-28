@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GownGuru_MainSystem
 {
-    internal class CustomButton : Button
+    public class CustomButton : Button
     {
         //fields
         private int borderSize = 0;
