@@ -46,6 +46,7 @@
             this.panel2.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel2.Controls.Add(this.pictureBoxClose);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -60,7 +61,7 @@
             // 
             this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxClose.Image = global::GownGuru_MainSystem.Properties.Resources.icons8_x_15;
-            this.pictureBoxClose.Location = new System.Drawing.Point(371, 11);
+            this.pictureBoxClose.Location = new System.Drawing.Point(367, 20);
             this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(19, 21);

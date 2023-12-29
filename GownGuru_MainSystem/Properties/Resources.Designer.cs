@@ -183,6 +183,26 @@ namespace GownGuru_MainSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_23 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_25__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-25 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_x_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-x-15", resourceCulture);

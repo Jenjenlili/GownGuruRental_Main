@@ -163,7 +163,7 @@
             this.dataGridViewImageColumn1.Image = global::GownGuru_MainSystem.Properties.Resources.edit_23;
             this.dataGridViewImageColumn1.MinimumWidth = 8;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 8;
+            this.dataGridViewImageColumn1.Width = 150;
             // 
             // dataGridViewImageColumn2
             // 
@@ -173,7 +173,7 @@
             this.dataGridViewImageColumn2.Image = global::GownGuru_MainSystem.Properties.Resources.delete_button_RED23;
             this.dataGridViewImageColumn2.MinimumWidth = 8;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 8;
+            this.dataGridViewImageColumn2.Width = 150;
             // 
             // Column3
             // 
@@ -261,7 +261,7 @@
             // 
             this.restore.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.restore.HeaderText = "";
-            this.restore.Image = global::GownGuru_MainSystem.Properties.Resources.restore;
+            this.restore.Image = global::GownGuru_MainSystem.Properties.Resources.icons8_restore_25__1_;
             this.restore.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.restore.MinimumWidth = 8;
             this.restore.Name = "restore";
@@ -294,6 +294,7 @@
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        public System.Windows.Forms.DataGridView dgvGownArchive;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -306,6 +307,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn restore;
-        public System.Windows.Forms.DataGridView dgvGownArchive;
     }
 }

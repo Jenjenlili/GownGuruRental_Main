@@ -85,17 +85,6 @@ namespace GownGuru_MainSystem.SETTINGS
                 categoryModule.btnUpdate.Enabled = true;
                 categoryModule.ShowDialog();
             }
-            else if (colName == "delete")
-            {
-                if (MessageBox.Show("Are you sure you want to delete this category?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    con.Open();
-                    cm = new SqlCommand("DELETE FROM tblCategory WHERE categoryID LIKE '" + dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
-                    cm.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Record has been successfully deleted!");
-                }
-            }
             LoadCategory();
         }
 

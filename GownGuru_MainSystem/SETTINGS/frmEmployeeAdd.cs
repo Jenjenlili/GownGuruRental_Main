@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,12 @@ namespace GownGuru_MainSystem.SETTINGS
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
-        SqlDataReader dr;
         public frmEmployeeAdd()
         {
             InitializeComponent();
             SetDoubleBuffer(panel2, true);
+            // Set the form's region to create rounded corners
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -45,9 +47,22 @@ namespace GownGuru_MainSystem.SETTINGS
                 // Minimize form and control flickering.
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;
+                //BORDER RADIUS
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS | CS_DROPSHADOW;
+                
                 return cp;
             }
         }
+        //UI - FORM BORDER RADIUS
+        // Constants for WinAPI calls
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        const int CS_DROPSHADOW = 0x20000;
+
+        // Round the form corners
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace GownGuru_MainSystem
 {
@@ -46,9 +47,23 @@ namespace GownGuru_MainSystem
                 // Minimize form and control flickering.
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;
+                //BORDER RADIUS
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS | CS_DROPSHADOW;
+
                 return cp;
             }
         }
+        //UI - FORM BORDER RADIUS
+        // Constants for WinAPI calls
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        const int CS_DROPSHADOW = 0x20000;
+
+        // Round the form corners
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
 
         private void logout_Click(object sender, EventArgs e)
         {
@@ -73,6 +88,7 @@ namespace GownGuru_MainSystem
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
+                
             }
             else if (WindowState == FormWindowState.Maximized)
             {
@@ -80,6 +96,9 @@ namespace GownGuru_MainSystem
                 CenterToScreen();
             }
             SetDoubleBuffer(btnMax, true);
+
+            // Set the form's region to create rounded corners
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
         }
 
         private void btnMin_Click_1(object sender, EventArgs e)
@@ -93,6 +112,7 @@ namespace GownGuru_MainSystem
                 WindowState = FormWindowState.Minimized;
             }
             SetDoubleBuffer(btnMin, true);
+            
         }
 
         //move form

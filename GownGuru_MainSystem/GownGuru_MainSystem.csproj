@@ -232,6 +232,12 @@
     <Compile Include="Customized\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Customized\CustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customized\CustomForm.Designer.cs">
+      <DependentUpon>CustomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customized\CustomizedTextbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     <Compile Include="SETTINGS\frmTransacLog.Designer.cs">
       <DependentUpon>frmTransacLog.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Customized\CustomForm.resx">
+      <DependentUpon>CustomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customized\CustomizedTextbox.resx">
       <DependentUpon>CustomizedTextbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -500,6 +509,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GownGuruDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-restore-25 %281%29.png" />
+    <None Include="Resources\icons8-restore-23.png" />
     <None Include="Resources\restore.png" />
   </ItemGroup>
   <ItemGroup>

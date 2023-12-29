@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,37 +20,90 @@ namespace GownGuru_MainSystem.LOGIN
         SqlDataReader dr;
 
         public Point mouseLocation;
+
         public Login()
         {
             InitializeComponent();
+            SetDoubleBuffer(customPanel1, true);
+            SetDoubleBuffer(pnlInvalidPass, true);
+            SetDoubleBuffer(pnlInvalidUsr, true);
+            SetDoubleBuffer(txtUsername, true);
+            SetDoubleBuffer(txtPassword, true);
+            SetDoubleBuffer(pnlBG, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            // Set the form's region to create rounded corners
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
         }
+        //to avoid flicker elements
+        static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
+        {
+            try
+            {
+                typeof(Control).InvokeMember("DoubleBuffered",
+                    BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                    null, ctl, new object[] { DoubleBuffered });
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        //to avoid flicker forms
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // Minimize form and control flickering.
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                //BORDER RADIUS
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS | CS_DROPSHADOW;
+
+                return cp;
+            }
+        }
+        //UI - FORM BORDER RADIUS
+        // Constants for WinAPI calls
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        const int CS_DROPSHADOW = 0x20000;
+
+        // Round the form corners
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username= '" + Username.Text + "' and password= '" + Password.Text + "'", con);
+                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username = '" + txtUsername.Text + "' and password = '" + txtPassword.Text + "'", con);
                 con.Open();
                 dr = cm.ExecuteReader();
 
                 if (dr.Read() == true)
                 {
-                    pnlInvalidUsr.Visible = false;
-                    pnlInvalidPass.Visible = false;
                     new MAIN().Show();
                     this.Hide();
+                    pnlInvalidUsr.Visible = false;
+                    pnlInvalidPass.Visible = false;
                 }
-                else if (dr.Read() == false) { }
+                else if (dr.Read() == false)
                 {
                     pnlInvalidUsr.Visible = true;
                     pnlInvalidPass.Visible = true;
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+
                 }
-
+                con.Close();
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error " + ex);
             }
+
 
         }
 
@@ -66,11 +121,11 @@ namespace GownGuru_MainSystem.LOGIN
         {
             if (checkBoxShowPass.Checked)
             {
-                Password.PasswordChar = false;
+                txtPassword.PasswordChar = false;
             }
             else
             {
-                Password.PasswordChar = true;
+                txtPassword.PasswordChar = true;
             }
         }
 
@@ -126,6 +181,11 @@ namespace GownGuru_MainSystem.LOGIN
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
             }
+        }
+
+        private void Username_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
