@@ -50,10 +50,10 @@ namespace GownGuru_MainSystem.SETTINGS
         }
 
         public void LoadEmployee()
-        {
-            int i = 0;
+        {  //empStatus LIKE 'Active' AND
             dgvEmployee.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con);
+            int i = 0;
+            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Active' AND CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con); // Fetch only active employees
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -96,9 +96,8 @@ namespace GownGuru_MainSystem.SETTINGS
             {
                 if (MessageBox.Show("Are you sure you want to delete this user?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Delete record from tblEmployee
                     con.Open();
-                    cm = new SqlCommand("DELETE FROM tblEmployee WHERE username LIKE '" + dgvEmployee.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("UPDATE tblEmployee SET empStatus = 'Inactive' WHERE username LIKE '" + dgvEmployee.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");

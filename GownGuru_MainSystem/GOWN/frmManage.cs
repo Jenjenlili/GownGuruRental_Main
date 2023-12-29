@@ -54,7 +54,7 @@ namespace GownGuru_MainSystem.GOWN
         {
             int i = 0;
             dgvGowns.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblGown WHERE CONCAT(gownID,gownName,description,size,color,condition,price,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
+            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO' AND CONCAT(gownID,gownName,description,size,color,condition,price,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -110,7 +110,7 @@ namespace GownGuru_MainSystem.GOWN
                 if (MessageBox.Show("Are you sure you want to delete this gown?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
-                    cm = new SqlCommand("DELETE FROM tblGown WHERE gownID LIKE '" + dgvGowns.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("UPDATE tblGown SET archived = 'YES' WHERE gownID LIKE '" + dgvGowns.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");

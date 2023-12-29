@@ -164,7 +164,7 @@
             this.dgvGowns.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -213,7 +213,7 @@
             this.Column3.HeaderText = "No";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 70;
+            this.Column3.Width = 71;
             // 
             // Column1
             // 
@@ -221,7 +221,7 @@
             this.Column1.HeaderText = "Gown Id";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 118;
+            this.Column1.Width = 121;
             // 
             // Column2
             // 
@@ -243,7 +243,7 @@
             this.Column5.HeaderText = "Size";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 75;
+            this.Column5.Width = 78;
             // 
             // Column9
             // 
@@ -251,7 +251,7 @@
             this.Column9.HeaderText = "Color";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
-            this.Column9.Width = 90;
+            this.Column9.Width = 93;
             // 
             // Column7
             // 
@@ -259,7 +259,7 @@
             this.Column7.HeaderText = "Condition";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 127;
+            this.Column7.Width = 132;
             // 
             // Column6
             // 
@@ -339,7 +339,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnAdd;
-        private System.Windows.Forms.DataGridView dgvGowns;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -354,5 +353,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        public System.Windows.Forms.DataGridView dgvGowns;
     }
 }

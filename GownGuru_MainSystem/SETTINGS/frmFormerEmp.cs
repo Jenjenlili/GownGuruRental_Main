@@ -21,6 +21,7 @@ namespace GownGuru_MainSystem.SETTINGS
         {
             InitializeComponent();
             SetDoubleBuffer(dgvFormerEmp, true);
+            LoadFormerEmployee();
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -47,11 +48,11 @@ namespace GownGuru_MainSystem.SETTINGS
                 return cp;
             }
         }
-        public void LoadEmployee()
-        {
-            int i = 0;
+        public void LoadFormerEmployee() 
+        { 
             dgvFormerEmp.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con);
+            int i = 0;
+            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Inactive' AND CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con); // Fetch only active employees
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -62,16 +63,27 @@ namespace GownGuru_MainSystem.SETTINGS
             dr.Close();
             con.Close();
         }
+    
         private void dgvFormerEmp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            con.Open();
-            cm = new SqlCommand(@"INSERT INTO tblFormerEmp (username, fullname, password, empPhone, empAddress, role)
-                              SELECT username, fullname, password, empPhone, empAddress, role
-                              FROM tblEmployee
-                              WHERE username = @Username", con);
-            cm.ExecuteNonQuery();
-            con.Close() ;
-            LoadEmployee();
+            string colName = dgvFormerEmp.Columns[e.ColumnIndex].Name;
+            if (colName == "restore")
+            {
+                if (MessageBox.Show("Are you sure you want to restore this record?", "Restore Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    con.Open();
+                    cm = new SqlCommand("UPDATE tblEmployee SET empStatus = 'Active' WHERE username LIKE '" + dgvFormerEmp.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Record has been successfully Restored!");
+                }
+            }
+            LoadFormerEmployee();
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            LoadFormerEmployee();
         }
     }
 }
