@@ -33,8 +33,6 @@ namespace GownGuru_MainSystem.LOGIN
             pnlInvalidUsr.Visible = false;
             pnlInvalidPass.Visible = false;
 
-
-
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -142,21 +140,13 @@ namespace GownGuru_MainSystem.LOGIN
             {
                 txtPassword.PasswordChar = '●';
             }
-            /*if (checkBoxShowPass.Checked)
-            {
-                txtPassword.PasswordChar = false; // Show actual text (set PasswordChar to null)
-            }
-            else
-            {
-                txtPassword.PasswordChar = true; // Show password characters
-            }*/
         }
-        private void txtUsername__TextChanged(object sender, EventArgs e)
+        private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             pnlInvalidUsr.Visible = false;
         }
 
-        private void txtPassword__TextChanged(object sender, EventArgs e)
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             pnlInvalidPass.Visible = false;
         }
@@ -200,10 +190,8 @@ namespace GownGuru_MainSystem.LOGIN
                 MessageBox.Show("Error " + ex);
             }
 
-
         }
 
-        
     }
    
 }
