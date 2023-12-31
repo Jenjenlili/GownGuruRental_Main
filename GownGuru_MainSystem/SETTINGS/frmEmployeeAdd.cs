@@ -90,10 +90,10 @@ namespace GownGuru_MainSystem.SETTINGS
                 if (MessageBox.Show("Are you sure you want to save this user?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    cm = new SqlCommand("INSERT INTO tblEmployee(username, fullname, password, empPhone, empAddress, role)VALUES(@username,@fullname,@password,@empPhone,@empAddress,@role)", con);
-                    cm.Parameters.AddWithValue("@username", txtUsername.Text);
+                    cm = new SqlCommand("INSERT INTO tblEmployee(Username, fullname, Password, empPhone, empAddress, role)VALUES(@username,@fullname,@password,@empPhone,@empAddress,@role)", con);
+                    cm.Parameters.AddWithValue("@Username", txtUsername.Text);
                     cm.Parameters.AddWithValue("@fullname", txtFullname.Text);
-                    cm.Parameters.AddWithValue("@password", txtPass.Text);
+                    cm.Parameters.AddWithValue("@Password", txtPass.Text);
                     cm.Parameters.AddWithValue("@empPhone", txtPhoneNum.Text);
                     cm.Parameters.AddWithValue("@empAddress", txtAddress.Text);
                     cm.Parameters.AddWithValue("@Role", txtRole.Text);
@@ -122,10 +122,10 @@ namespace GownGuru_MainSystem.SETTINGS
                 }
                 if (MessageBox.Show("Are you sure you want to update this user?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tblEmployee SET fullname = @fullname, password = @password, empPhone = @empPhone, empAddress = @empAddress, role = @role WHERE username LIKE '" + txtUsername.Text + "' ", con);
-                    cm.Parameters.AddWithValue("@username", txtUsername.Text);
+                    cm = new SqlCommand("UPDATE tblEmployee SET fullname = @fullname, Password = @Password, empPhone = @empPhone, empAddress = @empAddress, role = @role WHERE username LIKE '" + txtUsername.Text + "' ", con);
+                    cm.Parameters.AddWithValue("@Username", txtUsername.Text);
                     cm.Parameters.AddWithValue("@fullname", txtFullname.Text);
-                    cm.Parameters.AddWithValue("@password", txtPass.Text);
+                    cm.Parameters.AddWithValue("@Password", txtPass.Text);
                     cm.Parameters.AddWithValue("@empPhone", txtPhoneNum.Text);
                     cm.Parameters.AddWithValue("@empAddress", txtAddress.Text);
                     cm.Parameters.AddWithValue("@role", txtRole.Text);

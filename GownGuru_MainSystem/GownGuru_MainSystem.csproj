@@ -295,11 +295,11 @@
     <Compile Include="GOWN\frmReturned.Designer.cs">
       <DependentUpon>frmReturned.cs</DependentUpon>
     </Compile>
-    <Compile Include="LOGIN\Login.cs">
+    <Compile Include="LOGIN\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LOGIN\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LOGIN\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
@@ -386,8 +386,8 @@
     <EmbeddedResource Include="GOWN\frmReturned.resx">
       <DependentUpon>frmReturned.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LOGIN\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LOGIN\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>

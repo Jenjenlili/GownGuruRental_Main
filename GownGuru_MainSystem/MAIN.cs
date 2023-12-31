@@ -72,7 +72,7 @@ namespace GownGuru_MainSystem
             if (result == DialogResult.Yes)
             {
                 this.Hide();
-                Login login = new Login();
+                frmLogin login = new frmLogin();
                 login.Show();
 
             }
@@ -80,7 +80,7 @@ namespace GownGuru_MainSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnMax_Click_1(object sender, EventArgs e)
@@ -485,7 +485,6 @@ namespace GownGuru_MainSystem
         {
             SetDoubleBuffer(CenterPanel, true);
         }
-
 
     }
 }

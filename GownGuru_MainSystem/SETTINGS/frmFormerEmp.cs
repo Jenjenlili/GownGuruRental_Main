@@ -52,7 +52,7 @@ namespace GownGuru_MainSystem.SETTINGS
         { 
             dgvFormerEmp.Rows.Clear();
             int i = 0;
-            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Inactive' AND CONCAT(username, fullname, password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con); // Fetch only active employees
+            cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Inactive' AND CONCAT(Username, fullname, Password, empPhone, empAddress, role) LIKE '%" + searchBox.Text + "%'", con); // Fetch only active employees
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -72,7 +72,7 @@ namespace GownGuru_MainSystem.SETTINGS
                 if (MessageBox.Show("Are you sure you want to restore this record?", "Restore Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
-                    cm = new SqlCommand("UPDATE tblEmployee SET empStatus = 'Active' WHERE username LIKE '" + dgvFormerEmp.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
+                    cm = new SqlCommand("UPDATE tblEmployee SET empStatus = 'Active' WHERE Username LIKE '" + dgvFormerEmp.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully Restored!");

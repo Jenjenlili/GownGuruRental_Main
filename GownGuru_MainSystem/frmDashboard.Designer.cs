@@ -33,30 +33,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gownReturnedBox = new GownGuru_MainSystem.CustomPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.ReturnedTotal = new System.Windows.Forms.Label();
+            this.lblReturned = new System.Windows.Forms.Label();
             this.inPossessionBox = new GownGuru_MainSystem.CustomPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.InPossessionTotal = new System.Windows.Forms.Label();
+            this.lblInPossession = new System.Windows.Forms.Label();
             this.damageLostBox = new GownGuru_MainSystem.CustomPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.DamLostTotal = new System.Windows.Forms.Label();
+            this.lblDamLost = new System.Windows.Forms.Label();
             this.revenueBox = new GownGuru_MainSystem.CustomPanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.RevenueTotal = new System.Windows.Forms.Label();
+            this.lblRevenue = new System.Windows.Forms.Label();
             this.gownRentedBox = new GownGuru_MainSystem.CustomPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.RentedTotal = new System.Windows.Forms.Label();
+            this.lblRented = new System.Windows.Forms.Label();
             this.customerBox = new GownGuru_MainSystem.CustomPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.CustomerTotal = new System.Windows.Forms.Label();
+            this.lblCustomers = new System.Windows.Forms.Label();
             this.AvailableGownBox = new GownGuru_MainSystem.CustomPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.GAvailableTotal = new System.Windows.Forms.Label();
+            this.lblGAvailable = new System.Windows.Forms.Label();
             this.GownBox = new GownGuru_MainSystem.CustomPanel();
-            this.GownCount = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.GownTotal = new System.Windows.Forms.Label();
+            this.lblGown = new System.Windows.Forms.Label();
             this.pnlTodayTransac = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
             this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +68,6 @@
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.gownReturnedBox.SuspendLayout();
             this.inPossessionBox.SuspendLayout();
@@ -111,8 +111,8 @@
             // 
             this.gownReturnedBox.BackColor = System.Drawing.Color.Black;
             this.gownReturnedBox.BorderRadius = 40;
-            this.gownReturnedBox.Controls.Add(this.label8);
-            this.gownReturnedBox.Controls.Add(this.label9);
+            this.gownReturnedBox.Controls.Add(this.ReturnedTotal);
+            this.gownReturnedBox.Controls.Add(this.lblReturned);
             this.gownReturnedBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gownReturnedBox.ForeColor = System.Drawing.Color.Black;
             this.gownReturnedBox.GradientAngle = 80F;
@@ -125,36 +125,36 @@
             this.gownReturnedBox.TabIndex = 3;
             this.gownReturnedBox.Paint += new System.Windows.Forms.PaintEventHandler(this.gownReturnedBox_Paint);
             // 
-            // label8
+            // ReturnedTotal
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(23, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 28);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "0";
+            this.ReturnedTotal.AutoSize = true;
+            this.ReturnedTotal.BackColor = System.Drawing.Color.Transparent;
+            this.ReturnedTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ReturnedTotal.ForeColor = System.Drawing.Color.White;
+            this.ReturnedTotal.Location = new System.Drawing.Point(23, 89);
+            this.ReturnedTotal.Name = "ReturnedTotal";
+            this.ReturnedTotal.Size = new System.Drawing.Size(25, 28);
+            this.ReturnedTotal.TabIndex = 9;
+            this.ReturnedTotal.Text = "0";
             // 
-            // label9
+            // lblReturned
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(23, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(177, 26);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Gown Returned";
+            this.lblReturned.AutoSize = true;
+            this.lblReturned.BackColor = System.Drawing.Color.Transparent;
+            this.lblReturned.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblReturned.ForeColor = System.Drawing.Color.White;
+            this.lblReturned.Location = new System.Drawing.Point(23, 31);
+            this.lblReturned.Name = "lblReturned";
+            this.lblReturned.Size = new System.Drawing.Size(177, 26);
+            this.lblReturned.TabIndex = 8;
+            this.lblReturned.Text = "Gown Returned";
             // 
             // inPossessionBox
             // 
             this.inPossessionBox.BackColor = System.Drawing.Color.Black;
             this.inPossessionBox.BorderRadius = 40;
-            this.inPossessionBox.Controls.Add(this.label10);
-            this.inPossessionBox.Controls.Add(this.label11);
+            this.inPossessionBox.Controls.Add(this.InPossessionTotal);
+            this.inPossessionBox.Controls.Add(this.lblInPossession);
             this.inPossessionBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inPossessionBox.ForeColor = System.Drawing.Color.Black;
             this.inPossessionBox.GradientAngle = 80F;
@@ -167,38 +167,38 @@
             this.inPossessionBox.TabIndex = 3;
             this.inPossessionBox.Paint += new System.Windows.Forms.PaintEventHandler(this.inPossessionBox_Paint);
             // 
-            // label10
+            // InPossessionTotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(22, 89);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(25, 28);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "0";
+            this.InPossessionTotal.AutoSize = true;
+            this.InPossessionTotal.BackColor = System.Drawing.Color.Transparent;
+            this.InPossessionTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.InPossessionTotal.ForeColor = System.Drawing.Color.White;
+            this.InPossessionTotal.Location = new System.Drawing.Point(22, 89);
+            this.InPossessionTotal.Name = "InPossessionTotal";
+            this.InPossessionTotal.Size = new System.Drawing.Size(25, 28);
+            this.InPossessionTotal.TabIndex = 11;
+            this.InPossessionTotal.Text = "0";
             // 
-            // label11
+            // lblInPossession
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblInPossession.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(22, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(149, 26);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "In Possession";
+            this.lblInPossession.AutoSize = true;
+            this.lblInPossession.BackColor = System.Drawing.Color.Transparent;
+            this.lblInPossession.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblInPossession.ForeColor = System.Drawing.Color.White;
+            this.lblInPossession.Location = new System.Drawing.Point(22, 31);
+            this.lblInPossession.Name = "lblInPossession";
+            this.lblInPossession.Size = new System.Drawing.Size(149, 26);
+            this.lblInPossession.TabIndex = 10;
+            this.lblInPossession.Text = "In Possession";
             // 
             // damageLostBox
             // 
             this.damageLostBox.BackColor = System.Drawing.Color.Black;
             this.damageLostBox.BorderRadius = 40;
-            this.damageLostBox.Controls.Add(this.label12);
-            this.damageLostBox.Controls.Add(this.label13);
+            this.damageLostBox.Controls.Add(this.DamLostTotal);
+            this.damageLostBox.Controls.Add(this.lblDamLost);
             this.damageLostBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.damageLostBox.ForeColor = System.Drawing.Color.Black;
             this.damageLostBox.GradientAngle = 80F;
@@ -211,36 +211,37 @@
             this.damageLostBox.TabIndex = 3;
             this.damageLostBox.Paint += new System.Windows.Forms.PaintEventHandler(this.damageLostBox_Paint);
             // 
-            // label12
+            // DamLostTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(22, 89);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(25, 28);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "0";
+            this.DamLostTotal.AutoSize = true;
+            this.DamLostTotal.BackColor = System.Drawing.Color.Transparent;
+            this.DamLostTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.DamLostTotal.ForeColor = System.Drawing.Color.White;
+            this.DamLostTotal.Location = new System.Drawing.Point(22, 89);
+            this.DamLostTotal.Name = "DamLostTotal";
+            this.DamLostTotal.Size = new System.Drawing.Size(25, 28);
+            this.DamLostTotal.TabIndex = 13;
+            this.DamLostTotal.Text = "0";
             // 
-            // label13
+            // lblDamLost
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(22, 31);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(173, 26);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Damaged/Lost";
+            this.lblDamLost.AutoSize = true;
+            this.lblDamLost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDamLost.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblDamLost.ForeColor = System.Drawing.Color.White;
+            this.lblDamLost.Location = new System.Drawing.Point(22, 31);
+            this.lblDamLost.Name = "lblDamLost";
+            this.lblDamLost.Size = new System.Drawing.Size(173, 26);
+            this.lblDamLost.TabIndex = 12;
+            this.lblDamLost.Text = "Damaged/Lost";
+            this.lblDamLost.Click += new System.EventHandler(this.label13_Click);
             // 
             // revenueBox
             // 
             this.revenueBox.BackColor = System.Drawing.Color.Black;
             this.revenueBox.BorderRadius = 40;
-            this.revenueBox.Controls.Add(this.label14);
-            this.revenueBox.Controls.Add(this.label15);
+            this.revenueBox.Controls.Add(this.RevenueTotal);
+            this.revenueBox.Controls.Add(this.lblRevenue);
             this.revenueBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.revenueBox.ForeColor = System.Drawing.Color.Black;
             this.revenueBox.GradientAngle = 80F;
@@ -253,36 +254,36 @@
             this.revenueBox.TabIndex = 2;
             this.revenueBox.Paint += new System.Windows.Forms.PaintEventHandler(this.revenueBox_Paint);
             // 
-            // label14
+            // RevenueTotal
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(22, 89);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(25, 28);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "0";
+            this.RevenueTotal.AutoSize = true;
+            this.RevenueTotal.BackColor = System.Drawing.Color.Transparent;
+            this.RevenueTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.RevenueTotal.ForeColor = System.Drawing.Color.White;
+            this.RevenueTotal.Location = new System.Drawing.Point(22, 89);
+            this.RevenueTotal.Name = "RevenueTotal";
+            this.RevenueTotal.Size = new System.Drawing.Size(25, 28);
+            this.RevenueTotal.TabIndex = 15;
+            this.RevenueTotal.Text = "0";
             // 
-            // label15
+            // lblRevenue
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(22, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 26);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Revenue";
+            this.lblRevenue.AutoSize = true;
+            this.lblRevenue.BackColor = System.Drawing.Color.Transparent;
+            this.lblRevenue.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblRevenue.Location = new System.Drawing.Point(22, 31);
+            this.lblRevenue.Name = "lblRevenue";
+            this.lblRevenue.Size = new System.Drawing.Size(105, 26);
+            this.lblRevenue.TabIndex = 14;
+            this.lblRevenue.Text = "Revenue";
             // 
             // gownRentedBox
             // 
             this.gownRentedBox.BackColor = System.Drawing.Color.Black;
             this.gownRentedBox.BorderRadius = 40;
-            this.gownRentedBox.Controls.Add(this.label6);
-            this.gownRentedBox.Controls.Add(this.label7);
+            this.gownRentedBox.Controls.Add(this.RentedTotal);
+            this.gownRentedBox.Controls.Add(this.lblRented);
             this.gownRentedBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gownRentedBox.ForeColor = System.Drawing.Color.Black;
             this.gownRentedBox.GradientAngle = 80F;
@@ -295,36 +296,36 @@
             this.gownRentedBox.TabIndex = 2;
             this.gownRentedBox.Paint += new System.Windows.Forms.PaintEventHandler(this.gownRentedBox_Paint);
             // 
-            // label6
+            // RentedTotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(23, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 28);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "0";
+            this.RentedTotal.AutoSize = true;
+            this.RentedTotal.BackColor = System.Drawing.Color.Transparent;
+            this.RentedTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.RentedTotal.ForeColor = System.Drawing.Color.White;
+            this.RentedTotal.Location = new System.Drawing.Point(23, 88);
+            this.RentedTotal.Name = "RentedTotal";
+            this.RentedTotal.Size = new System.Drawing.Size(25, 28);
+            this.RentedTotal.TabIndex = 7;
+            this.RentedTotal.Text = "0";
             // 
-            // label7
+            // lblRented
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(23, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 26);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Gown Rented";
+            this.lblRented.AutoSize = true;
+            this.lblRented.BackColor = System.Drawing.Color.Transparent;
+            this.lblRented.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblRented.ForeColor = System.Drawing.Color.White;
+            this.lblRented.Location = new System.Drawing.Point(23, 30);
+            this.lblRented.Name = "lblRented";
+            this.lblRented.Size = new System.Drawing.Size(157, 26);
+            this.lblRented.TabIndex = 6;
+            this.lblRented.Text = "Gown Rented";
             // 
             // customerBox
             // 
             this.customerBox.BackColor = System.Drawing.Color.Black;
             this.customerBox.BorderRadius = 40;
-            this.customerBox.Controls.Add(this.label4);
-            this.customerBox.Controls.Add(this.label5);
+            this.customerBox.Controls.Add(this.CustomerTotal);
+            this.customerBox.Controls.Add(this.lblCustomers);
             this.customerBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customerBox.ForeColor = System.Drawing.Color.Black;
             this.customerBox.GradientAngle = 80F;
@@ -337,36 +338,36 @@
             this.customerBox.TabIndex = 2;
             this.customerBox.Paint += new System.Windows.Forms.PaintEventHandler(this.customerBox_Paint);
             // 
-            // label4
+            // CustomerTotal
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(22, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 28);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "0";
+            this.CustomerTotal.AutoSize = true;
+            this.CustomerTotal.BackColor = System.Drawing.Color.Transparent;
+            this.CustomerTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.CustomerTotal.ForeColor = System.Drawing.Color.White;
+            this.CustomerTotal.Location = new System.Drawing.Point(22, 88);
+            this.CustomerTotal.Name = "CustomerTotal";
+            this.CustomerTotal.Size = new System.Drawing.Size(25, 28);
+            this.CustomerTotal.TabIndex = 5;
+            this.CustomerTotal.Text = "0";
             // 
-            // label5
+            // lblCustomers
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(22, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 26);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Customers";
+            this.lblCustomers.AutoSize = true;
+            this.lblCustomers.BackColor = System.Drawing.Color.Transparent;
+            this.lblCustomers.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblCustomers.ForeColor = System.Drawing.Color.White;
+            this.lblCustomers.Location = new System.Drawing.Point(22, 30);
+            this.lblCustomers.Name = "lblCustomers";
+            this.lblCustomers.Size = new System.Drawing.Size(125, 26);
+            this.lblCustomers.TabIndex = 4;
+            this.lblCustomers.Text = "Customers";
             // 
             // AvailableGownBox
             // 
             this.AvailableGownBox.BackColor = System.Drawing.Color.Black;
             this.AvailableGownBox.BorderRadius = 40;
-            this.AvailableGownBox.Controls.Add(this.label2);
-            this.AvailableGownBox.Controls.Add(this.label3);
+            this.AvailableGownBox.Controls.Add(this.GAvailableTotal);
+            this.AvailableGownBox.Controls.Add(this.lblGAvailable);
             this.AvailableGownBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AvailableGownBox.ForeColor = System.Drawing.Color.Black;
             this.AvailableGownBox.GradientAngle = 80F;
@@ -379,38 +380,38 @@
             this.AvailableGownBox.TabIndex = 1;
             this.AvailableGownBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AvailableGownBox_Paint);
             // 
-            // label2
+            // GAvailableTotal
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(22, 88);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 28);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "0";
+            this.GAvailableTotal.AutoSize = true;
+            this.GAvailableTotal.BackColor = System.Drawing.Color.Transparent;
+            this.GAvailableTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.GAvailableTotal.ForeColor = System.Drawing.Color.White;
+            this.GAvailableTotal.Location = new System.Drawing.Point(22, 88);
+            this.GAvailableTotal.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
+            this.GAvailableTotal.Name = "GAvailableTotal";
+            this.GAvailableTotal.Size = new System.Drawing.Size(25, 28);
+            this.GAvailableTotal.TabIndex = 3;
+            this.GAvailableTotal.Text = "0";
             // 
-            // label3
+            // lblGAvailable
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(22, 30);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 26);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Available Gown ";
+            this.lblGAvailable.AutoSize = true;
+            this.lblGAvailable.BackColor = System.Drawing.Color.Transparent;
+            this.lblGAvailable.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblGAvailable.ForeColor = System.Drawing.Color.White;
+            this.lblGAvailable.Location = new System.Drawing.Point(22, 30);
+            this.lblGAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
+            this.lblGAvailable.Name = "lblGAvailable";
+            this.lblGAvailable.Size = new System.Drawing.Size(189, 26);
+            this.lblGAvailable.TabIndex = 2;
+            this.lblGAvailable.Text = "Available Gown ";
             // 
             // GownBox
             // 
             this.GownBox.BackColor = System.Drawing.Color.Black;
             this.GownBox.BorderRadius = 40;
-            this.GownBox.Controls.Add(this.GownCount);
-            this.GownBox.Controls.Add(this.label1);
+            this.GownBox.Controls.Add(this.GownTotal);
+            this.GownBox.Controls.Add(this.lblGown);
             this.GownBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GownBox.ForeColor = System.Drawing.Color.Black;
             this.GownBox.GradientAngle = 80F;
@@ -424,29 +425,29 @@
             this.GownBox.Tag = "";
             this.GownBox.Paint += new System.Windows.Forms.PaintEventHandler(this.GownBox_Paint);
             // 
-            // GownCount
+            // GownTotal
             // 
-            this.GownCount.AutoSize = true;
-            this.GownCount.BackColor = System.Drawing.Color.Transparent;
-            this.GownCount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.GownCount.ForeColor = System.Drawing.Color.White;
-            this.GownCount.Location = new System.Drawing.Point(22, 88);
-            this.GownCount.Name = "GownCount";
-            this.GownCount.Size = new System.Drawing.Size(25, 28);
-            this.GownCount.TabIndex = 1;
-            this.GownCount.Text = "0";
+            this.GownTotal.AutoSize = true;
+            this.GownTotal.BackColor = System.Drawing.Color.Transparent;
+            this.GownTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.GownTotal.ForeColor = System.Drawing.Color.White;
+            this.GownTotal.Location = new System.Drawing.Point(22, 88);
+            this.GownTotal.Name = "GownTotal";
+            this.GownTotal.Size = new System.Drawing.Size(25, 28);
+            this.GownTotal.TabIndex = 1;
+            this.GownTotal.Text = "0";
             // 
-            // label1
+            // lblGown
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gown";
+            this.lblGown.AutoSize = true;
+            this.lblGown.BackColor = System.Drawing.Color.Transparent;
+            this.lblGown.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblGown.ForeColor = System.Drawing.Color.White;
+            this.lblGown.Location = new System.Drawing.Point(21, 30);
+            this.lblGown.Name = "lblGown";
+            this.lblGown.Size = new System.Drawing.Size(75, 26);
+            this.lblGown.TabIndex = 0;
+            this.lblGown.Text = "Gown";
             // 
             // pnlTodayTransac
             // 
@@ -461,6 +462,18 @@
             this.pnlTodayTransac.Size = new System.Drawing.Size(993, 386);
             this.pnlTodayTransac.TabIndex = 0;
             this.pnlTodayTransac.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTodayTransac_Paint);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(19, 53);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(76, 21);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Search:";
             // 
             // dgvTodayTransac
             // 
@@ -503,7 +516,6 @@
             this.dgvTodayTransac.RowTemplate.Height = 28;
             this.dgvTodayTransac.Size = new System.Drawing.Size(948, 261);
             this.dgvTodayTransac.TabIndex = 4;
-            this.dgvTodayTransac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodayTransac_CellContentClick);
             // 
             // rentDate
             // 
@@ -581,18 +593,6 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Today\'s Transaction";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(19, 53);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 21);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Search:";
-            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -642,22 +642,22 @@
         private CustomPanel inPossessionBox;
         private CustomPanel gownReturnedBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label GownCount;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblGown;
+        private System.Windows.Forms.Label GownTotal;
+        private System.Windows.Forms.Label GAvailableTotal;
+        private System.Windows.Forms.Label lblGAvailable;
+        private System.Windows.Forms.Label CustomerTotal;
+        private System.Windows.Forms.Label lblCustomers;
+        private System.Windows.Forms.Label RentedTotal;
+        private System.Windows.Forms.Label lblRented;
+        private System.Windows.Forms.Label RevenueTotal;
+        private System.Windows.Forms.Label lblRevenue;
+        private System.Windows.Forms.Label DamLostTotal;
+        private System.Windows.Forms.Label lblDamLost;
+        private System.Windows.Forms.Label InPossessionTotal;
+        private System.Windows.Forms.Label lblInPossession;
+        private System.Windows.Forms.Label ReturnedTotal;
+        private System.Windows.Forms.Label lblReturned;
         private System.Windows.Forms.Panel pnlTodayTransac;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label16;

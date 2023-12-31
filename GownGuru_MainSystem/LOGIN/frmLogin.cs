@@ -13,26 +13,28 @@ using System.Windows.Forms;
 
 namespace GownGuru_MainSystem.LOGIN
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
-
-        public Point mouseLocation;
-
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
-            SetDoubleBuffer(customPanel1, true);
-            SetDoubleBuffer(pnlInvalidPass, true);
-            SetDoubleBuffer(pnlInvalidUsr, true);
+            SetDoubleBuffer(panel, true);
+            SetDoubleBuffer(pnlBG, true);
             SetDoubleBuffer(txtUsername, true);
             SetDoubleBuffer(txtPassword, true);
-            SetDoubleBuffer(pnlBG, true);
+            SetDoubleBuffer(pnlInvalidUsr,true);
+            SetDoubleBuffer(pnlInvalidPass,true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             // Set the form's region to create rounded corners
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
+            pnlInvalidUsr.Visible = false;
+            pnlInvalidPass.Visible = false;
+
+
+
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -72,67 +74,29 @@ namespace GownGuru_MainSystem.LOGIN
         // Round the form corners
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
-
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        
+        //move form
+        public Point mouseLocation;
+        private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            try
-            {
-                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username = '" + txtUsername.Text + "' and password = '" + txtPassword.Text + "'", con);
-                con.Open();
-                dr = cm.ExecuteReader();
-
-                if (dr.Read() == true)
-                {
-                    new MAIN().Show();
-                    this.Hide();
-                    pnlInvalidUsr.Visible = false;
-                    pnlInvalidPass.Visible = false;
-                }
-                else if (dr.Read() == false)
-                {
-                    pnlInvalidUsr.Visible = true;
-                    pnlInvalidPass.Visible = true;
-                    txtUsername.Text = "";
-                    txtPassword.Text = "";
-
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }
-
-
+            mouseLocation = new Point(-e.X, -e.Y);
         }
 
-        private void Username__TextChanged(object sender, EventArgs e)
-        {  
-            pnlInvalidUsr.Visible = false;
-        }
-
-        private void Password__TextChanged(object sender, EventArgs e)
+        private void panel_MouseMove(object sender, MouseEventArgs e)
         {
-            pnlInvalidPass.Visible = false;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxShowPass.Checked)
+            if (e.Button == MouseButtons.Left)
             {
-                txtPassword.PasswordChar = false;
-            }
-            else
-            {
-                txtPassword.PasswordChar = true;
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+                this.Opacity = 0.8;
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void panel_MouseUp(object sender, MouseEventArgs e)
         {
-
+            this.Opacity = 1;
         }
+
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
@@ -155,7 +119,6 @@ namespace GownGuru_MainSystem.LOGIN
 
             // Close the current form (Login form)
             this.Close();
-
         }
 
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)
@@ -168,24 +131,79 @@ namespace GownGuru_MainSystem.LOGIN
             pictureBoxClose.BackColor = Color.Transparent;
         }
 
-        private void customPanel1_MouseDown(object sender, MouseEventArgs e)
+        
+        private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            mouseLocation = new Point(-e.X, -e.Y);
-        }
-
-        private void customPanel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
+            if (checkBoxShowPass.Checked)
             {
-                Point mousePose = Control.MousePosition;
-                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
-                Location = mousePose;
+                txtPassword.PasswordChar = '\0';
             }
+            else
+            {
+                txtPassword.PasswordChar = '●';
+            }
+            /*if (checkBoxShowPass.Checked)
+            {
+                txtPassword.PasswordChar = false; // Show actual text (set PasswordChar to null)
+            }
+            else
+            {
+                txtPassword.PasswordChar = true; // Show password characters
+            }*/
         }
-
-        private void Username_Load(object sender, EventArgs e)
+        private void txtUsername__TextChanged(object sender, EventArgs e)
         {
+            pnlInvalidUsr.Visible = false;
+        }
+
+        private void txtPassword__TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidPass.Visible = false;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Active' AND username = @username and password = @password", con);
+                cm.Parameters.AddWithValue("@username", txtUsername.Text);
+                cm.Parameters.AddWithValue("@password", txtPassword.Text);
+
+                con.Open();
+                dr = cm.ExecuteReader();
+                if (dr.Read() == true)
+                {
+                    // Display the retrieved values for debugging purposes
+                    /*for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        Console.WriteLine($"{dr.GetName(i)}: {dr.GetValue(i)}");
+                    }*/
+
+                    new MAIN().Show();
+                    this.Hide();
+                    pnlInvalidUsr.Visible = false;
+                    pnlInvalidPass.Visible = false;
+                }
+                else
+                {
+                    pnlInvalidUsr.Visible = true;
+                    pnlInvalidPass.Visible = true;
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                    txtUsername.Focus();
+                    
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex);
+            }
+
 
         }
+
+        
     }
+   
 }
