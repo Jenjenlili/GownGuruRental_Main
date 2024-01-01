@@ -91,9 +91,13 @@ namespace GownGuru_MainSystem.GOWN
         //browse image
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image files (*.png) |*.png|(*.jpg)|*.jpg|(*.gif)|*.gif";
-            openFileDialog1.ShowDialog();
-            txtPic.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string filPath = ofd.FileName;
+                txtPic.Image = new Bitmap(filPath);
+            }
         }
 
         //to clear
@@ -112,12 +116,6 @@ namespace GownGuru_MainSystem.GOWN
             txtPic.Text = "";
 
         }
-
-        private void frmGownAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClear_Click_1(object sender, EventArgs e)
         {
             Clear();
@@ -142,10 +140,11 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
 
+                    Image temp = new Bitmap(txtPic.Image);
                     MemoryStream ms = new MemoryStream();
-                    txtPic.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] arrImage = ms.GetBuffer();
-                    cm.Parameters.AddWithValue("@gownPic", arrImage);
+                    temp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    Byte[] BtyArray = ms.ToArray();
+                    cm.Parameters.AddWithValue("@gownPic", BtyArray);
 
                     con.Open();
                     cm.ExecuteNonQuery();
@@ -167,10 +166,6 @@ namespace GownGuru_MainSystem.GOWN
             {
                 if (MessageBox.Show("Are you sure you want to update this gown?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MemoryStream ms = new MemoryStream();
-                    txtPic.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] arrImage = ms.GetBuffer();
-
                     cm = new SqlCommand("UPDATE tblGown SET gownName = @gownName, description = @description, size = @size, color = @color, condition = @condition, price = @price, dateAdded = @dateAdded, category = @category, gownStatus = @gownStatus, gownPic = @gownPic WHERE gownID LIKE '" + lblGownID.Text + "' ", con);
                     cm.Parameters.AddWithValue("@gownName", txtName.Text);
                     cm.Parameters.AddWithValue("@description", txtDesc.Text);
@@ -181,7 +176,20 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
-                    cm.Parameters.AddWithValue("@gownPic", arrImage);
+                    
+                    if (txtPic.Image != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            txtPic.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            byte[] imageByteArray = ms.ToArray();
+                            cm.Parameters.AddWithValue("@gownPic", imageByteArray);
+                        }
+                    }
+                    else
+                    {
+                        cm.Parameters.AddWithValue("@gownPic", DBNull.Value);
+                    }
 
                     con.Open();
                     cm.ExecuteNonQuery();

@@ -467,7 +467,6 @@
             this.Name = "frmGownAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGownAdd";
-            this.Load += new System.EventHandler(this.frmGownAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPic)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

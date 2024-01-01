@@ -42,7 +42,7 @@
             this.DamLostTotal = new System.Windows.Forms.Label();
             this.lblDamLost = new System.Windows.Forms.Label();
             this.revenueBox = new GownGuru_MainSystem.CustomPanel();
-            this.RevenueTotal = new System.Windows.Forms.Label();
+            this.Revenue = new System.Windows.Forms.Label();
             this.lblRevenue = new System.Windows.Forms.Label();
             this.gownRentedBox = new GownGuru_MainSystem.CustomPanel();
             this.RentedTotal = new System.Windows.Forms.Label();
@@ -57,17 +57,24 @@
             this.GownTotal = new System.Windows.Forms.Label();
             this.lblGown = new System.Windows.Forms.Label();
             this.pnlTodayTransac = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
-            this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gown = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conditionAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.dgvTodayTransac = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.gownReturnedBox.SuspendLayout();
             this.inPossessionBox.SuspendLayout();
@@ -78,6 +85,7 @@
             this.AvailableGownBox.SuspendLayout();
             this.GownBox.SuspendLayout();
             this.pnlTodayTransac.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,13 +242,12 @@
             this.lblDamLost.Size = new System.Drawing.Size(173, 26);
             this.lblDamLost.TabIndex = 12;
             this.lblDamLost.Text = "Damaged/Lost";
-            this.lblDamLost.Click += new System.EventHandler(this.label13_Click);
             // 
             // revenueBox
             // 
             this.revenueBox.BackColor = System.Drawing.Color.Black;
             this.revenueBox.BorderRadius = 40;
-            this.revenueBox.Controls.Add(this.RevenueTotal);
+            this.revenueBox.Controls.Add(this.Revenue);
             this.revenueBox.Controls.Add(this.lblRevenue);
             this.revenueBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.revenueBox.ForeColor = System.Drawing.Color.Black;
@@ -254,17 +261,17 @@
             this.revenueBox.TabIndex = 2;
             this.revenueBox.Paint += new System.Windows.Forms.PaintEventHandler(this.revenueBox_Paint);
             // 
-            // RevenueTotal
+            // Revenue
             // 
-            this.RevenueTotal.AutoSize = true;
-            this.RevenueTotal.BackColor = System.Drawing.Color.Transparent;
-            this.RevenueTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.RevenueTotal.ForeColor = System.Drawing.Color.White;
-            this.RevenueTotal.Location = new System.Drawing.Point(22, 89);
-            this.RevenueTotal.Name = "RevenueTotal";
-            this.RevenueTotal.Size = new System.Drawing.Size(25, 28);
-            this.RevenueTotal.TabIndex = 15;
-            this.RevenueTotal.Text = "0";
+            this.Revenue.AutoSize = true;
+            this.Revenue.BackColor = System.Drawing.Color.Transparent;
+            this.Revenue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Revenue.ForeColor = System.Drawing.Color.White;
+            this.Revenue.Location = new System.Drawing.Point(22, 89);
+            this.Revenue.Name = "Revenue";
+            this.Revenue.Size = new System.Drawing.Size(25, 28);
+            this.Revenue.TabIndex = 15;
+            this.Revenue.Text = "0";
             // 
             // lblRevenue
             // 
@@ -452,9 +459,10 @@
             // pnlTodayTransac
             // 
             this.pnlTodayTransac.BackColor = System.Drawing.Color.Black;
-            this.pnlTodayTransac.Controls.Add(this.label17);
             this.pnlTodayTransac.Controls.Add(this.dgvTodayTransac);
-            this.pnlTodayTransac.Controls.Add(this.textBox1);
+            this.pnlTodayTransac.Controls.Add(this.lblSearch);
+            this.pnlTodayTransac.Controls.Add(this.pictureBox1);
+            this.pnlTodayTransac.Controls.Add(this.searchBox);
             this.pnlTodayTransac.Controls.Add(this.label16);
             this.pnlTodayTransac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTodayTransac.Location = new System.Drawing.Point(0, 308);
@@ -463,123 +471,40 @@
             this.pnlTodayTransac.TabIndex = 0;
             this.pnlTodayTransac.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTodayTransac_Paint);
             // 
-            // label17
+            // lblSearch
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(19, 53);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 21);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Search:";
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.BackColor = System.Drawing.Color.White;
+            this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.lblSearch.Location = new System.Drawing.Point(223, 54);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(71, 21);
+            this.lblSearch.TabIndex = 104;
+            this.lblSearch.Text = "Search";
             // 
-            // dgvTodayTransac
+            // pictureBox1
             // 
-            this.dgvTodayTransac.AllowUserToAddRows = false;
-            this.dgvTodayTransac.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvTodayTransac.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTodayTransac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTodayTransac.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTodayTransac.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvTodayTransac.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTodayTransac.ColumnHeadersHeight = 34;
-            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rentDate,
-            this.gown,
-            this.customer,
-            this.conditionBefore,
-            this.conditionAfter,
-            this.returnDate,
-            this.total});
-            this.dgvTodayTransac.Location = new System.Drawing.Point(23, 97);
-            this.dgvTodayTransac.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvTodayTransac.Name = "dgvTodayTransac";
-            this.dgvTodayTransac.ReadOnly = true;
-            this.dgvTodayTransac.RowHeadersVisible = false;
-            this.dgvTodayTransac.RowHeadersWidth = 62;
-            this.dgvTodayTransac.RowTemplate.Height = 28;
-            this.dgvTodayTransac.Size = new System.Drawing.Size(948, 261);
-            this.dgvTodayTransac.TabIndex = 4;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = global::GownGuru_MainSystem.Properties.Resources.search_whitebg;
+            this.pictureBox1.Location = new System.Drawing.Point(297, 56);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 103;
+            this.pictureBox1.TabStop = false;
             // 
-            // rentDate
+            // searchBox
             // 
-            this.rentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rentDate.HeaderText = "Rent Date";
-            this.rentDate.MinimumWidth = 8;
-            this.rentDate.Name = "rentDate";
-            this.rentDate.ReadOnly = true;
-            // 
-            // gown
-            // 
-            this.gown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gown.HeaderText = "Gown";
-            this.gown.MinimumWidth = 8;
-            this.gown.Name = "gown";
-            this.gown.ReadOnly = true;
-            // 
-            // customer
-            // 
-            this.customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.customer.HeaderText = "Customer";
-            this.customer.MinimumWidth = 8;
-            this.customer.Name = "customer";
-            this.customer.ReadOnly = true;
-            // 
-            // conditionBefore
-            // 
-            this.conditionBefore.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conditionBefore.HeaderText = "Condition Before";
-            this.conditionBefore.MinimumWidth = 8;
-            this.conditionBefore.Name = "conditionBefore";
-            this.conditionBefore.ReadOnly = true;
-            // 
-            // conditionAfter
-            // 
-            this.conditionAfter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conditionAfter.HeaderText = "Condition After";
-            this.conditionAfter.MinimumWidth = 8;
-            this.conditionAfter.Name = "conditionAfter";
-            this.conditionAfter.ReadOnly = true;
-            // 
-            // returnDate
-            // 
-            this.returnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.returnDate.HeaderText = "Return Date";
-            this.returnDate.MinimumWidth = 8;
-            this.returnDate.Name = "returnDate";
-            this.returnDate.ReadOnly = true;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.total.HeaderText = "Total";
-            this.total.MinimumWidth = 8;
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(102, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 32);
-            this.textBox1.TabIndex = 3;
+            this.searchBox.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(23, 49);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(302, 32);
+            this.searchBox.TabIndex = 3;
+            this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
             // 
             // label16
             // 
@@ -592,6 +517,150 @@
             this.label16.Size = new System.Drawing.Size(221, 26);
             this.label16.TabIndex = 2;
             this.label16.Text = "Today\'s Transaction";
+            // 
+            // dgvTodayTransac
+            // 
+            this.dgvTodayTransac.AllowUserToAddRows = false;
+            this.dgvTodayTransac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTodayTransac.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTodayTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTodayTransac.ColumnHeadersHeight = 40;
+            this.dgvTodayTransac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTodayTransac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column7,
+            this.Column8,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column10,
+            this.Column9,
+            this.Column11,
+            this.Column12,
+            this.Delete});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTodayTransac.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTodayTransac.Location = new System.Drawing.Point(24, 107);
+            this.dgvTodayTransac.Name = "dgvTodayTransac";
+            this.dgvTodayTransac.RowHeadersVisible = false;
+            this.dgvTodayTransac.RowHeadersWidth = 62;
+            this.dgvTodayTransac.Size = new System.Drawing.Size(943, 248);
+            this.dgvTodayTransac.TabIndex = 105;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "No";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 71;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Rent Id";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 109;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.HeaderText = "Rent Date";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.HeaderText = "Return Date";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "Gown Id";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 121;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Gown Name";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Customer Id";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 154;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Customer Name";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column10.HeaderText = "Qty";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 80;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column9.HeaderText = "Price";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            // 
+            // Column11
+            // 
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column11.HeaderText = "Total";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column12.HeaderText = "Status";
+            this.Column12.MinimumWidth = 8;
+            this.Column12.Name = "Column12";
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 8;
             // 
             // frmDashboard
             // 
@@ -627,6 +696,7 @@
             this.GownBox.PerformLayout();
             this.pnlTodayTransac.ResumeLayout(false);
             this.pnlTodayTransac.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodayTransac)).EndInit();
             this.ResumeLayout(false);
 
@@ -650,7 +720,7 @@
         private System.Windows.Forms.Label lblCustomers;
         private System.Windows.Forms.Label RentedTotal;
         private System.Windows.Forms.Label lblRented;
-        private System.Windows.Forms.Label RevenueTotal;
+        private System.Windows.Forms.Label Revenue;
         private System.Windows.Forms.Label lblRevenue;
         private System.Windows.Forms.Label DamLostTotal;
         private System.Windows.Forms.Label lblDamLost;
@@ -659,16 +729,23 @@
         private System.Windows.Forms.Label ReturnedTotal;
         private System.Windows.Forms.Label lblReturned;
         private System.Windows.Forms.Panel pnlTodayTransac;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.DataGridView dgvTodayTransac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rentDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gown;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conditionBefore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conditionAfter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

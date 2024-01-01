@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -60,7 +61,22 @@ namespace GownGuru_MainSystem.GOWN
             while (dr.Read())
             {
                 i++;
-                dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
+
+                // Read the image data (assumed to be in the 11th column, index 10)
+                byte[] imageData = dr[10] as byte[];
+
+                // Convert the byte array to an Image
+                Image img = null;
+                if (imageData != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        img = Image.FromStream(ms);
+                    }
+                }
+
+                // Add data to the DataGridView, including the image in the 11th cell
+                dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), img);
 
             }
             dr.Close();
@@ -100,7 +116,14 @@ namespace GownGuru_MainSystem.GOWN
                 gownAdd.dtDateAdded.Text = dgvGowns.Rows[e.RowIndex].Cells[8].Value.ToString();
                 gownAdd.cbCategory.Text = dgvGowns.Rows[e.RowIndex].Cells[9].Value.ToString();
                 gownAdd.cbStatus.Text = dgvGowns.Rows[e.RowIndex].Cells[10].Value.ToString();
-                gownAdd.txtPic.Text = dgvGowns.Rows[e.RowIndex].Cells[11].Value.ToString();
+
+                Image img = dgvGowns.Rows[e.RowIndex].Cells[11].Value as Image;
+
+                if (img != null)
+                {
+                    gownAdd.txtPic.Image = new Bitmap(img);
+                }
+
                 gownAdd.btnSave.Enabled = false;
                 gownAdd.btnUpdate.Enabled = true;
                 gownAdd.ShowDialog();
@@ -117,6 +140,18 @@ namespace GownGuru_MainSystem.GOWN
                 }
             }
             LoadGown();
+        }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = false;
+        }
+        private void searchBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
+            {
+                lblSearch.Visible = true;
+            }
         }
     }
 }

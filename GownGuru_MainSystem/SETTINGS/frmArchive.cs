@@ -22,6 +22,7 @@ namespace GownGuru_MainSystem.SETTINGS
             InitializeComponent();
             SetDoubleBuffer(dgvGownArchive, true);
             LoadArchiveGown();
+            panel2.Focus();
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -86,6 +87,18 @@ namespace GownGuru_MainSystem.SETTINGS
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
             LoadArchiveGown();
+        }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = false;
+        }
+        private void searchBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
+            {
+                lblSearch.Visible = true;
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ namespace GownGuru_MainSystem
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
+        SqlDataReader dr;
         public frmDashboard()
         {
             InitializeComponent();
@@ -116,6 +117,17 @@ namespace GownGuru_MainSystem
 
             SetDoubleBuffer(pnlTodayTransac, true);
         }
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = false;
+        }
+        private void searchBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
+            {
+                lblSearch.Visible = true;
+            }
+        }
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
@@ -128,12 +140,12 @@ namespace GownGuru_MainSystem
                 CustomerTotal.Text = clientcount.ToString();
 
                 // Get count of gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE archived = 'NO'", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown", con);
                 int gowncount = (int)cm.ExecuteScalar();
                 GownTotal.Text = gowncount.ToString();
 
                 // Get count of available gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus = 'available'", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus = 'Available'", con);
                 int availableGownCount = (int)cm.ExecuteScalar();
                 GAvailableTotal.Text = availableGownCount.ToString();
 
@@ -142,10 +154,15 @@ namespace GownGuru_MainSystem
                 int rentedcount = (int)cm.ExecuteScalar();
                 RentedTotal.Text = rentedcount.ToString();
 
+                // Get count of returned gowns excluding 'lost' status
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblReturn WHERE status != 'Lost'", con);
+                int nonLostReturnedCount = (int)cm.ExecuteScalar();
+                ReturnedTotal.Text = nonLostReturnedCount.ToString();
+
                 // Get count of returned gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus = 'returned'", con);
+                /*cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gstatus = 'returned'", con);
                 int returnedcount = (int)cm.ExecuteScalar();
-                ReturnedTotal.Text = returnedcount.ToString();
+                lblReturned.Text = returnedcount.ToString();*/
 
                 // Get count of damaged or lost gowns
                 cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus IN ('damaged', 'lost')", con);
@@ -153,7 +170,7 @@ namespace GownGuru_MainSystem
                 DamLostTotal.Text = damlostcount.ToString();
 
                 // Get count of gowns in possession
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus = 'in-possession'", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblRent WHERE status = 'In-possession'", con);
                 int inpossessioncount = (int)cm.ExecuteScalar();
                 InPossessionTotal.Text = inpossessioncount.ToString();
 
@@ -164,11 +181,11 @@ namespace GownGuru_MainSystem
                 if (totalSum != null && totalSum != DBNull.Value)
                 {
                     decimal revenue = Convert.ToDecimal(totalSum);
-                    RevenueTotal.Text = revenue.ToString();
+                    Revenue.Text = revenue.ToString();
                 }
                 else
                 {
-                    RevenueTotal.Text = "0"; // If there are no records or sum is null
+                    Revenue.Text = "0"; // If there are no records or sum is null
                 }
 
                 con.Close();
@@ -178,10 +195,34 @@ namespace GownGuru_MainSystem
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void label13_Click(object sender, EventArgs e)
+        public void LoadTodayRent()
         {
+            int i = 0;
+            dgvTodayTransac.Rows.Clear();
+            DateTime today = DateTime.Today;
 
+            cm = new SqlCommand("SELECT rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total, status " +
+                                "FROM tblRent AS R " +
+                                "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
+                                "JOIN tblGown AS G ON R.gownID = G.gownID " +
+                                "WHERE CONVERT(date, rentDate) = '" + today.ToString("yyyy-MM-dd") + "' " +
+                                "AND CONCAT(G.gownName, R.customerID, C.customerName) LIKE '%" + searchBox.Text + "%'", con);
+
+            con.Open();
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvTodayTransac.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("dd/MM/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("dd/MM/yyyy"),
+                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString());
+            }
+            dr.Close();
+            con.Close();
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            LoadTodayRent();
         }
     }
 }

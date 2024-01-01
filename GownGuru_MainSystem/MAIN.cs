@@ -423,6 +423,7 @@ namespace GownGuru_MainSystem
                 CenterPanel.Location = new Point(sidebar.Width, CenterPanel.Location.Y);
                 CenterPanel.Width = this.Width - sidebar.Width; // Adjust the width based on the current form width minus the sidebar width
             }
+            hideSubTab();
         }
 
         bool sideBarCollapsed;

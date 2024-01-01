@@ -110,5 +110,18 @@ namespace GownGuru_MainSystem
         {
             LoadCustomer();
         }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = false;
+        }
+
+        private void searchBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
+            {
+                lblSearch.Visible = true;
+            }
+        }
     }
 }
