@@ -163,8 +163,8 @@ namespace GownGuru_MainSystem.GOWN
 
             if (NrOfDays <= 0)
             {
-                txtDelay.Text = "No Delay";
-                txtFine.Text = "No Fine";
+                txtDelay.Text = "0";
+                txtFine.Text = "0";
             }
             else
             {
@@ -198,9 +198,26 @@ namespace GownGuru_MainSystem.GOWN
         }
         private void CalculateOverallTotal()
         {
-            // Perform a null check before parsing values
             if (double.TryParse(txtTotal.Text, out double total) && double.TryParse(txtFine.Text, out double fine))
             {
+                if (txtDelay.Text == "0")
+                {
+                    if (cbStatus.SelectedItem != null)
+                    {
+                        string selectedStatus = cbStatus.SelectedItem.ToString();
+
+                        if (selectedStatus.Equals("Lost", StringComparison.OrdinalIgnoreCase))
+                        {
+                            fine = 500; // Set fine to 500 for Lost item without delay
+                            txtFine.Text = fine.ToString();
+                        }
+                        else if (selectedStatus.Equals("Damaged", StringComparison.OrdinalIgnoreCase))
+                        {
+                            fine = 300; // Set fine to 300 for Damaged item without delay
+                            txtFine.Text = fine.ToString();
+                        }
+                    }
+                }
                 double overallTotal = total + fine;
                 // Display the overall total in a TextBox or wherever you wish to show it
                 txtOverallTotal.Text = overallTotal.ToString();
@@ -211,6 +228,7 @@ namespace GownGuru_MainSystem.GOWN
                 txtOverallTotal.Text = "Error calculating overall total";
             }
         }
+    
         public void Clear()
         {
             txtRentId.Clear();
@@ -229,7 +247,8 @@ namespace GownGuru_MainSystem.GOWN
             Clear();
         }
 
-        private void dgvGownOnRent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // to make cells clickable
+        private void dgvGownOnRent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtRentId.Text = dgvGownOnRent.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtGownId.Text = dgvGownOnRent.Rows[e.RowIndex].Cells[4].Value.ToString();
@@ -296,5 +315,7 @@ namespace GownGuru_MainSystem.GOWN
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }

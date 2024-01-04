@@ -24,7 +24,7 @@ namespace GownGuru_MainSystem.GOWN
             SetDoubleBuffer(dgvReturned, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            //LoadReturned();
+            LoadReturned();
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -64,15 +64,15 @@ namespace GownGuru_MainSystem.GOWN
             }
         }
 
-        //AAYUSIN PAAAAAA
-        /*public void LoadReturned()
+        
+        public void LoadReturned()
         {
             int i = 0;
             dgvReturned.Rows.Clear();
-            cm = new SqlCommand("SELECT returnid, R.rentid, R.rentdate, R.returndate, R.gid, G.gname, R.cid, C.cname, conditionafter, delay, status, fine, total " +
+            cm = new SqlCommand("SELECT returnID, R.rentID, R.rentDate, R.returnDate, R.gownID, G.gownName, R.customerID, C.customerName, conditionAfter, delay, status, fine, total " +
                                 "FROM tblReturn AS R " +
-                                "JOIN tblCustomer AS C ON R.cid = C.cid " +
-                                "JOIN tblGown AS G ON R.gid = G.gid", con);
+                                "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
+                                "JOIN tblGown AS G ON R.gownID = G.gownID", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -82,6 +82,6 @@ namespace GownGuru_MainSystem.GOWN
             }
             dr.Close();
             con.Close();
-        }*/
+        }
     }
 }

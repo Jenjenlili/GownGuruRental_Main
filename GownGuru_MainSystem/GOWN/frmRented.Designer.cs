@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRented));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.pnl2 = new System.Windows.Forms.Panel();
-            this.btnReturn = new GownGuru_MainSystem.CustomButton();
             this.label16 = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.dgvRented = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new GownGuru_MainSystem.CustomButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,11 +51,10 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRented)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl1
@@ -63,9 +62,9 @@
             this.pnl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl1.BackColor = System.Drawing.Color.Transparent;
+            this.pnl1.Controls.Add(this.panel2);
             this.pnl1.Controls.Add(this.pictureBox1);
             this.pnl1.Controls.Add(this.lblSearch);
-            this.pnl1.Controls.Add(this.pnl2);
             this.pnl1.Controls.Add(this.label16);
             this.pnl1.Controls.Add(this.searchBox);
             this.pnl1.Location = new System.Drawing.Point(-11, 1);
@@ -100,37 +99,6 @@
             this.lblSearch.TabIndex = 104;
             this.lblSearch.Text = "Search";
             // 
-            // pnl2
-            // 
-            this.pnl2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnl2.Controls.Add(this.btnReturn);
-            this.pnl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnl2.Location = new System.Drawing.Point(801, 0);
-            this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(214, 110);
-            this.pnl2.TabIndex = 14;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.Bisque;
-            this.btnReturn.BackgroundColor = System.Drawing.Color.Bisque;
-            this.btnReturn.BorderColor = System.Drawing.Color.Tan;
-            this.btnReturn.BorderRadius = 10;
-            this.btnReturn.BorderSize = 2;
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.Black;
-            this.btnReturn.Location = new System.Drawing.Point(27, 56);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(146, 38);
-            this.btnReturn.TabIndex = 84;
-            this.btnReturn.Text = "Return Gown";
-            this.btnReturn.TextColor = System.Drawing.Color.Black;
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -156,18 +124,24 @@
             // dgvRented
             // 
             this.dgvRented.AllowUserToAddRows = false;
+            this.dgvRented.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvRented.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRented.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRented.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRented.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRented.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRented.ColumnHeadersHeight = 43;
             this.dgvRented.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRented.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -182,23 +156,52 @@
             this.qty,
             this.price,
             this.total,
-            this.status,
-            this.Delete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRented.DefaultCellStyle = dataGridViewCellStyle2;
+            this.status});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRented.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRented.Location = new System.Drawing.Point(12, 120);
             this.dgvRented.Name = "dgvRented";
+            this.dgvRented.ReadOnly = true;
             this.dgvRented.RowHeadersVisible = false;
             this.dgvRented.RowHeadersWidth = 62;
             this.dgvRented.Size = new System.Drawing.Size(967, 552);
             this.dgvRented.TabIndex = 11;
             this.dgvRented.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRented_CellContentClick);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.Bisque;
+            this.btnReturn.BackgroundColor = System.Drawing.Color.Bisque;
+            this.btnReturn.BorderColor = System.Drawing.Color.Tan;
+            this.btnReturn.BorderRadius = 10;
+            this.btnReturn.BorderSize = 2;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.Black;
+            this.btnReturn.Location = new System.Drawing.Point(29, 56);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(163, 38);
+            this.btnReturn.TabIndex = 82;
+            this.btnReturn.Text = "Return Gown";
+            this.btnReturn.TextColor = System.Drawing.Color.Black;
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnReturn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(765, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 110);
+            this.panel2.TabIndex = 105;
             // 
             // Column1
             // 
@@ -206,6 +209,7 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 71;
             // 
             // rentID
@@ -214,6 +218,7 @@
             this.rentID.HeaderText = "Rent Id";
             this.rentID.MinimumWidth = 8;
             this.rentID.Name = "rentID";
+            this.rentID.ReadOnly = true;
             this.rentID.Width = 109;
             // 
             // rentDate
@@ -222,6 +227,7 @@
             this.rentDate.HeaderText = "Rent Date";
             this.rentDate.MinimumWidth = 8;
             this.rentDate.Name = "rentDate";
+            this.rentDate.ReadOnly = true;
             // 
             // returnDate
             // 
@@ -229,6 +235,7 @@
             this.returnDate.HeaderText = "Return Date";
             this.returnDate.MinimumWidth = 8;
             this.returnDate.Name = "returnDate";
+            this.returnDate.ReadOnly = true;
             // 
             // GownID
             // 
@@ -236,6 +243,7 @@
             this.GownID.HeaderText = "Gown Id";
             this.GownID.MinimumWidth = 8;
             this.GownID.Name = "GownID";
+            this.GownID.ReadOnly = true;
             this.GownID.Width = 121;
             // 
             // gownName
@@ -244,6 +252,7 @@
             this.gownName.HeaderText = "Gown Name";
             this.gownName.MinimumWidth = 8;
             this.gownName.Name = "gownName";
+            this.gownName.ReadOnly = true;
             // 
             // customerID
             // 
@@ -251,6 +260,7 @@
             this.customerID.HeaderText = "Customer Id";
             this.customerID.MinimumWidth = 8;
             this.customerID.Name = "customerID";
+            this.customerID.ReadOnly = true;
             this.customerID.Width = 154;
             // 
             // customerName
@@ -259,6 +269,7 @@
             this.customerName.HeaderText = "Customer Name";
             this.customerName.MinimumWidth = 8;
             this.customerName.Name = "customerName";
+            this.customerName.ReadOnly = true;
             // 
             // qty
             // 
@@ -266,6 +277,7 @@
             this.qty.HeaderText = "Qty";
             this.qty.MinimumWidth = 8;
             this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
             this.qty.Width = 80;
             // 
             // price
@@ -274,6 +286,7 @@
             this.price.HeaderText = "Price";
             this.price.MinimumWidth = 8;
             this.price.Name = "price";
+            this.price.ReadOnly = true;
             // 
             // total
             // 
@@ -281,6 +294,7 @@
             this.total.HeaderText = "Total";
             this.total.MinimumWidth = 8;
             this.total.Name = "total";
+            this.total.ReadOnly = true;
             // 
             // status
             // 
@@ -288,15 +302,7 @@
             this.status.HeaderText = "Status";
             this.status.MinimumWidth = 8;
             this.status.Name = "status";
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 8;
+            this.status.ReadOnly = true;
             // 
             // frmRented
             // 
@@ -313,8 +319,8 @@
             this.pnl1.ResumeLayout(false);
             this.pnl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRented)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -325,6 +331,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridView dgvRented;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Panel panel2;
+        public CustomButton btnReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentDate;
@@ -337,10 +347,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.Panel pnl2;
-        public CustomButton btnReturn;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblSearch;
     }
 }

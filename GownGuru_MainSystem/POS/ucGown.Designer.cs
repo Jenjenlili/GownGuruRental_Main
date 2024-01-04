@@ -32,8 +32,8 @@
             this.btnDetails = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.Label();
             this.txtPic = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtPrice = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.txtPic)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,12 +62,12 @@
             this.txtName.AutoSize = true;
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Black;
-            this.txtName.Location = new System.Drawing.Point(48, 6);
+            this.txtName.Location = new System.Drawing.Point(68, 10);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(134, 23);
+            this.txtName.Size = new System.Drawing.Size(16, 23);
             this.txtName.TabIndex = 9;
-            this.txtName.Text = "Gown Name";
+            this.txtName.Text = ".";
             this.txtName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtPic
@@ -84,6 +84,21 @@
             this.txtPic.TabStop = false;
             this.txtPic.Click += new System.EventHandler(this.txtPic_Click);
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrice.AutoSize = true;
+            this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice.ForeColor = System.Drawing.Color.Black;
+            this.txtPrice.Location = new System.Drawing.Point(81, 38);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(18, 27);
+            this.txtPrice.TabIndex = 11;
+            this.txtPrice.Text = ".";
+            this.txtPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.txtPrice);
@@ -93,21 +108,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 83);
             this.panel1.TabIndex = 12;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrice.AutoSize = true;
-            this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.ForeColor = System.Drawing.Color.Black;
-            this.txtPrice.Location = new System.Drawing.Point(87, 28);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(57, 27);
-            this.txtPrice.TabIndex = 11;
-            this.txtPrice.Text = "0.00";
-            this.txtPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // ucGown
             // 
@@ -133,7 +134,7 @@
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.PictureBox txtPic;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label txtPrice;
+        private System.Windows.Forms.Panel panel1;
     }
 }

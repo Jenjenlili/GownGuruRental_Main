@@ -58,5 +58,28 @@ namespace GownGuru_MainSystem.POS
         {
             this.BackColor = Color.Gainsboro;
         }
+
+        private void CenterLabels()
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is Label)
+                {
+                    Label label = (Label)control;
+                    label.Left = (ClientSize.Width - label.Width) / 2;
+                    label.Top = (ClientSize.Height - label.Height) / 2;
+                }
+            }
+        }
+
+        private void ucGown_Resize(object sender, EventArgs e)
+        {
+            //enterLabels();
+        }
+
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+            CenterLabels();
+        }
     }
 }

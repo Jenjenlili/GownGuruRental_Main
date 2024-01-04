@@ -88,7 +88,7 @@ namespace GownGuru_MainSystem
 
         private void searchBox_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbCategory.Text))
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
             {
                 lblSearch.Visible = true;
             }
@@ -106,7 +106,7 @@ namespace GownGuru_MainSystem
         }
         private void LoadGown()
         {
-            cm = new SqlCommand("SELECT * FROM tblGown", con);
+            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO'", con);
             con.Open();
             dr = cm.ExecuteReader();
 
@@ -166,7 +166,7 @@ namespace GownGuru_MainSystem
         private void GetTotal()
         {
             double tot = 0;
-            txtTotal.Text = "0.00";
+            txtTotal.Text = "00";
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 tot += double.Parse(row.Cells["dgvAmount"].Value.ToString());
@@ -193,9 +193,9 @@ namespace GownGuru_MainSystem
         private void Clear()
         {
             dataGridView.Rows.Clear();
-            txtTotal.Text = "0.00";
-            txtChange.Text = "0.00";
-            txtRec.Text = "0.00";
+            txtTotal.Text = "00";
+            txtChange.Text = "00";
+            txtRec.Text = "00";
             cbCategory.SelectedIndex = -1;
             txtCustSearch.Clear();
             txtCid.Clear();
@@ -212,6 +212,9 @@ namespace GownGuru_MainSystem
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            lblCategory.Visible = true;
+            lblStatus.Visible = true;
+            lblSearch.Visible = true;   
             Clear();
         }
 
@@ -257,7 +260,7 @@ namespace GownGuru_MainSystem
         private void FilterGownsByCategory(string selectedCategory)
         {
             flowLayoutPanel1.Controls.Clear();
-            string query = "SELECT * FROM tblGown WHERE category = @category";
+            string query = "SELECT * FROM tblGown WHERE category = @category AND archived = 'NO'";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
@@ -268,7 +271,7 @@ namespace GownGuru_MainSystem
                     while (reader.Read())
                     {
                         byte[] ImageArray = (byte[])reader["gownPic"];
-                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["price"].ToString());
+                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString());
                     }
                 }
                 con.Close();
@@ -411,7 +414,7 @@ namespace GownGuru_MainSystem
                     while (reader.Read())
                     {
                         byte[] ImageArray = (byte[])reader["gownPic"];
-                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["price"].ToString());
+                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString());
                     }
                 }
                 con.Close();
@@ -422,5 +425,7 @@ namespace GownGuru_MainSystem
         {
             txtRec.Text = "";
         }
+
+
     }
 }

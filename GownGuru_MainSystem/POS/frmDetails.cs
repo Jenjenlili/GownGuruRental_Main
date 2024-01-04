@@ -102,7 +102,7 @@ namespace GownGuru_MainSystem.POS
                 if (dr.Read())
                 {
                     lblName.Text = dr["gownName"].ToString();
-                    lblPrice.Text = dr["price"].ToString();
+                    lblPrice.Text = dr["gownPrice"].ToString();
                     lblDesc.Text = dr["description"].ToString();
                     lblSize.Text = dr["size"].ToString();
                     lblColor.Text = dr["color"].ToString();

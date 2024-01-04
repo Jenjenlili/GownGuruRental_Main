@@ -21,12 +21,12 @@ namespace GownGuru_MainSystem.GOWN
         public frmRented()
         {
             InitializeComponent();
-            SetDoubleBuffer(pnl1,true); SetDoubleBuffer(pnl2,true);
+            SetDoubleBuffer(pnl1,true); SetDoubleBuffer(panel2,true);
             SetDoubleBuffer(btnReturn,true);
             SetDoubleBuffer(dgvRented,true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            //LoadRented();
+            LoadRented();
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -64,14 +64,9 @@ namespace GownGuru_MainSystem.GOWN
                 lblSearch.Visible = true;
             }
         }
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            frmReturnGown formModule = new frmReturnGown();
-            formModule.ShowDialog();
-        }
 
         //AAYUSIN PAAAAAA
-       /* public void LoadRented()
+        public void LoadRented()
         {
             int i = 0;
             dgvRented.Rows.Clear();
@@ -89,10 +84,11 @@ namespace GownGuru_MainSystem.GOWN
             }
             dr.Close();
             con.Close();
-        }*/
+        }
 
         private void dgvRented_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            LoadRented();
             /*string colName = dgvRented.Columns[e.ColumnIndex].Name;
             if (colName == "Delete")
             {
@@ -106,6 +102,12 @@ namespace GownGuru_MainSystem.GOWN
                 }
                 LoadRented();
             }*/
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            frmReturnGown formModule = new frmReturnGown();
+            formModule.ShowDialog();
         }
     }
 }

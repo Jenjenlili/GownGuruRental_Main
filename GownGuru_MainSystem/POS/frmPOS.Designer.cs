@@ -131,7 +131,6 @@
             // 
             // cbStat
             // 
-            this.cbStat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStat.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStat.FormattingEnabled = true;
             this.cbStat.Location = new System.Drawing.Point(222, 13);
@@ -144,7 +143,6 @@
             // 
             // cbCategory
             // 
-            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(12, 13);
@@ -489,7 +487,6 @@
             this.cbStatus.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Available",
             "In-Possession"});
             this.cbStatus.Location = new System.Drawing.Point(499, 511);
             this.cbStatus.Name = "cbStatus";
