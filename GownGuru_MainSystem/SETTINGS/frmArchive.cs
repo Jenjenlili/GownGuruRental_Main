@@ -53,7 +53,7 @@ namespace GownGuru_MainSystem.SETTINGS
         {
             int i = 0;
             dgvGownArchive.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'YES' AND CONCAT(gownID,gownName,description,size,color,condition,price,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
+            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'YES' AND CONCAT(gownID,gownName,description,size,color,condition,gownPrice,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())

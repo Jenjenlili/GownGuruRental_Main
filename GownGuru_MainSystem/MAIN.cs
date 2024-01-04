@@ -1,5 +1,6 @@
 ﻿using GownGuru_MainSystem.LOGIN;
 using GownGuru_MainSystem.GOWN;
+using GownGuru_MainSystem.POS;
 using GownGuru_MainSystem.SETTINGS;
 using System;
 using System.Collections.Generic;

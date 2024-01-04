@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GownGuru_MainSystem.Customized;
+using GownGuru_MainSystem.POS;
 
 namespace GownGuru_MainSystem
 {

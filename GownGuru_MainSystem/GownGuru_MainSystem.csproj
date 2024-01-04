@@ -268,10 +268,16 @@
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPOS.cs">
+    <Compile Include="POS\frmDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPOS.Designer.cs">
+    <Compile Include="POS\frmDetails.Designer.cs">
+      <DependentUpon>frmDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\frmPOS.Designer.cs">
       <DependentUpon>frmPOS.cs</DependentUpon>
     </Compile>
     <Compile Include="GOWN\frmGownAdd.cs">
@@ -315,6 +321,12 @@
     </Compile>
     <Compile Include="MAIN.Designer.cs">
       <DependentUpon>MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POS\ucGown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POS\ucGown.Designer.cs">
+      <DependentUpon>ucGown.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -380,7 +392,10 @@
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPOS.resx">
+    <EmbeddedResource Include="POS\frmDetails.resx">
+      <DependentUpon>frmDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GOWN\frmGownAdd.resx">
@@ -403,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\ucGown.resx">
+      <DependentUpon>ucGown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
