@@ -331,6 +331,17 @@ namespace GownGuru_MainSystem
                         cm.Parameters.AddWithValue("@gownStatus", "In-possession"); // Change to the status you need
                         cm.Parameters.AddWithValue("@gownID", gownId);
                         cm.ExecuteNonQuery();
+
+                        // Log activity in tblActivityLog
+                        string activity = "Rented a gown for the customer";
+                        SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                        logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                        logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                        logCommand.Parameters.AddWithValue("@activity", activity);
+
+                        con.Open();
+                        logCommand.ExecuteNonQuery();
+                        con.Close();
                     }
 
                     con.Close();
