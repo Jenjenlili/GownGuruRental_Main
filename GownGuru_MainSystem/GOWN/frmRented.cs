@@ -65,7 +65,7 @@ namespace GownGuru_MainSystem.GOWN
             }
         }
 
-        //AAYUSIN PAAAAAA
+        
         public void LoadRented()
         {
             int i = 0;

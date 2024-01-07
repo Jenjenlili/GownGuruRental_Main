@@ -108,6 +108,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 83);
             this.panel1.TabIndex = 12;
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // ucGown
@@ -120,8 +122,6 @@
             this.Controls.Add(this.txtPic);
             this.Name = "ucGown";
             this.Size = new System.Drawing.Size(230, 358);
-            this.MouseEnter += new System.EventHandler(this.ucGown_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.ucGown_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.txtPic)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

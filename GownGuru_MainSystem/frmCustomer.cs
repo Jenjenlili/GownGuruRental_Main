@@ -123,5 +123,10 @@ namespace GownGuru_MainSystem
                 lblSearch.Visible = true;
             }
         }
+
+        private void frmCustomer_Load(object sender, EventArgs e)
+        {
+            LoadCustomer();
+        }
     }
 }

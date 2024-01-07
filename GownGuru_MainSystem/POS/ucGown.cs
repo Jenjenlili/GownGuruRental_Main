@@ -49,12 +49,12 @@ namespace GownGuru_MainSystem.POS
             details.ShowDialog();
         }
 
-        private void ucGown_MouseEnter(object sender, EventArgs e)
+        private void panel1_MouseEnter(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(250, 242, 212);
         }
 
-        private void ucGown_MouseLeave(object sender, EventArgs e)
+        private void panel1_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.Gainsboro;
         }
@@ -71,15 +71,10 @@ namespace GownGuru_MainSystem.POS
                 }
             }
         }
-
-        private void ucGown_Resize(object sender, EventArgs e)
-        {
-            //enterLabels();
-        }
-
         private void panel1_Resize(object sender, EventArgs e)
         {
             CenterLabels();
         }
+
     }
 }

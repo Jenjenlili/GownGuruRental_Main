@@ -77,7 +77,7 @@ namespace GownGuru_MainSystem
             {
                 if (MessageBox.Show("Are you sure you want to update this customer?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tblCustomer SET customerName = @customerName, gender = @gender, email = @email, customerPhone = @customerPhone, customerAddress = @customerAddress WHERE customerID LIKE '" + lblCustId.Text + "' ", con);
+                    cm = new SqlCommand("UPDATE tblCustomer SET customerName = @customerName, gender = @gender, email = @email, customerPhone = @customerPhone, customerAddress = @customerAddress WHERE customerId LIKE '" + lblCustId.Text + "' ", con);
                     cm.Parameters.AddWithValue("@customerName", txtCustName.Text);
                     cm.Parameters.AddWithValue("@gender", cbGender.Text);
                     cm.Parameters.AddWithValue("@email", txtEmail.Text);

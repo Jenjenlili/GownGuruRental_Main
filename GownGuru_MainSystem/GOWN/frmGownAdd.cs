@@ -129,13 +129,13 @@ namespace GownGuru_MainSystem.GOWN
             {
                 if (MessageBox.Show("Are you sure you want to save this gown??", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("INSERT INTO tblGown(gownName,description,size,color,condition,price,dateAdded,category,gownStatus,gownPic)VALUES(@gownName,@description,@size,@color,@condition,@price,@dateAdded,@category,@gownStatus,@gownPic)", con);
+                    cm = new SqlCommand("INSERT INTO tblGown(gownName,description,size,color,condition,gownPrice,dateAdded,category,gownStatus,gownPic)VALUES(@gownName,@description,@size,@color,@condition,@gownPrice,@dateAdded,@category,@gownStatus,@gownPic)", con);
                     cm.Parameters.AddWithValue("@gownName", txtName.Text);
                     cm.Parameters.AddWithValue("@description", txtDesc.Text);
                     cm.Parameters.AddWithValue("@size", cbSize.Text);
                     cm.Parameters.AddWithValue("@color", txtColor.Text);
                     cm.Parameters.AddWithValue("@condition", cbCondition.Text);
-                    cm.Parameters.AddWithValue("@price", double.Parse(txtRprice.Text));
+                    cm.Parameters.AddWithValue("@gownPrice", double.Parse(txtRprice.Text));
                     cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
@@ -166,13 +166,13 @@ namespace GownGuru_MainSystem.GOWN
             {
                 if (MessageBox.Show("Are you sure you want to update this gown?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tblGown SET gownName = @gownName, description = @description, size = @size, color = @color, condition = @condition, price = @price, dateAdded = @dateAdded, category = @category, gownStatus = @gownStatus, gownPic = @gownPic WHERE gownID LIKE '" + lblGownID.Text + "' ", con);
+                    cm = new SqlCommand("UPDATE tblGown SET gownName = @gownName, description = @description, size = @size, color = @color, condition = @condition, gownPrice = @gownPrice, dateAdded = @dateAdded, category = @category, gownStatus = @gownStatus, gownPic = @gownPic WHERE gownID LIKE '" + lblGownID.Text + "' ", con);
                     cm.Parameters.AddWithValue("@gownName", txtName.Text);
                     cm.Parameters.AddWithValue("@description", txtDesc.Text);
                     cm.Parameters.AddWithValue("@size", cbSize.Text);
                     cm.Parameters.AddWithValue("@color", txtColor.Text);
                     cm.Parameters.AddWithValue("@condition", cbCondition.Text);
-                    cm.Parameters.AddWithValue("@price", double.Parse(txtRprice.Text));
+                    cm.Parameters.AddWithValue("@gownPrice", double.Parse(txtRprice.Text));
                     cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);

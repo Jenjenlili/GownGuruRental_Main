@@ -28,6 +28,8 @@ namespace GownGuru_MainSystem
             lblCategory.Visible = true;
             lblStatus.Visible = true;
             lblSearch.Visible = true;
+
+            
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -180,8 +182,7 @@ namespace GownGuru_MainSystem
                 e.Value = e.RowIndex + 1; // Display row numbers starting from 1 instead of 0
             }
         }
-
-        private void txtRec_TextChanged(object sender, EventArgs e)
+        private void txtRec_TextChanged_1(object sender, EventArgs e)
         {
             double amt = 0;
             double rec = 0;
@@ -190,6 +191,7 @@ namespace GownGuru_MainSystem
             double change = rec - amt;
             txtChange.Text = Math.Abs(change).ToString("N0");
         }
+
         private void Clear()
         {
             dataGridView.Rows.Clear();
@@ -310,8 +312,8 @@ namespace GownGuru_MainSystem
                         string status = cbStatus.Text;
 
                         // Inserting into tblRent
-                        cm = new SqlCommand("INSERT INTO tblRent (rentDate, returnDate, gownID, customerID, qty, price, total, recieve, change, status) " +
-                                            "VALUES (@rentDate, @returnDate, @gownID, @customerID, @qty, @price, @total, @recieve, @change, @status)", con);
+                        cm = new SqlCommand("INSERT INTO tblRent (rentDate, returnDate, gownID, customerID, qty, price, total, receive, change, status) " +
+                                            "VALUES (@rentDate, @returnDate, @gownID, @customerID, @qty, @price, @total, @receive, @change, @status)", con);
                         cm.Parameters.AddWithValue("@rentDate", dtRent.Value);
                         cm.Parameters.AddWithValue("@returnDate", dtReturn.Value);
                         cm.Parameters.AddWithValue("@gownID", gownId);
@@ -319,7 +321,7 @@ namespace GownGuru_MainSystem
                         cm.Parameters.AddWithValue("@qty", qty);
                         cm.Parameters.AddWithValue("@price", price);
                         cm.Parameters.AddWithValue("@total", total);
-                        cm.Parameters.AddWithValue("@recieve", received);
+                        cm.Parameters.AddWithValue("@receive", received);
                         cm.Parameters.AddWithValue("@change", change);
                         cm.Parameters.AddWithValue("@status", status);
                         cm.ExecuteNonQuery();
@@ -423,7 +425,7 @@ namespace GownGuru_MainSystem
 
         private void txtRec_Click(object sender, EventArgs e)
         {
-            txtRec.Text = "";
+            //txtRec.Text = "";
         }
 
 
