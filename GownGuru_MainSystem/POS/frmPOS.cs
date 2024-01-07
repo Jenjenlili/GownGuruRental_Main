@@ -425,7 +425,7 @@ namespace GownGuru_MainSystem
 
         private void txtRec_Click(object sender, EventArgs e)
         {
-            //txtRec.Text = "";
+            txtRec.Text = "";
         }
 
 

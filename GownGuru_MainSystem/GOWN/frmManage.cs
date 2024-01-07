@@ -77,7 +77,6 @@ namespace GownGuru_MainSystem.GOWN
 
                 // Add data to the DataGridView, including the image in the 11th cell
                 dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), img);
-
             }
             dr.Close();
             con.Close();
@@ -137,6 +136,17 @@ namespace GownGuru_MainSystem.GOWN
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully deleted!");
+
+                    // Log activity in tblActivityLog
+                    string activity = "Removed/Archived a gown";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
+                    con.Close();
                 }
             }
             LoadGown();

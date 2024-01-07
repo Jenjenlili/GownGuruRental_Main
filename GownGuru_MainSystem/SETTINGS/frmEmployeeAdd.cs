@@ -103,6 +103,17 @@ namespace GownGuru_MainSystem.SETTINGS
                     MessageBox.Show("User has been successfully saved!");
                     Clear();
 
+                    // Log activity in tblActivityLog
+                    string activity = "Added an employee";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
+                    con.Close();
+
                 }
             }
             catch (Exception ex)
@@ -135,6 +146,16 @@ namespace GownGuru_MainSystem.SETTINGS
                     MessageBox.Show("User has been successfully updated!");
                     this.Dispose();
 
+                    // Log activity in tblActivityLog
+                    string activity = "Updated an employee details";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
+                    con.Close();
                 }
             }
             catch (Exception ex)

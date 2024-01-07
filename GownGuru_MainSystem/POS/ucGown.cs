@@ -16,6 +16,7 @@ namespace GownGuru_MainSystem.POS
         public ucGown()
         {
             InitializeComponent();
+            this.Resize += panel1_Resize;
         }
         //properties of usercontrol
         public int id { get; set; }
@@ -58,6 +59,25 @@ namespace GownGuru_MainSystem.POS
         {
             this.BackColor = Color.Gainsboro;
         }
+        private void txtName_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(250, 242, 212);
+        }
+
+        private void txtName_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gainsboro;
+        }
+
+        private void txtPrice_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(250, 242, 212);
+        }
+
+        private void txtPrice_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gainsboro;
+        }
 
         private void CenterLabels()
         {
@@ -76,5 +96,6 @@ namespace GownGuru_MainSystem.POS
             CenterLabels();
         }
 
+        
     }
 }

@@ -145,10 +145,22 @@ namespace GownGuru_MainSystem.GOWN
                     temp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                     Byte[] BtyArray = ms.ToArray();
                     cm.Parameters.AddWithValue("@gownPic", BtyArray);
-
+                    
                     con.Open();
                     cm.ExecuteNonQuery();
                     con.Close();
+
+                    // Log activity in tblActivityLog
+                    string activity = "Added new gown";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
+                    con.Close();
+
                     MessageBox.Show("Gown has been successfully saved!");
                     Clear();
 
@@ -176,7 +188,7 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
-                    
+
                     if (txtPic.Image != null)
                     {
                         using (MemoryStream ms = new MemoryStream())
@@ -188,11 +200,35 @@ namespace GownGuru_MainSystem.GOWN
                     }
                     else
                     {
-                        cm.Parameters.AddWithValue("@gownPic", DBNull.Value);
-                    }
+                        // Check if an update is intended for the picture field; if not, keep the existing picture data
+                        SqlCommand checkPicCommand = new SqlCommand("SELECT gownPic FROM tblGown WHERE gownID = @gownID", con);
+                        checkPicCommand.Parameters.AddWithValue("@gownID", lblGownID.Text);
+                        con.Open();
+                        var existingPicture = checkPicCommand.ExecuteScalar();
+                        con.Close();
 
+                        if (existingPicture != DBNull.Value)
+                        {
+                            cm.Parameters.AddWithValue("@gownPic", existingPicture);
+                        }
+                        else
+                        {
+                            cm.Parameters.AddWithValue("@gownPic", DBNull.Value);
+                        }
+                    }
                     con.Open();
                     cm.ExecuteNonQuery();
+                    con.Close();
+
+                    // Log activity in tblActivityLog
+                    string activity = "Edited existing gown";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Gown has been successfully updated!");
                     this.Dispose();

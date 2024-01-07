@@ -44,12 +44,10 @@
             this.lblColor = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gpic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -228,18 +226,6 @@
             this.lblDesc.Size = new System.Drawing.Size(0, 23);
             this.lblDesc.TabIndex = 39;
             // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClose.Image = global::GownGuru_MainSystem.Properties.Resources.icons8_x_15;
-            this.pictureBoxClose.Location = new System.Drawing.Point(825, 20);
-            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(19, 21);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxClose.TabIndex = 13;
-            this.pictureBoxClose.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -256,14 +242,13 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pictureBoxClose);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(813, 51);
+            this.panel2.Size = new System.Drawing.Size(943, 51);
             this.panel2.TabIndex = 78;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
@@ -273,7 +258,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::GownGuru_MainSystem.Properties.Resources.icons8_x_15;
-            this.pictureBox1.Location = new System.Drawing.Point(771, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(901, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(19, 21);
@@ -289,7 +274,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(813, 538);
+            this.ClientSize = new System.Drawing.Size(943, 558);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblStatus);
@@ -313,7 +298,6 @@
             this.Text = "frmDetails";
             this.Load += new System.EventHandler(this.frmDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gpic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -339,7 +323,6 @@
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.Label lblSize;
         private System.Windows.Forms.Label lblDesc;
-        private System.Windows.Forms.PictureBox pictureBoxClose;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;

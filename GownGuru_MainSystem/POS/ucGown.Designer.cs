@@ -62,13 +62,15 @@
             this.txtName.AutoSize = true;
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Black;
-            this.txtName.Location = new System.Drawing.Point(68, 10);
+            this.txtName.Location = new System.Drawing.Point(22, 16);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(16, 23);
             this.txtName.TabIndex = 9;
             this.txtName.Text = ".";
             this.txtName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtName.MouseEnter += new System.EventHandler(this.txtName_MouseEnter);
+            this.txtName.MouseLeave += new System.EventHandler(this.txtName_MouseLeave);
             // 
             // txtPic
             // 
@@ -91,13 +93,15 @@
             this.txtPrice.AutoSize = true;
             this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.ForeColor = System.Drawing.Color.Black;
-            this.txtPrice.Location = new System.Drawing.Point(81, 38);
+            this.txtPrice.Location = new System.Drawing.Point(81, 42);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(18, 27);
             this.txtPrice.TabIndex = 11;
             this.txtPrice.Text = ".";
             this.txtPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtPrice.MouseEnter += new System.EventHandler(this.txtPrice_MouseEnter);
+            this.txtPrice.MouseLeave += new System.EventHandler(this.txtPrice_MouseLeave);
             // 
             // panel1
             // 

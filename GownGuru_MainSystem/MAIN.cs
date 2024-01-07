@@ -115,7 +115,7 @@ namespace GownGuru_MainSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Exit?\nOnce exit it will automatically logged out.", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to Exit?\nOnce exit, it will automatically logged out.", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

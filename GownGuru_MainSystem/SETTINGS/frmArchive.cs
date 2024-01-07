@@ -78,6 +78,17 @@ namespace GownGuru_MainSystem.SETTINGS
                     cm.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record has been successfully restored!");
+
+                    // Log activity in tblActivityLog
+                    string activity = "Restored the gown data";
+                    SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                    logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
+                    logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
+                    logCommand.Parameters.AddWithValue("@activity", activity);
+
+                    con.Open();
+                    logCommand.ExecuteNonQuery();
+                    con.Close();
                 }
                 
             }
