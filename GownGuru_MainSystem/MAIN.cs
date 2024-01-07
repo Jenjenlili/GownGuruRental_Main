@@ -14,11 +14,15 @@ using System.Threading.Tasks;
 using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace GownGuru_MainSystem
 {
     public partial class MAIN : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
+        SqlCommand cm = new SqlCommand();
+        SqlDataReader dr;
         public MAIN()
         {
             InitializeComponent();
@@ -65,23 +69,89 @@ namespace GownGuru_MainSystem
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
-
         private void logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to Logout?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                this.Hide();
-                frmLogin login = new frmLogin();
-                login.Show();
+                try
+                {
+                    // Retrieve the currently logged-in username & role from the session manager
+                    string username = SessionManager.Get("Username") as string;
+                    string role = SessionManager.Get("Role") as string;
 
+                    if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(role))
+                    {
+                        // Log the "Logged out" activity
+                        string activity = "Logged out"; // Or any other activity description
+
+                        // Log the logout activity into the tblActivityLog table
+                        cm = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                        cm.Parameters.AddWithValue("@username", username);
+                        cm.Parameters.AddWithValue("@role", role);
+                        cm.Parameters.AddWithValue("@activity", activity);
+
+                        con.Open();
+                        cm.ExecuteNonQuery();
+                        con.Close();
+
+                        // Perform the logout action
+                        this.Hide();
+                        frmLogin login = new frmLogin();
+                        login.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to retrieve necessary session data. Logout failed.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Are you sure you want to Exit?\nOnce exit it will automatically logged out.", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Retrieve the currently logged-in username & role from the session manager
+                    string username = SessionManager.Get("Username") as string;
+                    string role = SessionManager.Get("Role") as string;
+
+                    if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(role))
+                    {
+                        // Log the "Logged out" activity
+                        string activity = "Logged out"; // Or any other activity description
+
+                        // Log the logout activity into the tblActivityLog table
+                        cm = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                        cm.Parameters.AddWithValue("@username", username);
+                        cm.Parameters.AddWithValue("@role", role);
+                        cm.Parameters.AddWithValue("@activity", activity);
+
+                        con.Open();
+                        cm.ExecuteNonQuery();
+                        con.Close();
+
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to retrieve necessary session data. Logout failed.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
         private void btnMax_Click_1(object sender, EventArgs e)
@@ -229,8 +299,8 @@ namespace GownGuru_MainSystem
             btnArchive.ForeColor = Color.Black;
             btnArchive.BackColor = Color.FromArgb(233, 201, 75);
 
-            btnTransactionLog.ForeColor = Color.Black;
-            btnTransactionLog.BackColor = Color.FromArgb(233, 201, 75);
+            btnActivityLog.ForeColor = Color.Black;
+            btnActivityLog.BackColor = Color.FromArgb(233, 201, 75);
 
         }
 
@@ -394,15 +464,15 @@ namespace GownGuru_MainSystem
             btnArchive.ForeColor = Color.White;
             btnArchive.BackColor = Color.FromArgb(36, 36, 36);
         }
-
-        private void btnTransactionLog_Click(object sender, EventArgs e)
+        private void btnActivityLog_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmTransacLog());
+            openChildForm(new frmActivityLog());
 
-            ResetButtonAppearance(btnTransactionLog);
-            btnTransactionLog.ForeColor = Color.White;
-            btnTransactionLog.BackColor = Color.FromArgb(36, 36, 36);
+            ResetButtonAppearance(btnActivityLog);
+            btnActivityLog.ForeColor = Color.White;
+            btnActivityLog.BackColor = Color.FromArgb(36, 36, 36);
         }
+        
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -487,6 +557,7 @@ namespace GownGuru_MainSystem
         {
             SetDoubleBuffer(CenterPanel, true);
         }
+
 
     }
 }

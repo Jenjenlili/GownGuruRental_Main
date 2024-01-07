@@ -38,7 +38,7 @@
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.Panel();
             this.pnlSettings = new System.Windows.Forms.Panel();
-            this.btnTransactionLog = new GownGuru_MainSystem.CustomButton();
+            this.btnActivityLog = new GownGuru_MainSystem.CustomButton();
             this.btnCategory = new GownGuru_MainSystem.CustomButton();
             this.btnEmployee = new GownGuru_MainSystem.CustomButton();
             this.btnArchive = new GownGuru_MainSystem.CustomButton();
@@ -187,7 +187,7 @@
             // 
             // pnlSettings
             // 
-            this.pnlSettings.Controls.Add(this.btnTransactionLog);
+            this.pnlSettings.Controls.Add(this.btnActivityLog);
             this.pnlSettings.Controls.Add(this.btnCategory);
             this.pnlSettings.Controls.Add(this.btnEmployee);
             this.pnlSettings.Controls.Add(this.btnArchive);
@@ -200,30 +200,30 @@
             this.pnlSettings.Size = new System.Drawing.Size(307, 260);
             this.pnlSettings.TabIndex = 10;
             // 
-            // btnTransactionLog
+            // btnActivityLog
             // 
-            this.btnTransactionLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(201)))), ((int)(((byte)(75)))));
-            this.btnTransactionLog.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(201)))), ((int)(((byte)(75)))));
-            this.btnTransactionLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTransactionLog.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnTransactionLog.BorderRadius = 10;
-            this.btnTransactionLog.BorderSize = 0;
-            this.btnTransactionLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransactionLog.FlatAppearance.BorderSize = 0;
-            this.btnTransactionLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransactionLog.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransactionLog.ForeColor = System.Drawing.Color.Black;
-            this.btnTransactionLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransactionLog.Location = new System.Drawing.Point(3, 202);
-            this.btnTransactionLog.Name = "btnTransactionLog";
-            this.btnTransactionLog.Size = new System.Drawing.Size(319, 50);
-            this.btnTransactionLog.TabIndex = 8;
-            this.btnTransactionLog.Text = "           Transaction Log";
-            this.btnTransactionLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransactionLog.TextColor = System.Drawing.Color.Black;
-            this.btnTransactionLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnTransactionLog.UseVisualStyleBackColor = false;
-            this.btnTransactionLog.Click += new System.EventHandler(this.btnTransactionLog_Click);
+            this.btnActivityLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(201)))), ((int)(((byte)(75)))));
+            this.btnActivityLog.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(201)))), ((int)(((byte)(75)))));
+            this.btnActivityLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnActivityLog.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnActivityLog.BorderRadius = 10;
+            this.btnActivityLog.BorderSize = 0;
+            this.btnActivityLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActivityLog.FlatAppearance.BorderSize = 0;
+            this.btnActivityLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivityLog.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivityLog.ForeColor = System.Drawing.Color.Black;
+            this.btnActivityLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivityLog.Location = new System.Drawing.Point(3, 202);
+            this.btnActivityLog.Name = "btnActivityLog";
+            this.btnActivityLog.Size = new System.Drawing.Size(319, 50);
+            this.btnActivityLog.TabIndex = 8;
+            this.btnActivityLog.Text = "           Activity Log";
+            this.btnActivityLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivityLog.TextColor = System.Drawing.Color.Black;
+            this.btnActivityLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnActivityLog.UseVisualStyleBackColor = false;
+            this.btnActivityLog.Click += new System.EventHandler(this.btnActivityLog_Click);
             // 
             // btnCategory
             // 
@@ -668,7 +668,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox logout;
         private System.Windows.Forms.Panel pnlSettings;
-        private CustomButton btnTransactionLog;
+        private CustomButton btnActivityLog;
         private CustomButton btnArchive;
         private CustomButton btnFormerEmp;
         private CustomButton btnEmployee;

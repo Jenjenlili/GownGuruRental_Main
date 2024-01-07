@@ -332,6 +332,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SessionManager.cs" />
     <Compile Include="SETTINGS\frmArchive.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,11 +369,11 @@
     <Compile Include="SETTINGS\frmFormerEmp.Designer.cs">
       <DependentUpon>frmFormerEmp.cs</DependentUpon>
     </Compile>
-    <Compile Include="SETTINGS\frmTransacLog.cs">
+    <Compile Include="SETTINGS\frmActivityLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SETTINGS\frmTransacLog.Designer.cs">
-      <DependentUpon>frmTransacLog.cs</DependentUpon>
+    <Compile Include="SETTINGS\frmActivityLog.Designer.cs">
+      <DependentUpon>frmActivityLog.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Customized\CustomForm.resx">
       <DependentUpon>CustomForm.cs</DependentUpon>
@@ -442,8 +443,8 @@
     <EmbeddedResource Include="SETTINGS\frmFormerEmp.resx">
       <DependentUpon>frmFormerEmp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SETTINGS\frmTransacLog.resx">
-      <DependentUpon>frmTransacLog.cs</DependentUpon>
+    <EmbeddedResource Include="SETTINGS\frmActivityLog.resx">
+      <DependentUpon>frmActivityLog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -536,6 +537,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GownGuruDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\BG.png" />
     <None Include="Resources\search-whitebg.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\icons8-restore-25 %281%29.png" />

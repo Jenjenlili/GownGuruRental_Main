@@ -73,6 +73,16 @@ namespace GownGuru_MainSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BG {
+            get {
+                object obj = ResourceManager.GetObject("BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_button_RED23 {
             get {
                 object obj = ResourceManager.GetObject("delete-button-RED23", resourceCulture);

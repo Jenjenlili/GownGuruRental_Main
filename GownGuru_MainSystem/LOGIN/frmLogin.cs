@@ -5,11 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GownGuru_MainSystem.MAIN;
 
 namespace GownGuru_MainSystem.LOGIN
 {
@@ -22,6 +24,7 @@ namespace GownGuru_MainSystem.LOGIN
         {
             InitializeComponent();
             SetDoubleBuffer(panel, true);
+            SetDoubleBuffer(pnlInactive, true);
             SetDoubleBuffer(pnlBG, true);
             SetDoubleBuffer(txtUsername, true);
             SetDoubleBuffer(txtPassword, true);
@@ -144,50 +147,85 @@ namespace GownGuru_MainSystem.LOGIN
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             pnlInvalidUsr.Visible = false;
+            pnlInactive.Visible = false;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             pnlInvalidPass.Visible = false;
+            pnlInactive.Visible = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE empStatus = 'Active' AND username = @username and password = @password", con);
+                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username = @username AND password = @password", con);
                 cm.Parameters.AddWithValue("@username", txtUsername.Text);
                 cm.Parameters.AddWithValue("@password", txtPassword.Text);
 
                 con.Open();
                 dr = cm.ExecuteReader();
-                if (dr.Read() == true)
-                {
-                    // Display the retrieved values for debugging purposes
-                    /*for (int i = 0; i < dr.FieldCount; i++)
-                    {
-                        Console.WriteLine($"{dr.GetName(i)}: {dr.GetValue(i)}");
-                    }*/
 
-                    new MAIN().Show();
-                    this.Hide();
+                if (dr.Read())
+                {
                     pnlInvalidUsr.Visible = false;
                     pnlInvalidPass.Visible = false;
+                    pnlInactive.Visible = false;
+
+                    string username = txtUsername.Text;
+                    string role = dr["role"].ToString();
+                   
+                    string empStatus = dr["empStatus"].ToString(); // Get the status from the database
+
+                    if (empStatus == "Inactive")
+                    {
+                        pnlInactive.Visible = true;
+                    }
+                    else
+                    {
+                        dr.Close();
+                       
+                        string activity = "Logged in";
+
+                        // Store username and role in the session during successful login
+                        SessionManager.Set("Username", username);
+                        SessionManager.Set("Role", role);
+
+                        // Log employee activity
+                        SqlCommand logCommand = new SqlCommand("INSERT INTO tblActivityLog (username, role, timestamp, activity) VALUES (@username, @role, GETDATE(), @activity)", con);
+                        logCommand.Parameters.AddWithValue("@username", username);
+                        logCommand.Parameters.AddWithValue("@role", role);
+                        logCommand.Parameters.AddWithValue("@activity", activity);
+                        logCommand.ExecuteNonQuery();
+
+                        new MAIN().Show();
+                        this.Hide();
+                    }
+
                 }
                 else
                 {
+                    Console.WriteLine("Invalid login attempt.");
                     pnlInvalidUsr.Visible = true;
                     pnlInvalidPass.Visible = true;
-                    txtUsername.Text = "";
-                    txtPassword.Text = "";
+
+                    //txtUsername.Text = "";
+                    //txtPassword.Text = "";
                     txtUsername.Focus();
                     
                 }
+
                 con.Close();
+            }
+            catch (OutOfMemoryException ex)
+            {
+                // Handle the out-of-memory exception here
+                MessageBox.Show("Out of memory: " + ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error " + ex);
+                MessageBox.Show("Error: " + ex.Message);
             }
 
         }

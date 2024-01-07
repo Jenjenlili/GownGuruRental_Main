@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel = new System.Windows.Forms.Panel();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.pnlBG = new System.Windows.Forms.Panel();
+            this.pnlInactive = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -39,19 +43,46 @@
             this.btnLogin = new GownGuru_MainSystem.AnimatedButton();
             this.pnlInvalidPass = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel = new System.Windows.Forms.Panel();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.pnlBG.SuspendLayout();
-            this.pnlInvalidUsr.SuspendLayout();
-            this.pnlInvalidPass.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
+            this.pnlBG.SuspendLayout();
+            this.pnlInactive.SuspendLayout();
+            this.pnlInvalidUsr.SuspendLayout();
+            this.pnlInvalidPass.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel
+            // 
+            this.panel.Controls.Add(this.pictureBoxClose);
+            this.panel.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(466, 39);
+            this.panel.TabIndex = 1;
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
+            this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
+            this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClose.Image = global::GownGuru_MainSystem.Properties.Resources.XWhite;
+            this.pictureBoxClose.Location = new System.Drawing.Point(428, 10);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxClose.TabIndex = 0;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
+            this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
+            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
             // 
             // pnlBG
             // 
             this.pnlBG.BackgroundImage = global::GownGuru_MainSystem.Properties.Resources.login;
             this.pnlBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlBG.Controls.Add(this.pnlInactive);
             this.pnlBG.Controls.Add(this.label3);
             this.pnlBG.Controls.Add(this.label2);
             this.pnlBG.Controls.Add(this.txtPassword);
@@ -64,6 +95,28 @@
             this.pnlBG.Name = "pnlBG";
             this.pnlBG.Size = new System.Drawing.Size(508, 723);
             this.pnlBG.TabIndex = 0;
+            // 
+            // pnlInactive
+            // 
+            this.pnlInactive.BackColor = System.Drawing.Color.Transparent;
+            this.pnlInactive.Controls.Add(this.label4);
+            this.pnlInactive.Location = new System.Drawing.Point(111, 493);
+            this.pnlInactive.Name = "pnlInactive";
+            this.pnlInactive.Size = new System.Drawing.Size(303, 57);
+            this.pnlInactive.TabIndex = 10;
+            this.pnlInactive.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.LightCoral;
+            this.label4.Location = new System.Drawing.Point(16, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(259, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "This account is inactive. \r\nPlease contact the administrator.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -132,21 +185,20 @@
             // 
             this.pnlInvalidUsr.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidUsr.Controls.Add(this.lblInvalidUsr);
-            this.pnlInvalidUsr.Location = new System.Drawing.Point(113, 375);
+            this.pnlInvalidUsr.Location = new System.Drawing.Point(108, 375);
             this.pnlInvalidUsr.Name = "pnlInvalidUsr";
             this.pnlInvalidUsr.Size = new System.Drawing.Size(303, 25);
             this.pnlInvalidUsr.TabIndex = 4;
-            this.pnlInvalidUsr.Visible = false;
             // 
             // lblInvalidUsr
             // 
             this.lblInvalidUsr.AutoSize = true;
             this.lblInvalidUsr.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblInvalidUsr.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvalidUsr.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblInvalidUsr.Location = new System.Drawing.Point(158, 0);
+            this.lblInvalidUsr.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvalidUsr.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblInvalidUsr.Location = new System.Drawing.Point(159, 0);
             this.lblInvalidUsr.Name = "lblInvalidUsr";
-            this.lblInvalidUsr.Size = new System.Drawing.Size(145, 21);
+            this.lblInvalidUsr.Size = new System.Drawing.Size(144, 19);
             this.lblInvalidUsr.TabIndex = 0;
             this.lblInvalidUsr.Text = "Invalid Username";
             // 
@@ -178,50 +230,22 @@
             // 
             this.pnlInvalidPass.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidPass.Controls.Add(this.label1);
-            this.pnlInvalidPass.Location = new System.Drawing.Point(113, 457);
+            this.pnlInvalidPass.Location = new System.Drawing.Point(109, 457);
             this.pnlInvalidPass.Name = "pnlInvalidPass";
             this.pnlInvalidPass.Size = new System.Drawing.Size(303, 25);
             this.pnlInvalidPass.TabIndex = 5;
-            this.pnlInvalidPass.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Firebrick;
-            this.label1.Location = new System.Drawing.Point(164, 0);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightCoral;
+            this.label1.Location = new System.Drawing.Point(166, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 21);
+            this.label1.Size = new System.Drawing.Size(137, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Invalid Password";
-            // 
-            // panel
-            // 
-            this.panel.Controls.Add(this.pictureBoxClose);
-            this.panel.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(466, 39);
-            this.panel.TabIndex = 1;
-            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
-            this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
-            this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClose.Image = global::GownGuru_MainSystem.Properties.Resources.XWhite;
-            this.pictureBoxClose.Location = new System.Drawing.Point(428, 10);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxClose.TabIndex = 0;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
-            this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
-            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
             // 
             // frmLogin
             // 
@@ -236,14 +260,16 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.pnlBG.ResumeLayout(false);
             this.pnlBG.PerformLayout();
+            this.pnlInactive.ResumeLayout(false);
+            this.pnlInactive.PerformLayout();
             this.pnlInvalidUsr.ResumeLayout(false);
             this.pnlInvalidUsr.PerformLayout();
             this.pnlInvalidPass.ResumeLayout(false);
             this.pnlInvalidPass.PerformLayout();
-            this.panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +289,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Panel pnlInactive;
+        private System.Windows.Forms.Label label4;
     }
 }
