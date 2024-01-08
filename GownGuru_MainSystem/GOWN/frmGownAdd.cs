@@ -113,7 +113,7 @@ namespace GownGuru_MainSystem.GOWN
             cbCondition.Text = "";
             txtDesc.Clear();
             cbCategory.Text = "";
-            txtPic.Text = "";
+            txtPic.Text = null;
 
         }
         private void btnClear_Click_1(object sender, EventArgs e)

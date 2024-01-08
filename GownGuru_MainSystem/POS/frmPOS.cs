@@ -203,6 +203,7 @@ namespace GownGuru_MainSystem
             txtCid.Clear();
             txtCname.Clear();
             cbStat.SelectedIndex = -1;
+            cbStatus.SelectedIndex = -1;
             dtRent.Value = DateTime.Now;
             dtReturn.Value = DateTime.Now;
 

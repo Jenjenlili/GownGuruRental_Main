@@ -133,5 +133,10 @@ namespace GownGuru_MainSystem.SETTINGS
                 lblSearch.Visible = true;
             }
         }
+
+        private void frmEmployee_Load(object sender, EventArgs e)
+        {
+            LoadEmployee();
+        }
     }
 }

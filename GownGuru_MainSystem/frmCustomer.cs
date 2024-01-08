@@ -68,7 +68,7 @@ namespace GownGuru_MainSystem
 
         private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadCustomer();
+            
             string colName = dgvCustomer.Columns[e.ColumnIndex].Name;
             if (colName == "edit")
             {
@@ -105,7 +105,7 @@ namespace GownGuru_MainSystem
                     con.Close();
                 }
             }
-            
+            LoadCustomer();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
