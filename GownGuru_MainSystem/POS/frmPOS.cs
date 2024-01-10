@@ -363,10 +363,7 @@ namespace GownGuru_MainSystem
                         logCommand.Parameters.AddWithValue("@username", SessionManager.Get("Username") as string);
                         logCommand.Parameters.AddWithValue("@role", SessionManager.Get("Role") as string);
                         logCommand.Parameters.AddWithValue("@activity", activity);
-
-                        con.Open();
                         logCommand.ExecuteNonQuery();
-                        con.Close();
                     }
 
                     con.Close();

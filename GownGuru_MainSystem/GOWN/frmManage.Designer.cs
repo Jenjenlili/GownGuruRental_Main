@@ -319,7 +319,6 @@
             this.image.Name = "image";
             this.image.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.image.Visible = false;
             // 
             // Edit
             // 

@@ -22,6 +22,7 @@ namespace GownGuru_MainSystem
             InitializeComponent();
             SetDoubleBuffer(dgvTodayTransac, true);
             //SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            LoadTodayRent();
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -149,7 +150,6 @@ namespace GownGuru_MainSystem
                 int availableGownCount = (int)cm.ExecuteScalar();
                 GAvailableTotal.Text = availableGownCount.ToString();
 
-                //BAKA TANGGALIN STATUS
                 // Get count of rented gowns
                 cm = new SqlCommand("SELECT COUNT(*) FROM tblRent WHERE status = 'In-Possession'", con);
                 int rentedcount = (int)cm.ExecuteScalar();
@@ -217,6 +217,11 @@ namespace GownGuru_MainSystem
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            LoadTodayRent();
+        }
+
+        private void dgvTodayTransac_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadTodayRent();
         }

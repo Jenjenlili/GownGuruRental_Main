@@ -73,7 +73,9 @@ namespace GownGuru_MainSystem.GOWN
             cm = new SqlCommand("SELECT rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total, status " +
                                 "FROM tblRent AS R " +
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
-                                "JOIN tblGown AS G ON R.gownID = G.gownID ", con);
+                                "JOIN tblGown AS G ON R.gownID = G.gownID " +
+                                "WHERE CONCAT(rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total) LIKE '%" + searchBox.Text + "%'" +
+                                "AND R.status = 'In-Possession'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -99,6 +101,11 @@ namespace GownGuru_MainSystem.GOWN
         }
 
         private void frmRented_Load(object sender, EventArgs e)
+        {
+            LoadRented();
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
         {
             LoadRented();
         }

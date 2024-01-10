@@ -148,6 +148,7 @@
             this.searchBox.Size = new System.Drawing.Size(302, 32);
             this.searchBox.TabIndex = 4;
             this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
             // 
             // dgvRented

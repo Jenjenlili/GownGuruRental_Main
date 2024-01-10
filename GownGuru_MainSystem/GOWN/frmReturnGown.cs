@@ -138,7 +138,8 @@ namespace GownGuru_MainSystem.GOWN
             cm = new SqlCommand("SELECT rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total " +
                                 "FROM tblRent AS R JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
-                                "WHERE CONCAT(rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total) LIKE '%" + searchBox.Text + "%'", con);
+                                "WHERE CONCAT(rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total) LIKE '%" + searchBox.Text + "%'" +
+                                "AND R.status = 'In-Possession'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -309,7 +310,7 @@ namespace GownGuru_MainSystem.GOWN
                     con.Close();
                     MessageBox.Show("Gown has been successfully returned!");
 
-                    //update status
+                    /*//update status
                     cm = new SqlCommand("UPDATE tblGown SET gownStatus = @gownStatus WHERE gownID LIKE '" + txtGownId.Text + "' ", con);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
                     con.Open();
@@ -320,15 +321,45 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
                     con.Open();
                     cm.ExecuteNonQuery();
-                    con.Close();
+                    con.Close();*/
 
-                    //baka baguhin ko into update ... where status = 'returned' para di permanent mabura sa rent table (kung ang need sa dashboard is total na narent) 
-                    //delete if want lang sa dashboard is ung currently on rent na gown
-                    cm = new SqlCommand("DELETE FROM tblRent WHERE rentID = @rentID", con);
+                    /*cm = new SqlCommand("DELETE FROM tblRent WHERE rentID = @rentID", con);
                     cm.Parameters.AddWithValue("@rentID", txtRentId.Text);
                     con.Open();
                     cm.ExecuteNonQuery();
                     con.Close();
+                    */
+                    // Update status in tblRent
+                    cm = new SqlCommand("UPDATE tblRent SET status = @status WHERE rentID = @rentID", con);
+                    cm.Parameters.AddWithValue("@status", cbStatus.Text);
+                    cm.Parameters.AddWithValue("@rentID", Convert.ToInt16(txtRentId.Text));
+                    con.Open();
+                    cm.ExecuteNonQuery();
+                    con.Close();
+
+                    // Check if the status updated in tblRent is 'Returned'
+                    if (cbStatus.Text == "Returned")
+                    {
+                        // Update gown status in tblGown only when status in tblRent is 'Returned'
+                        cm = new SqlCommand("UPDATE tblGown SET gownStatus = 'Available', [condition] = @condition WHERE gownID = @gownID", con);
+                        cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
+                        cm.Parameters.AddWithValue("@gownID", Convert.ToInt16(txtGownId.Text));
+                        con.Open();
+                        cm.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    //not available if lost status
+                    if (cbStatus.Text == "Lost")
+                    {
+                        // Update gown status in tblGown only when status in tblRent is 'Returned'
+                        cm = new SqlCommand("UPDATE tblGown SET gownStatus = 'Not Available', [condition] = @condition WHERE gownID = @gownID", con);
+                        cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
+                        cm.Parameters.AddWithValue("@gownID", Convert.ToInt16(txtGownId.Text));
+                        con.Open();
+                        cm.ExecuteNonQuery();
+                        con.Close();
+                    }
+
                     Clear();
                     LoadRented();
 
