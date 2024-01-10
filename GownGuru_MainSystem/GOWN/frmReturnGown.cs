@@ -241,13 +241,15 @@ namespace GownGuru_MainSystem.GOWN
             txtFine.Clear();
             txtTotal.Clear();
             txtOverallTotal.Clear();
+            cbConditionAft.SelectedIndex = -1;
+            cbStatus.SelectedIndex = -1;
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
         }
 
-        // to make cells clickable
+        // to make cells clickable --> CellClick
         private void dgvGownOnRent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtRentId.Text = dgvGownOnRent.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -275,6 +277,19 @@ namespace GownGuru_MainSystem.GOWN
                     MessageBox.Show("Please select rented gown!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                // Validate condition after return
+                if (string.IsNullOrWhiteSpace(cbConditionAft.Text))
+                {
+                    MessageBox.Show("Please select the condition after renting!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Validate status
+                if (string.IsNullOrWhiteSpace(cbStatus.Text))
+                {
+                    MessageBox.Show("Please select the status!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (MessageBox.Show("Are you sure you want to return this gown?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -294,12 +309,21 @@ namespace GownGuru_MainSystem.GOWN
                     con.Close();
                     MessageBox.Show("Gown has been successfully returned!");
 
+                    //update status
                     cm = new SqlCommand("UPDATE tblGown SET gownStatus = @gownStatus WHERE gownID LIKE '" + txtGownId.Text + "' ", con);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
                     con.Open();
                     cm.ExecuteNonQuery();
                     con.Close();
+                    //update condition
+                    cm = new SqlCommand("UPDATE tblGown SET condition = @condition WHERE gownID LIKE '" + txtGownId.Text + "' ", con);
+                    cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
+                    con.Open();
+                    cm.ExecuteNonQuery();
+                    con.Close();
 
+                    //baka baguhin ko into update ... where status = 'returned' para di permanent mabura sa rent table (kung ang need sa dashboard is total na narent) 
+                    //delete if want lang sa dashboard is ung currently on rent na gown
                     cm = new SqlCommand("DELETE FROM tblRent WHERE rentID = @rentID", con);
                     cm.Parameters.AddWithValue("@rentID", txtRentId.Text);
                     con.Open();

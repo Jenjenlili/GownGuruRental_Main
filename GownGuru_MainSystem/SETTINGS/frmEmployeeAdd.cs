@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,8 +23,25 @@ namespace GownGuru_MainSystem.SETTINGS
         {
             InitializeComponent();
             SetDoubleBuffer(panel2, true);
+            SetDoubleBuffer(pnlInvalidUsrname, true);
+            SetDoubleBuffer(pnlInvalidFn, true);
+            SetDoubleBuffer(pnlInvalidPass, true);
+            SetDoubleBuffer(pnlPassNotMatch, true);
+            SetDoubleBuffer(pnlInvalidPhoneNo, true);
+            SetDoubleBuffer(pnlInvalidAdd, true);
+            SetDoubleBuffer(pnlInvalidRole, true);
+
+            pnlInvalidUsrname.Visible = false;
+            pnlInvalidFn.Visible = false;
+            pnlInvalidPass.Visible = false;
+            pnlPassNotMatch.Visible = false;
+            pnlInvalidPhoneNo.Visible = false;
+            pnlInvalidAdd.Visible = false;
+            pnlInvalidRole.Visible = false;
+
             // Set the form's region to create rounded corners
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
+
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -78,15 +96,109 @@ namespace GownGuru_MainSystem.SETTINGS
             txtAddress.Clear();
             txtRole.Clear();
         }
+       
+        //validation methods
+        private bool IsValidUsername(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username) || !Regex.IsMatch(username, @"^[a-zA-Z0-9]+$"))
+            {
+                pnlInvalidUsrname.Visible = true;
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsValidField(string field, Panel panel)
+        {
+            if (string.IsNullOrWhiteSpace(field))
+            {
+                panel.Visible = true; // Set panel visibility to true if the field is invalid
+                return false;
+            }
+            else
+            {
+                panel.Visible = false; // Set panel visibility to false if the field is valid
+                return true;
+            }
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password) || !Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"))
+            {
+                pnlInvalidPass.Visible = true;
+                return false;
+            }
+            return true;
+        }
+
+        private bool ArePasswordsMatching(string password, string reenteredPassword)
+        {
+            if (password != reenteredPassword)
+            {
+                pnlPassNotMatch.Visible = true;
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^(63|09)\d{9}$"))
+            {
+                pnlInvalidPhoneNo.Visible = true;
+                return false;
+            }
+            return true;
+        }
+        private void ResetValidationPanels()
+        {
+            pnlInvalidUsrname.Visible = false;
+            pnlInvalidFn.Visible = false;
+            pnlInvalidPass.Visible = false;
+            pnlPassNotMatch.Visible = false;
+            pnlInvalidPhoneNo.Visible = false;
+            pnlInvalidAdd.Visible = false;
+            pnlInvalidRole.Visible = false;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                if (txtPass.Text != txtRePass.Text)
-                {
-                    MessageBox.Show("Password did not match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                bool anyInvalid = false;
+
+                // Reset visibility of all panels
+                ResetValidationPanels();
+
+                // Perform validation for each field individually
+                if (!IsValidUsername(txtUsername.Text))
+                    anyInvalid = true;
+
+                if (!IsValidField(txtFullname.Text, pnlInvalidFn)) // display the panel for blank fullname
+                    anyInvalid = true;
+
+                if (!IsValidPassword(txtPass.Text))
+                    anyInvalid = true;
+
+                if (!ArePasswordsMatching(txtPass.Text, txtRePass.Text))
+                    anyInvalid = true;
+                if (!IsValidField(txtRePass.Text, pnlPassNotMatch)) // display the panel for blank pass
+                    anyInvalid = true;
+
+                if (!IsValidPhoneNumber(txtPhoneNum.Text))
+                    anyInvalid = true;
+
+                if (!IsValidField(txtAddress.Text, pnlInvalidAdd)) // display the panel for blank address
+                    anyInvalid = true;
+
+                if (!IsValidField(txtRole.Text, pnlInvalidRole)) // display the panel for blank role
+                    anyInvalid = true;
+
+                if (anyInvalid)
+                    return; // Stop processing if any validation failed
+
                 if (MessageBox.Show("Are you sure you want to save this user?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -113,8 +225,8 @@ namespace GownGuru_MainSystem.SETTINGS
                     con.Open();
                     logCommand.ExecuteNonQuery();
                     con.Close();
-
                 }
+                
             }
             catch (Exception ex)
             {
@@ -126,11 +238,38 @@ namespace GownGuru_MainSystem.SETTINGS
         {
             try
             {
-                if (txtPass.Text != txtRePass.Text)
-                {
-                    MessageBox.Show("Password did not match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                bool anyInvalid = false;
+
+                // Reset visibility of all panels
+                ResetValidationPanels();
+
+                // Perform validation for each field individually
+                if (!IsValidUsername(txtUsername.Text))
+                    anyInvalid = true;
+
+                if (!IsValidField(txtFullname.Text, pnlInvalidFn)) // display the panel for blank fullname
+                    anyInvalid = true;
+
+                if (!IsValidPassword(txtPass.Text))
+                    anyInvalid = true;
+
+                if (!ArePasswordsMatching(txtPass.Text, txtRePass.Text))
+                    anyInvalid = true;
+                if (!IsValidField(txtRePass.Text, pnlPassNotMatch)) // display the panel for blank pass
+                    anyInvalid = true;
+
+                if (!IsValidPhoneNumber(txtPhoneNum.Text))
+                    anyInvalid = true;
+
+                if (!IsValidField(txtAddress.Text, pnlInvalidAdd)) // display the panel for blank address
+                    anyInvalid = true;
+
+                if (!IsValidField(txtRole.Text, pnlInvalidRole)) // display the panel for blank role
+                    anyInvalid = true;
+
+                if (anyInvalid)
+                    return; // Stop processing if any validation failed
+
                 if (MessageBox.Show("Are you sure you want to update this user?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cm = new SqlCommand("UPDATE tblEmployee SET fullname = @fullname, Password = @Password, empPhone = @empPhone, empAddress = @empAddress, role = @role WHERE username LIKE '" + txtUsername.Text + "' ", con);
@@ -231,6 +370,41 @@ namespace GownGuru_MainSystem.SETTINGS
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
             this.Opacity = 1;
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidUsrname.Visible = false;
+        }
+
+        private void txtFullname_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidFn.Visible = false;
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidPass.Visible = false;
+        }
+
+        private void txtRePass_TextChanged(object sender, EventArgs e)
+        {
+            pnlPassNotMatch.Visible = false;
+        }
+
+        private void txtPhoneNum_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidPhoneNo.Visible = false;
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidAdd.Visible = false;
+        }
+
+        private void txtRole_TextChanged(object sender, EventArgs e)
+        {
+            pnlInvalidRole.Visible = false;
         }
     }
 }

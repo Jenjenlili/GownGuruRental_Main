@@ -127,6 +127,61 @@ namespace GownGuru_MainSystem.GOWN
         {
             try
             {
+                // Validate if the text fields are not empty
+                if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    MessageBox.Show("Please enter gown name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtDesc.Text))
+                {
+                    MessageBox.Show("Please enter gown description.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbSize.Text))
+                {
+                    MessageBox.Show("Please select gown size.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtColor.Text))
+                {
+                    MessageBox.Show("Please enter gown color.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbCondition.Text))
+                {
+                    MessageBox.Show("Please select gown condition.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtRprice.Text) || !double.TryParse(txtRprice.Text, out _))
+                {
+                    MessageBox.Show("Please enter a valid price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate 
+                if (string.IsNullOrWhiteSpace(cbCategory.Text))
+                {
+                    MessageBox.Show("Please select gown category.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbStatus.Text))
+                {
+                    MessageBox.Show("Please select gown status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (txtPic.Image == null)
+                {
+                    MessageBox.Show("Please attach an image for the gown.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to save this gown??", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cm = new SqlCommand("INSERT INTO tblGown(gownName,description,size,color,condition,gownPrice,dateAdded,category,gownStatus,gownPic)VALUES(@gownName,@description,@size,@color,@condition,@gownPrice,@dateAdded,@category,@gownStatus,@gownPic)", con);
@@ -176,6 +231,61 @@ namespace GownGuru_MainSystem.GOWN
         {
             try
             {
+                // Validate if the text fields are not empty
+                if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    MessageBox.Show("Please enter gown name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtDesc.Text))
+                {
+                    MessageBox.Show("Please enter gown description.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbSize.Text))
+                {
+                    MessageBox.Show("Please select gown size.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtColor.Text))
+                {
+                    MessageBox.Show("Please enter gown color.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbCondition.Text))
+                {
+                    MessageBox.Show("Please select gown condition.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(txtRprice.Text) || !double.TryParse(txtRprice.Text, out _))
+                {
+                    MessageBox.Show("Please enter a valid price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbCategory.Text))
+                {
+                    MessageBox.Show("Please select gown category.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (string.IsNullOrWhiteSpace(cbStatus.Text))
+                {
+                    MessageBox.Show("Please select gown status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Validate
+                if (txtPic.Image == null)
+                {
+                    MessageBox.Show("Please attach an image for the gown.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to update this gown?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cm = new SqlCommand("UPDATE tblGown SET gownName = @gownName, description = @description, size = @size, color = @color, condition = @condition, gownPrice = @gownPrice, dateAdded = @dateAdded, category = @category, gownStatus = @gownStatus, gownPic = @gownPic WHERE gownID LIKE '" + lblGownID.Text + "' ", con);
@@ -230,6 +340,7 @@ namespace GownGuru_MainSystem.GOWN
                     con.Open();
                     logCommand.ExecuteNonQuery();
                     con.Close();
+
                     MessageBox.Show("Gown has been successfully updated!");
                     this.Dispose();
                 }

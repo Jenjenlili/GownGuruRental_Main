@@ -110,11 +110,11 @@ namespace GownGuru_MainSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            LoadCustomer();
             frmCustomerAdd moduleForm = new frmCustomerAdd();
             moduleForm.btnSave.Enabled = true;
             moduleForm.btnUpdate.Enabled = false;
             moduleForm.ShowDialog();
+            LoadCustomer();
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)

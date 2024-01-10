@@ -149,8 +149,9 @@ namespace GownGuru_MainSystem
                 int availableGownCount = (int)cm.ExecuteScalar();
                 GAvailableTotal.Text = availableGownCount.ToString();
 
+                //BAKA TANGGALIN STATUS
                 // Get count of rented gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblRent", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblRent WHERE status = 'In-Possession'", con);
                 int rentedcount = (int)cm.ExecuteScalar();
                 RentedTotal.Text = rentedcount.ToString();
 
@@ -158,11 +159,6 @@ namespace GownGuru_MainSystem
                 cm = new SqlCommand("SELECT COUNT(*) FROM tblReturn WHERE status != 'Lost'", con);
                 int nonLostReturnedCount = (int)cm.ExecuteScalar();
                 ReturnedTotal.Text = nonLostReturnedCount.ToString();
-
-                // Get count of returned gowns
-                /*cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gstatus = 'returned'", con);
-                int returnedcount = (int)cm.ExecuteScalar();
-                lblReturned.Text = returnedcount.ToString();*/
 
                 // Get count of damaged or lost gowns
                 cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus IN ('damaged', 'lost')", con);

@@ -89,25 +89,18 @@ namespace GownGuru_MainSystem.GOWN
         private void dgvRented_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadRented();
-            /*string colName = dgvRented.Columns[e.ColumnIndex].Name;
-            if (colName == "Delete")
-            {
-                if (MessageBox.Show("Are you sure you want to delete this rented gown?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    con.Open();
-                    cm = new SqlCommand("DELETE FROM tblRent WHERE rentID LIKE '" + dgvRented.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", con);
-                    cm.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Record has been successfully deleted!");
-                }
-                LoadRented();
-            }*/
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
             frmReturnGown formModule = new frmReturnGown();
             formModule.ShowDialog();
+            LoadRented();
+        }
+
+        private void frmRented_Load(object sender, EventArgs e)
+        {
+            LoadRented();
         }
     }
 }

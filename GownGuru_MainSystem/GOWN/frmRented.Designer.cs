@@ -32,13 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnReturn = new GownGuru_MainSystem.CustomButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.dgvRented = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new GownGuru_MainSystem.CustomButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +52,9 @@
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRented)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl1
@@ -71,6 +71,35 @@
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(1015, 110);
             this.pnl1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnReturn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(765, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 110);
+            this.panel2.TabIndex = 105;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.Bisque;
+            this.btnReturn.BackgroundColor = System.Drawing.Color.Bisque;
+            this.btnReturn.BorderColor = System.Drawing.Color.Tan;
+            this.btnReturn.BorderRadius = 10;
+            this.btnReturn.BorderSize = 2;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.Black;
+            this.btnReturn.Location = new System.Drawing.Point(29, 56);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(163, 38);
+            this.btnReturn.TabIndex = 82;
+            this.btnReturn.Text = "Return Gown";
+            this.btnReturn.TextColor = System.Drawing.Color.Black;
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // pictureBox1
             // 
@@ -173,35 +202,6 @@
             this.dgvRented.Size = new System.Drawing.Size(967, 552);
             this.dgvRented.TabIndex = 11;
             this.dgvRented.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRented_CellContentClick);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.Bisque;
-            this.btnReturn.BackgroundColor = System.Drawing.Color.Bisque;
-            this.btnReturn.BorderColor = System.Drawing.Color.Tan;
-            this.btnReturn.BorderRadius = 10;
-            this.btnReturn.BorderSize = 2;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.Black;
-            this.btnReturn.Location = new System.Drawing.Point(29, 56);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(163, 38);
-            this.btnReturn.TabIndex = 82;
-            this.btnReturn.Text = "Return Gown";
-            this.btnReturn.TextColor = System.Drawing.Color.Black;
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnReturn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(765, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 110);
-            this.panel2.TabIndex = 105;
             // 
             // Column1
             // 
@@ -316,11 +316,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRented";
             this.Text = "frmRented";
+            this.Load += new System.EventHandler(this.frmRented_Load);
             this.pnl1.ResumeLayout(false);
             this.pnl1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRented)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
