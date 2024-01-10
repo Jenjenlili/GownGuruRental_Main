@@ -41,6 +41,7 @@
             // btnDetails
             // 
             this.btnDetails.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnDetails.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnDetails.FlatAppearance.BorderSize = 0;
             this.btnDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,6 +76,7 @@
             // txtPic
             // 
             this.txtPic.BackColor = System.Drawing.Color.White;
+            this.txtPic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtPic.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPic.Image = ((System.Drawing.Image)(resources.GetObject("txtPic.Image")));
             this.txtPic.Location = new System.Drawing.Point(0, 0);
@@ -107,6 +109,7 @@
             // 
             this.panel1.Controls.Add(this.txtPrice);
             this.panel1.Controls.Add(this.txtName);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 223);
             this.panel1.Name = "panel1";

@@ -121,49 +121,74 @@ namespace GownGuru_MainSystem
                          dr["gownID"].ToString(),
                          dr["gownName"].ToString(),
                          Image.FromStream(new MemoryStream(ImageArray)),
-                         dr["gownPrice"].ToString()
+                         dr["gownPrice"].ToString(),
+                         dr["gownStatus"].ToString()
                 );
             }
             dr.Close();
             con.Close();
         }
-        private void AddGowns(string id, string name, Image gpic, string price)
+        private void AddGowns(string id, string name, Image gpic, string price,string status)
         {
             var w = new ucGown()
             {
                 gName = name,
                 gImage = gpic,
                 gPrice = price,
-                id = Convert.ToInt32(id)
+                id = Convert.ToInt32(id),
+                gStatus = status //added
             };
+            // If the gown status is 'in-possession', disable it
+            if (status == "In-possession")
+            {
+                w.Enabled = false;
+                w.BackColor = Color.FromArgb(250, 242, 212);
+            }
+            if (status == "Not Available")
+            {
+                w.Enabled = false;
+                w.BackColor = Color.LightCoral;
+            }
 
             flowLayoutPanel1.Controls.Add(w);
             w.onSelect += (ss, ee) =>
             {
                 var wdg = (ucGown)ss;
-
-                bool found = false; // Flag to determine if the item is found in the DataGridView
-
-                foreach (DataGridViewRow row in dataGridView.Rows)
+                if (wdg.gStatus != "In-Possession" && wdg.gStatus != "Not Available")// added if else
                 {
-                    if (Convert.ToInt32(row.Cells["dgvGownId"].Value) == wdg.id)
+                    bool found = false; // Flag to determine if the item is found in the DataGridView
+
+                    foreach (DataGridViewRow row in dataGridView.Rows)
                     {
-                        int currentQty = int.Parse(row.Cells["dgvQty"].Value.ToString()) + 1;
-                        row.Cells["dgvQty"].Value = currentQty;
-                        row.Cells["dgvAmount"].Value = currentQty * int.Parse(row.Cells["dgvPrice"].Value.ToString());
-                        row.Cells["dgvPrice"].Value = wdg.gPrice;
+                        if (Convert.ToInt32(row.Cells["dgvGownId"].Value) == wdg.id)
+                        {
+                            int currentQty = int.Parse(row.Cells["dgvQty"].Value.ToString()) + 1;
+                            row.Cells["dgvQty"].Value = currentQty;
+                            row.Cells["dgvAmount"].Value = currentQty * int.Parse(row.Cells["dgvPrice"].Value.ToString());
+                            row.Cells["dgvPrice"].Value = wdg.gPrice;
 
-                        found = true;
-                        break;
+                            found = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!found) // If the item is not found, add it to the DataGridView
+                    if (!found) // If the item is not found, add it to the DataGridView
+                    {
+                        dataGridView.Rows.Add(new object[] { 0, 0, wdg.id, wdg.gName, 1, wdg.gPrice, wdg.gPrice });
+                    }
+
+                    GetTotal(); // Calculate total after updating or adding the item
+
+                }/*
+                else
                 {
-                    dataGridView.Rows.Add(new object[] { 0, 0, wdg.id, wdg.gName, 1, wdg.gPrice, wdg.gPrice });
-                }
+                    string message = wdg.gStatus == "In-Possession"
+                    ? "This gown is currently in possession and cannot be rented."
+                    : "This gown is not available.";
 
-                GetTotal(); // Calculate total after updating or adding the item
+                    MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }*/
             };
         }
 
@@ -280,7 +305,7 @@ namespace GownGuru_MainSystem
                     while (reader.Read())
                     {
                         byte[] ImageArray = (byte[])reader["gownPic"];
-                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString());
+                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString(), reader["gownStatus"].ToString());
                     }
                 }
                 con.Close();
@@ -449,7 +474,7 @@ namespace GownGuru_MainSystem
                     while (reader.Read())
                     {
                         byte[] ImageArray = (byte[])reader["gownPic"];
-                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString());
+                        AddGowns(reader["gownID"].ToString(), reader["gownName"].ToString(), Image.FromStream(new MemoryStream(ImageArray)), reader["gownPrice"].ToString(), reader["gownStatus"].ToString());
                     }
                 }
                 con.Close();

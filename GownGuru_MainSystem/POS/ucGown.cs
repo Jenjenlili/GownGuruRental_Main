@@ -37,10 +37,19 @@ namespace GownGuru_MainSystem.POS
             get { return txtPic.Image; }
             set { txtPic.Image = value; }
         }
-
+        //added
+        public string gStatus
+        {
+            get; set;
+        }
+        //for selecting gown
         private void txtPic_Click(object sender, EventArgs e)
         {
             onSelect?.Invoke(this, e);
+        }
+        private void OnGownSelected()
+        {
+            onSelect?.Invoke(this, EventArgs.Empty); // Trigger the onSelect event
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
