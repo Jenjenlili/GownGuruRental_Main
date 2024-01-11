@@ -102,7 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCategory.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
@@ -124,6 +124,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategory.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCategory.EnableHeadersVisualStyles = false;
             this.dgvCategory.Location = new System.Drawing.Point(11, 81);
             this.dgvCategory.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCategory.Name = "dgvCategory";

@@ -184,7 +184,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGowns.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
@@ -216,6 +216,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGowns.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvGowns.EnableHeadersVisualStyles = false;
             this.dgvGowns.Location = new System.Drawing.Point(14, 120);
             this.dgvGowns.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgvGowns.Name = "dgvGowns";

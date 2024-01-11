@@ -21,7 +21,7 @@ namespace GownGuru_MainSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPOS());
+            Application.Run(new frmLogin());
         }
     }
 }

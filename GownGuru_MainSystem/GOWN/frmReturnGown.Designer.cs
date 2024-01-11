@@ -37,6 +37,17 @@
             this.txtDelay = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvGownOnRent = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,17 +81,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGownOnRent)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -139,7 +139,7 @@
             this.dgvGownOnRent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGownOnRent.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
@@ -168,6 +168,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGownOnRent.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvGownOnRent.EnableHeadersVisualStyles = false;
             this.dgvGownOnRent.Location = new System.Drawing.Point(21, 63);
             this.dgvGownOnRent.Margin = new System.Windows.Forms.Padding(4);
             this.dgvGownOnRent.Name = "dgvGownOnRent";
@@ -190,6 +191,101 @@
             this.dgvGownOnRent.Size = new System.Drawing.Size(880, 341);
             this.dgvGownOnRent.TabIndex = 39;
             this.dgvGownOnRent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGownOnRent_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 45F;
+            this.Column1.HeaderText = "No";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // rentid
+            // 
+            this.rentid.FillWeight = 45F;
+            this.rentid.HeaderText = "Rent Id";
+            this.rentid.MinimumWidth = 8;
+            this.rentid.Name = "rentid";
+            this.rentid.ReadOnly = true;
+            this.rentid.Width = 45;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.HeaderText = "Rent Date";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // returndate
+            // 
+            this.returndate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.returndate.HeaderText = "Return Date";
+            this.returndate.MinimumWidth = 8;
+            this.returndate.Name = "returndate";
+            this.returndate.ReadOnly = true;
+            // 
+            // gid
+            // 
+            this.gid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gid.FillWeight = 45F;
+            this.gid.HeaderText = "Gown Id";
+            this.gid.MinimumWidth = 8;
+            this.gid.Name = "gid";
+            this.gid.ReadOnly = true;
+            this.gid.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Gown Name";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // cid
+            // 
+            this.cid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cid.FillWeight = 50F;
+            this.cid.HeaderText = "Customer Id";
+            this.cid.MinimumWidth = 8;
+            this.cid.Name = "cid";
+            this.cid.ReadOnly = true;
+            this.cid.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Customer Name";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.FillWeight = 70F;
+            this.Column10.HeaderText = "Qty";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column9.HeaderText = "Price";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.total.HeaderText = "Total";
+            this.total.MinimumWidth = 8;
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
             // 
             // label14
             // 
@@ -650,101 +746,6 @@
             this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
             this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
             this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 45F;
-            this.Column1.HeaderText = "No";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // rentid
-            // 
-            this.rentid.FillWeight = 45F;
-            this.rentid.HeaderText = "Rent Id";
-            this.rentid.MinimumWidth = 8;
-            this.rentid.Name = "rentid";
-            this.rentid.ReadOnly = true;
-            this.rentid.Width = 45;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.HeaderText = "Rent Date";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // returndate
-            // 
-            this.returndate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.returndate.HeaderText = "Return Date";
-            this.returndate.MinimumWidth = 8;
-            this.returndate.Name = "returndate";
-            this.returndate.ReadOnly = true;
-            // 
-            // gid
-            // 
-            this.gid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gid.FillWeight = 45F;
-            this.gid.HeaderText = "Gown Id";
-            this.gid.MinimumWidth = 8;
-            this.gid.Name = "gid";
-            this.gid.ReadOnly = true;
-            this.gid.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Gown Name";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // cid
-            // 
-            this.cid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cid.FillWeight = 50F;
-            this.cid.HeaderText = "Customer Id";
-            this.cid.MinimumWidth = 8;
-            this.cid.Name = "cid";
-            this.cid.ReadOnly = true;
-            this.cid.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Customer Name";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column10.FillWeight = 70F;
-            this.Column10.HeaderText = "Qty";
-            this.Column10.MinimumWidth = 8;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column9.HeaderText = "Price";
-            this.Column9.MinimumWidth = 8;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.total.HeaderText = "Total";
-            this.total.MinimumWidth = 8;
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
             // 
             // frmReturnGown
             // 

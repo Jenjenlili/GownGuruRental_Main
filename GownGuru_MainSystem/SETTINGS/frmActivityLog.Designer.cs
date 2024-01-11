@@ -31,13 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvActivityLog = new System.Windows.Forms.DataGridView();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pnlActLog = new System.Windows.Forms.Panel();
             this.logID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timestamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pnlActLog = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActivityLog)).BeginInit();
             this.pnlActLog.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvActivityLog.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
@@ -73,35 +73,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvActivityLog.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvActivityLog.EnableHeadersVisualStyles = false;
             this.dgvActivityLog.Location = new System.Drawing.Point(44, 137);
             this.dgvActivityLog.Name = "dgvActivityLog";
             this.dgvActivityLog.RowHeadersVisible = false;
             this.dgvActivityLog.RowHeadersWidth = 62;
             this.dgvActivityLog.Size = new System.Drawing.Size(895, 515);
             this.dgvActivityLog.TabIndex = 105;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(37, 26);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(184, 37);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Activity Log";
-            // 
-            // pnlActLog
-            // 
-            this.pnlActLog.BackColor = System.Drawing.Color.Black;
-            this.pnlActLog.Controls.Add(this.label16);
-            this.pnlActLog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlActLog.Location = new System.Drawing.Point(0, 0);
-            this.pnlActLog.Name = "pnlActLog";
-            this.pnlActLog.Size = new System.Drawing.Size(993, 92);
-            this.pnlActLog.TabIndex = 1;
-            this.pnlActLog.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlActivityLog_Paint);
             // 
             // logID
             // 
@@ -138,6 +116,29 @@
             this.activity.HeaderText = "Activity";
             this.activity.MinimumWidth = 8;
             this.activity.Name = "activity";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(37, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(184, 37);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Activity Log";
+            // 
+            // pnlActLog
+            // 
+            this.pnlActLog.BackColor = System.Drawing.Color.Black;
+            this.pnlActLog.Controls.Add(this.label16);
+            this.pnlActLog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlActLog.Location = new System.Drawing.Point(0, 0);
+            this.pnlActLog.Name = "pnlActLog";
+            this.pnlActLog.Size = new System.Drawing.Size(993, 92);
+            this.pnlActLog.TabIndex = 1;
+            this.pnlActLog.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlActivityLog_Paint);
             // 
             // frmActivityLog
             // 

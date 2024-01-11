@@ -158,7 +158,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployee.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.NavajoWhite;
@@ -185,6 +185,7 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvEmployee.EnableHeadersVisualStyles = false;
             this.dgvEmployee.Location = new System.Drawing.Point(12, 116);
             this.dgvEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployee.Name = "dgvEmployee";
