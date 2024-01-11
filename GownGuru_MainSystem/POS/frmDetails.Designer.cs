@@ -43,10 +43,10 @@
             this.lblCondition = new System.Windows.Forms.Label();
             this.lblColor = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
-            this.lblDesc = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDesc = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gpic)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -215,17 +215,6 @@
             this.lblSize.Size = new System.Drawing.Size(0, 23);
             this.lblSize.TabIndex = 40;
             // 
-            // lblDesc
-            // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesc.ForeColor = System.Drawing.Color.White;
-            this.lblDesc.Location = new System.Drawing.Point(558, 407);
-            this.lblDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(0, 23);
-            this.lblDesc.TabIndex = 39;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -269,6 +258,22 @@
             this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
+            // lblDesc
+            // 
+            this.lblDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.lblDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblDesc.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.ForeColor = System.Drawing.Color.White;
+            this.lblDesc.Location = new System.Drawing.Point(562, 407);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.ReadOnly = true;
+            this.lblDesc.Size = new System.Drawing.Size(358, 106);
+            this.lblDesc.TabIndex = 79;
+            this.lblDesc.Text = "";
+            this.lblDesc.EnabledChanged += new System.EventHandler(this.lblDesc_EnabledChanged);
+            this.lblDesc.TextChanged += new System.EventHandler(this.lblDesc_TextChanged);
+            // 
             // frmDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -276,13 +281,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(943, 558);
             this.ControlBox = false;
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblCondition);
             this.Controls.Add(this.lblColor);
             this.Controls.Add(this.lblSize);
-            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -297,6 +302,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetails";
             this.Load += new System.EventHandler(this.frmDetails_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmDetails_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmDetails_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmDetails_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gpic)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -322,9 +330,9 @@
         private System.Windows.Forms.Label lblCondition;
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.Label lblSize;
-        private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox lblDesc;
     }
 }

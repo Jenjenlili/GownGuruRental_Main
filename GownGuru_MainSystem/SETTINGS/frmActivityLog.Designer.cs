@@ -108,6 +108,8 @@
             this.logID.HeaderText = "LogID";
             this.logID.MinimumWidth = 8;
             this.logID.Name = "logID";
+            this.logID.Visible = false;
+            this.logID.Width = 150;
             // 
             // empName
             // 

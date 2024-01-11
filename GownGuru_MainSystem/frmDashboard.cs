@@ -161,7 +161,7 @@ namespace GownGuru_MainSystem
                 ReturnedTotal.Text = nonLostReturnedCount.ToString();
 
                 // Get count of damaged or lost gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE gownStatus IN ('damaged', 'lost')", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblReturn WHERE status IN ('damaged', 'lost')", con);
                 int damlostcount = (int)cm.ExecuteScalar();
                 DamLostTotal.Text = damlostcount.ToString();
 
@@ -202,7 +202,7 @@ namespace GownGuru_MainSystem
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
                                 "WHERE CONVERT(date, rentDate) = '" + today.ToString("yyyy-MM-dd") + "' " +
-                                "AND CONCAT(G.gownName, R.customerID, C.customerName) LIKE '%" + searchBox.Text + "%'", con);
+                                "AND CONCAT(rentID, R.gownID, G.gownName, R.customerID, C.customerName, qty, total, status) LIKE '%" + searchBox.Text + "%'", con);
 
             con.Open();
             dr = cm.ExecuteReader();

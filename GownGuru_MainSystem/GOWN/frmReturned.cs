@@ -72,7 +72,8 @@ namespace GownGuru_MainSystem.GOWN
             cm = new SqlCommand("SELECT returnID, R.rentID, R.rentDate, R.returnDate, R.gownID, G.gownName, R.customerID, C.customerName, conditionAfter, delay, status, fine, total " +
                                 "FROM tblReturn AS R " +
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
-                                "JOIN tblGown AS G ON R.gownID = G.gownID", con);
+                                "JOIN tblGown AS G ON R.gownID = G.gownID " +
+                                "WHERE CONCAT(returnID, R.rentID, R.rentDate, R.returnDate, R.gownID, G.gownName, R.customerID, C.customerName, conditionAfter, delay, status, fine, total) LIKE '%" + searchBox.Text + "%'" , con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -82,6 +83,11 @@ namespace GownGuru_MainSystem.GOWN
             }
             dr.Close();
             con.Close();
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            LoadReturned();
         }
     }
 }

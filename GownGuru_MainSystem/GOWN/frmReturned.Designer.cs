@@ -118,6 +118,7 @@
             this.searchBox.Size = new System.Drawing.Size(302, 32);
             this.searchBox.TabIndex = 4;
             this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
             // 
             // dgvReturned
@@ -199,6 +200,7 @@
             this.rentid.HeaderText = "Rent Id";
             this.rentid.MinimumWidth = 8;
             this.rentid.Name = "rentid";
+            this.rentid.Visible = false;
             this.rentid.Width = 109;
             // 
             // Column7
@@ -221,6 +223,7 @@
             this.gid.HeaderText = "Gown Id";
             this.gid.MinimumWidth = 8;
             this.gid.Name = "gid";
+            this.gid.Visible = false;
             this.gid.Width = 121;
             // 
             // Column3
@@ -236,6 +239,7 @@
             this.cid.HeaderText = "Customer Id";
             this.cid.MinimumWidth = 8;
             this.cid.Name = "cid";
+            this.cid.Visible = false;
             this.cid.Width = 154;
             // 
             // Column4
@@ -310,6 +314,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridView dgvReturned;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentid;
@@ -324,7 +330,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblSearch;
     }
 }

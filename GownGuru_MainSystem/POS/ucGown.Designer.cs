@@ -47,10 +47,10 @@
             this.btnDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDetails.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnDetails.ForeColor = System.Drawing.Color.Black;
-            this.btnDetails.Location = new System.Drawing.Point(0, 306);
+            this.btnDetails.Location = new System.Drawing.Point(0, 335);
             this.btnDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(230, 52);
+            this.btnDetails.Size = new System.Drawing.Size(250, 52);
             this.btnDetails.TabIndex = 11;
             this.btnDetails.Text = "Details";
             this.btnDetails.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@
             this.txtPic.Location = new System.Drawing.Point(0, 0);
             this.txtPic.Margin = new System.Windows.Forms.Padding(6);
             this.txtPic.Name = "txtPic";
-            this.txtPic.Size = new System.Drawing.Size(230, 223);
+            this.txtPic.Size = new System.Drawing.Size(250, 223);
             this.txtPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.txtPic.TabIndex = 8;
             this.txtPic.TabStop = false;
@@ -113,7 +113,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 223);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 83);
+            this.panel1.Size = new System.Drawing.Size(250, 112);
             this.panel1.TabIndex = 12;
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
@@ -128,7 +128,7 @@
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.txtPic);
             this.Name = "ucGown";
-            this.Size = new System.Drawing.Size(230, 358);
+            this.Size = new System.Drawing.Size(250, 387);
             ((System.ComponentModel.ISupportInitialize)(this.txtPic)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

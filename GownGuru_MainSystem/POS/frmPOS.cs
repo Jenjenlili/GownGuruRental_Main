@@ -370,7 +370,7 @@ namespace GownGuru_MainSystem
                         cm.Parameters.AddWithValue("@customerID", Convert.ToInt32(txtCid.Text));
                         cm.Parameters.AddWithValue("@qty", qty);
                         cm.Parameters.AddWithValue("@price", price);
-                        cm.Parameters.AddWithValue("@total", total);
+                        cm.Parameters.AddWithValue("@total", price);
                         cm.Parameters.AddWithValue("@receive", received);
                         cm.Parameters.AddWithValue("@change", change);
                         cm.Parameters.AddWithValue("@status", status);

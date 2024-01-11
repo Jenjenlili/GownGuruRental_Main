@@ -245,6 +245,7 @@
             this.GownID.MinimumWidth = 8;
             this.GownID.Name = "GownID";
             this.GownID.ReadOnly = true;
+            this.GownID.Visible = false;
             this.GownID.Width = 121;
             // 
             // gownName
@@ -262,6 +263,7 @@
             this.customerID.MinimumWidth = 8;
             this.customerID.Name = "customerID";
             this.customerID.ReadOnly = true;
+            this.customerID.Visible = false;
             this.customerID.Width = 154;
             // 
             // customerName

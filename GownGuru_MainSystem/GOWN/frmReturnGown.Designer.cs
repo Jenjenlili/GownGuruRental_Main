@@ -163,7 +163,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -693,6 +693,7 @@
             this.gid.MinimumWidth = 8;
             this.gid.Name = "gid";
             this.gid.ReadOnly = true;
+            this.gid.Visible = false;
             // 
             // Column3
             // 
@@ -710,6 +711,7 @@
             this.cid.MinimumWidth = 8;
             this.cid.Name = "cid";
             this.cid.ReadOnly = true;
+            this.cid.Visible = false;
             // 
             // Column4
             // 

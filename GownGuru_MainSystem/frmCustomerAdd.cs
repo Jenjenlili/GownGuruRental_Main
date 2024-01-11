@@ -141,7 +141,7 @@ namespace GownGuru_MainSystem
         }
         private bool IsValidPhoneNumber(string phoneNumber)
         {
-            if (string.IsNullOrWhiteSpace(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^(63|09)\d{9}$"))
+            if (string.IsNullOrWhiteSpace(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^(09)\d{9}$"))
             {
                 pnlInvalidPhoneNo.Visible = true;
                 return false;
