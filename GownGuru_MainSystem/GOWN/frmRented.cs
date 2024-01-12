@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace GownGuru_MainSystem.GOWN
@@ -19,8 +18,6 @@ namespace GownGuru_MainSystem.GOWN
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
-
-        private System.Windows.Forms.Timer rentStatusUpdateTimer;
 
         public frmRented()
         {
@@ -32,11 +29,7 @@ namespace GownGuru_MainSystem.GOWN
 
             LoadRented();
 
-            // Set up the timer to run the CheckAndUpdateRentStatus method every 24 hours (86400000 milliseconds)
-            rentStatusUpdateTimer = new System.Windows.Forms.Timer();
-            rentStatusUpdateTimer.Interval = 86400000; // 24 hours in milliseconds
-            rentStatusUpdateTimer.Tick += (sender, e) => CheckAndUpdateRentStatus();
-            rentStatusUpdateTimer.Start();
+            
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -75,29 +68,6 @@ namespace GownGuru_MainSystem.GOWN
             }
         }
 
-        private void CheckAndUpdateRentStatus()
-        {
-            try
-            {
-                con.Open();
-
-                // Get records where the return date is today or earlier and the status is "Reserved"
-                cm = new SqlCommand("UPDATE tblRent SET status = 'In-Possession' WHERE returnDate <= GETDATE() AND status = 'Reserved'", con);
-                int rowsAffected = cm.ExecuteNonQuery();
-
-                con.Close();
-                // Display a notification if any records were updated
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Rent statuses have been updated to 'In-Possession' for overdue reservations.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating rent status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public void LoadRented()
         {
             int i = 0;
@@ -107,7 +77,7 @@ namespace GownGuru_MainSystem.GOWN
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
                                 "WHERE CONCAT(rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total) LIKE '%" + searchBox.Text + "%'" +
-                                "AND R.status = 'In-Possession' OR R.status = 'Reserved'", con);
+                                "AND R.status = 'In-Possession'", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())

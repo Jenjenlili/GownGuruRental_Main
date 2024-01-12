@@ -54,23 +54,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlInvalidUsrname = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pnlInvalidFn = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnlInvalidPhoneNo = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlInvalidAdd = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlInvalidRole = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.pnlInvalidFn = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.pnlPassNotMatch.SuspendLayout();
             this.pnlInvalidPass.SuspendLayout();
             this.pnlInvalidUsrname.SuspendLayout();
-            this.pnlInvalidFn.SuspendLayout();
             this.pnlInvalidPhoneNo.SuspendLayout();
             this.pnlInvalidAdd.SuspendLayout();
             this.pnlInvalidRole.SuspendLayout();
+            this.pnlInvalidFn.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -411,27 +411,6 @@
             this.label3.Text = "*REQUIRED, Enter a valid username \r\n(only alphanumeric characters)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pnlInvalidFn
-            // 
-            this.pnlInvalidFn.BackColor = System.Drawing.Color.Transparent;
-            this.pnlInvalidFn.Controls.Add(this.label4);
-            this.pnlInvalidFn.Location = new System.Drawing.Point(377, 257);
-            this.pnlInvalidFn.Name = "pnlInvalidFn";
-            this.pnlInvalidFn.Size = new System.Drawing.Size(101, 23);
-            this.pnlInvalidFn.TabIndex = 116;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightCoral;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "*REQUIRED";
-            // 
             // pnlInvalidPhoneNo
             // 
             this.pnlInvalidPhoneNo.BackColor = System.Drawing.Color.Transparent;
@@ -496,6 +475,28 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "*REQUIRED";
             // 
+            // pnlInvalidFn
+            // 
+            this.pnlInvalidFn.BackColor = System.Drawing.Color.Transparent;
+            this.pnlInvalidFn.Controls.Add(this.label4);
+            this.pnlInvalidFn.Location = new System.Drawing.Point(194, 250);
+            this.pnlInvalidFn.Name = "pnlInvalidFn";
+            this.pnlInvalidFn.Size = new System.Drawing.Size(303, 51);
+            this.pnlInvalidFn.TabIndex = 121;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.LightCoral;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(268, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "*REQUIRED, Enter a valid fullname \r\n(only alphanumeric characters)";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmEmployeeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -503,10 +504,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(869, 642);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlInvalidFn);
             this.Controls.Add(this.pnlInvalidRole);
             this.Controls.Add(this.pnlInvalidAdd);
             this.Controls.Add(this.pnlInvalidPhoneNo);
-            this.Controls.Add(this.pnlInvalidFn);
             this.Controls.Add(this.pnlInvalidUsrname);
             this.Controls.Add(this.pnlPassNotMatch);
             this.Controls.Add(this.txtFullname);
@@ -541,14 +542,14 @@
             this.pnlInvalidPass.PerformLayout();
             this.pnlInvalidUsrname.ResumeLayout(false);
             this.pnlInvalidUsrname.PerformLayout();
-            this.pnlInvalidFn.ResumeLayout(false);
-            this.pnlInvalidFn.PerformLayout();
             this.pnlInvalidPhoneNo.ResumeLayout(false);
             this.pnlInvalidPhoneNo.PerformLayout();
             this.pnlInvalidAdd.ResumeLayout(false);
             this.pnlInvalidAdd.PerformLayout();
             this.pnlInvalidRole.ResumeLayout(false);
             this.pnlInvalidRole.PerformLayout();
+            this.pnlInvalidFn.ResumeLayout(false);
+            this.pnlInvalidFn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,13 +583,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlInvalidUsrname;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel pnlInvalidFn;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnlInvalidPhoneNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlInvalidAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlInvalidRole;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel pnlInvalidFn;
+        private System.Windows.Forms.Label label4;
     }
 }

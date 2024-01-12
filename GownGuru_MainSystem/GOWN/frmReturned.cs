@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -73,7 +74,8 @@ namespace GownGuru_MainSystem.GOWN
                                 "FROM tblReturn AS R " +
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
-                                "WHERE CONCAT(returnID, R.rentID, R.rentDate, R.returnDate, R.gownID, G.gownName, R.customerID, C.customerName, conditionAfter, delay, status, fine, total) LIKE '%" + searchBox.Text + "%'" , con);
+                                "WHERE CONCAT(returnID, R.rentID, R.rentDate, R.returnDate, R.gownID, G.gownName, R.customerID, C.customerName, conditionAfter, delay, status, fine, total) LIKE '%" + searchBox.Text + "%' " +
+                                "ORDER BY R.returnDate DESC", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())

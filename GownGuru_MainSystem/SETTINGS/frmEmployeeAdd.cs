@@ -107,6 +107,15 @@ namespace GownGuru_MainSystem.SETTINGS
             }
             return true;
         }
+        private bool IsValidFullname(string fname)
+        {
+            if (string.IsNullOrEmpty(fname) || !Regex.IsMatch(fname, @"^^[a-zA-Z0-9\sÑñ.]+$"))
+            {
+                pnlInvalidFn.Visible = true;
+                return false;
+            }
+            return true;
+        }
 
         private bool IsValidField(string field, Panel panel)
         {
@@ -176,7 +185,7 @@ namespace GownGuru_MainSystem.SETTINGS
                 if (!IsValidUsername(txtUsername.Text))
                     anyInvalid = true;
 
-                if (!IsValidField(txtFullname.Text, pnlInvalidFn)) // display the panel for blank fullname
+                if (!IsValidFullname(txtFullname.Text)) // display the panel for blank fullname
                     anyInvalid = true;
 
                 if (!IsValidPassword(txtPass.Text))
@@ -247,7 +256,7 @@ namespace GownGuru_MainSystem.SETTINGS
                 if (!IsValidUsername(txtUsername.Text))
                     anyInvalid = true;
 
-                if (!IsValidField(txtFullname.Text, pnlInvalidFn)) // display the panel for blank fullname
+                if (!IsValidFullname(txtFullname.Text)) // display the panel for blank fullname
                     anyInvalid = true;
 
                 if (!IsValidPassword(txtPass.Text))

@@ -253,7 +253,7 @@
             // 
             this.pnlInvalidPhoneNo.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidPhoneNo.Controls.Add(this.label9);
-            this.pnlInvalidPhoneNo.Location = new System.Drawing.Point(56, 483);
+            this.pnlInvalidPhoneNo.Location = new System.Drawing.Point(91, 483);
             this.pnlInvalidPhoneNo.Name = "pnlInvalidPhoneNo";
             this.pnlInvalidPhoneNo.Size = new System.Drawing.Size(433, 49);
             this.pnlInvalidPhoneNo.TabIndex = 119;
@@ -266,9 +266,9 @@
             this.label9.ForeColor = System.Drawing.Color.LightCoral;
             this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(410, 38);
+            this.label9.Size = new System.Drawing.Size(369, 38);
             this.label9.TabIndex = 0;
-            this.label9.Text = "*REQUIRED \r\n(only 11 digit of numbers and should start in 09 or 63)\r\n";
+            this.label9.Text = "*REQUIRED \r\n(only 11 digit of numbers and should start in 09)\r\n";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlInvalidAdd
@@ -296,7 +296,7 @@
             // 
             this.pnlInvalidName.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidName.Controls.Add(this.label7);
-            this.pnlInvalidName.Location = new System.Drawing.Point(186, 178);
+            this.pnlInvalidName.Location = new System.Drawing.Point(204, 178);
             this.pnlInvalidName.Name = "pnlInvalidName";
             this.pnlInvalidName.Size = new System.Drawing.Size(303, 51);
             this.pnlInvalidName.TabIndex = 120;
@@ -309,9 +309,9 @@
             this.label7.ForeColor = System.Drawing.Color.LightCoral;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(277, 38);
+            this.label7.Size = new System.Drawing.Size(256, 38);
             this.label7.TabIndex = 0;
-            this.label7.Text = "*REQUIRED, Enter a valid username \r\n(only alphanumeric characters)";
+            this.label7.Text = "*REQUIRED, Enter a valid name \r\n(only alphanumeric characters)";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlInvalidEmail

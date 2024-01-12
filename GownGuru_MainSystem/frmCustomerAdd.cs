@@ -101,7 +101,7 @@ namespace GownGuru_MainSystem
         //validation methods
         private bool IsValidName(string name)
         {
-            if (string.IsNullOrWhiteSpace(name) || !Regex.IsMatch(name, @"^[a-zA-Z0-9]+$"))
+            if (string.IsNullOrEmpty(name) || !Regex.IsMatch(name, @"^[a-zA-Z0-9\sÑñ.]+$"))
             {
                 pnlInvalidName.Visible = true;
                 return false;

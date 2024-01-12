@@ -30,7 +30,6 @@ namespace GownGuru_MainSystem
             lblStatus.Visible = true;
             lblSearch.Visible = true;
 
-            
         }
         //to avoid flicker elements
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -108,7 +107,9 @@ namespace GownGuru_MainSystem
             LoadStatusIntoComboBox();
             GetCustomer();
 
+
             dtRent.MinDate = DateTime.Today;
+            //dtRent.MaxDate = DateTime.Today;
             // Set the minimum date for the return date DateTimePicker
             dtReturn.MinDate = DateTime.Today;
             dtReturn.Enabled = false; // Initially disable the return date picker
@@ -512,7 +513,8 @@ namespace GownGuru_MainSystem
         {
             // Enable the return date picker and update its minimum date based on the selected rent date
             dtReturn.Enabled = true;
-            dtReturn.MinDate = dtRent.Value;
+            dtReturn.MinDate = DateTime.Today;
+            
         }
     }
 }
