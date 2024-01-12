@@ -107,7 +107,14 @@ namespace GownGuru_MainSystem
             LoadCategoriesIntoComboBox();
             LoadStatusIntoComboBox();
             GetCustomer();
+
+            dtRent.MinDate = DateTime.Today;
+            // Set the minimum date for the return date DateTimePicker
+            dtReturn.MinDate = DateTime.Today;
+            dtReturn.Enabled = false; // Initially disable the return date picker
+
         }
+
         private void LoadGown()
         {
             cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO'", con);
@@ -145,6 +152,11 @@ namespace GownGuru_MainSystem
                 w.BackColor = Color.FromArgb(250, 242, 212);
             }
             if (status == "Not Available")
+            {
+                w.Enabled = false;
+                w.BackColor = Color.LightCoral;
+            }
+            if (status == "Damaged")
             {
                 w.Enabled = false;
                 w.BackColor = Color.LightCoral;
@@ -216,7 +228,8 @@ namespace GownGuru_MainSystem
             double.TryParse(txtTotal.Text, out amt);
             double.TryParse(txtRec.Text, out rec);
             double change = rec - amt;
-            txtChange.Text = Math.Abs(change).ToString("N0");
+            txtChange.Text = change.ToString("N0");
+
         }
         private void txtRec_Click(object sender, EventArgs e)
         {
@@ -346,6 +359,15 @@ namespace GownGuru_MainSystem
                     return;
                 }
 
+                double received = Convert.ToDouble(txtRec.Text);
+                double total = Convert.ToDouble(txtTotal.Text);
+
+                if (received < total)
+                {
+                    MessageBox.Show("Received insufficient amount of payment!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to rent this gown(s)?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
@@ -355,9 +377,9 @@ namespace GownGuru_MainSystem
                         int gownId = Convert.ToInt32(row.Cells["dgvGownId"].Value);
                         int qty = Convert.ToInt32(row.Cells["dgvQty"].Value);
                         double price = Convert.ToDouble(row.Cells["dgvPrice"].Value);
-                        double total = Convert.ToDouble(txtTotal.Text);
+                        double Total = Convert.ToDouble(txtTotal.Text);
                         // Assuming txtRec and txtChange are TextBox controls, use Text property for their values
-                        double received = Convert.ToDouble(txtRec.Text);
+                        double Received = Convert.ToDouble(txtRec.Text);
                         double change = Convert.ToDouble(txtChange.Text);
                         string status = cbStatus.Text;
 
@@ -481,6 +503,16 @@ namespace GownGuru_MainSystem
             }
         }
 
+        private void dtReturn_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void dtRent_ValueChanged(object sender, EventArgs e)
+        {
+            // Enable the return date picker and update its minimum date based on the selected rent date
+            dtReturn.Enabled = true;
+            dtReturn.MinDate = dtRent.Value;
+        }
     }
 }

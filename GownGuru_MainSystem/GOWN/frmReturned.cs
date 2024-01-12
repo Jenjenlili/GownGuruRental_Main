@@ -79,7 +79,7 @@ namespace GownGuru_MainSystem.GOWN
             while (dr.Read())
             {
                 i++;
-                dgvReturned.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), Convert.ToDateTime(dr[2].ToString()).ToString("dd/MM/yyyy"), Convert.ToDateTime(dr[3].ToString()).ToString("dd/MM/yyyy"), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString());
+                dgvReturned.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), Convert.ToDateTime(dr[2].ToString()).ToString("MM/dd/yyyy"), Convert.ToDateTime(dr[3].ToString()).ToString("MM/dd/yyyy"), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString());
             }
             dr.Close();
             con.Close();

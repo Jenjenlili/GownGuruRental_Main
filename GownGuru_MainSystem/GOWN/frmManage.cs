@@ -55,31 +55,43 @@ namespace GownGuru_MainSystem.GOWN
         {
             int i = 0;
             dgvGowns.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO' AND CONCAT(gownID,gownName,description,size,color,condition,gownPrice,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
-            con.Open();
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                i++;
-
-                // Read the image data (assumed to be in the 11th column, index 10)
-                byte[] imageData = dr[10] as byte[];
-
-                // Convert the byte array to an Image
-                Image img = null;
-                if (imageData != null)
+                cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO' AND CONCAT(gownID,gownName,description,size,color,condition,gownPrice,dateAdded,category,gownStatus) LIKE '%" + searchBox.Text + "%'", con);
+                con.Open();
+                dr = cm.ExecuteReader();
+                while (dr.Read())
                 {
-                    using (MemoryStream ms = new MemoryStream(imageData))
-                    {
-                        img = Image.FromStream(ms);
-                    }
-                }
+                    i++;
 
-                // Add data to the DataGridView, including the image in the 11th cell
-                dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), img);
+                    // Read the image data (assumed to be in the 11th column, index 10)
+                    byte[] imageData = dr[10] as byte[];
+
+                    // Convert the byte array to an Image
+                    Image img = null;
+                    if (imageData != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream(imageData))
+                        {
+                            img = Image.FromStream(ms);
+                        }
+                    }
+
+                    // Add data to the DataGridView, including the image in the 11th cell
+                    dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToDateTime(dr[7].ToString()).ToString("MM/dd/yyyy"), dr[8].ToString(), dr[9].ToString(), img);
+                }
             }
-            dr.Close();
-            con.Close();
+            catch (OutOfMemoryException ex)
+            {
+                // Handle the OutOfMemoryException
+                MessageBox.Show("Out of Memory: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Ensure resources are released in the finally block
+                dr?.Close();
+                con?.Close();
+            }
         }
         private void frmManage_Load(object sender, EventArgs e)
         {

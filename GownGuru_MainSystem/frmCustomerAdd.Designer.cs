@@ -318,7 +318,7 @@
             // 
             this.pnlInvalidEmail.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidEmail.Controls.Add(this.label11);
-            this.pnlInvalidEmail.Location = new System.Drawing.Point(233, 379);
+            this.pnlInvalidEmail.Location = new System.Drawing.Point(190, 379);
             this.pnlInvalidEmail.Name = "pnlInvalidEmail";
             this.pnlInvalidEmail.Size = new System.Drawing.Size(303, 51);
             this.pnlInvalidEmail.TabIndex = 121;
@@ -331,9 +331,9 @@
             this.label11.ForeColor = System.Drawing.Color.LightCoral;
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 19);
+            this.label11.Size = new System.Drawing.Size(278, 19);
             this.label11.TabIndex = 0;
-            this.label11.Text = "*REQUIRED, Enter a valid email\r\n";
+            this.label11.Text = "*REQUIRED, Enter a valid gmail only\r\n";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSave
@@ -343,6 +343,7 @@
             this.btnSave.BorderColor = System.Drawing.Color.Tan;
             this.btnSave.BorderRadius = 10;
             this.btnSave.BorderSize = 2;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -365,6 +366,7 @@
             this.btnUpdate.BorderColor = System.Drawing.Color.Tan;
             this.btnUpdate.BorderRadius = 10;
             this.btnUpdate.BorderSize = 2;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,6 +389,7 @@
             this.btnClear.BorderColor = System.Drawing.Color.Firebrick;
             this.btnClear.BorderRadius = 10;
             this.btnClear.BorderSize = 2;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

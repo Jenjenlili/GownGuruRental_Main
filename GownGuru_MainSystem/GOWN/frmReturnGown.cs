@@ -145,7 +145,7 @@ namespace GownGuru_MainSystem.GOWN
             while (dr.Read())
             {
                 i++;
-                dgvGownOnRent.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
+                dgvGownOnRent.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("MM/dd/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("MM/dd/yyyy"), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
             }
             dr.Close();
             con.Close();
@@ -170,7 +170,7 @@ namespace GownGuru_MainSystem.GOWN
             else
             {
                 txtDelay.Text = NrOfDays.ToString();
-                int fineForDelay = NrOfDays * 250; // Fine for delay
+                int fineForDelay = NrOfDays * 100; // Fine for delay
 
                 // Perform a null check before accessing SelectedItem
                 if (cbStatus.SelectedItem != null)
@@ -179,11 +179,11 @@ namespace GownGuru_MainSystem.GOWN
 
                     if (selectedStatus.Equals("Lost", StringComparison.OrdinalIgnoreCase))
                     {
-                        txtFine.Text = (fineForDelay + 500).ToString(); // Fine for lost item along with delay
+                        txtFine.Text = (fineForDelay + 1000).ToString(); // Fine for lost item along with delay
                     }
                     else if (selectedStatus.Equals("Damaged", StringComparison.OrdinalIgnoreCase))
                     {
-                        txtFine.Text = (fineForDelay + 300).ToString(); // Fine for damaged item along with delay
+                        txtFine.Text = (fineForDelay + 500).ToString(); // Fine for damaged item along with delay
                     }
                     else
                     {
@@ -209,12 +209,12 @@ namespace GownGuru_MainSystem.GOWN
 
                         if (selectedStatus.Equals("Lost", StringComparison.OrdinalIgnoreCase))
                         {
-                            fine = 500; // Set fine to 500 for Lost item without delay
+                            fine = 1000; // Set fine to1000 for Lost item without delay
                             txtFine.Text = fine.ToString();
                         }
                         else if (selectedStatus.Equals("Damaged", StringComparison.OrdinalIgnoreCase))
                         {
-                            fine = 300; // Set fine to 300 for Damaged item without delay
+                            fine = 500; // Set fine to 500 for Damaged item without delay
                             txtFine.Text = fine.ToString();
                         }
                     }
@@ -353,6 +353,18 @@ namespace GownGuru_MainSystem.GOWN
                     {
                         // Update gown status in tblGown only when status in tblRent is 'Returned'
                         cm = new SqlCommand("UPDATE tblGown SET gownStatus = 'Not Available', [condition] = @condition WHERE gownID = @gownID", con);
+                        cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
+                        cm.Parameters.AddWithValue("@gownID", Convert.ToInt16(txtGownId.Text));
+                        con.Open();
+                        cm.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    //damged status
+                    if (cbStatus.Text == "Damaged")
+                    {
+                        // Update gown status in tblGown only when status in tblRent is 'Returned'
+                        cm = new SqlCommand("UPDATE tblGown SET gownStatus = @gownStatus, [condition] = @condition WHERE gownID = @gownID", con);
+                        cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
                         cm.Parameters.AddWithValue("@condition", cbConditionAft.Text);
                         cm.Parameters.AddWithValue("@gownID", Convert.ToInt16(txtGownId.Text));
                         con.Open();

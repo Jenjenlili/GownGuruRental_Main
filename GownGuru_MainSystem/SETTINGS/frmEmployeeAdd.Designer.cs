@@ -436,9 +436,9 @@
             // 
             this.pnlInvalidPhoneNo.BackColor = System.Drawing.Color.Transparent;
             this.pnlInvalidPhoneNo.Controls.Add(this.label5);
-            this.pnlInvalidPhoneNo.Location = new System.Drawing.Point(50, 563);
+            this.pnlInvalidPhoneNo.Location = new System.Drawing.Point(96, 563);
             this.pnlInvalidPhoneNo.Name = "pnlInvalidPhoneNo";
-            this.pnlInvalidPhoneNo.Size = new System.Drawing.Size(433, 49);
+            this.pnlInvalidPhoneNo.Size = new System.Drawing.Size(401, 49);
             this.pnlInvalidPhoneNo.TabIndex = 116;
             // 
             // label5
@@ -449,9 +449,9 @@
             this.label5.ForeColor = System.Drawing.Color.LightCoral;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(410, 38);
+            this.label5.Size = new System.Drawing.Size(369, 38);
             this.label5.TabIndex = 0;
-            this.label5.Text = "*REQUIRED \r\n(only 11 digit of numbers and should start in 09 or 63)\r\n";
+            this.label5.Text = "*REQUIRED \r\n(only 11 digit of numbers and should start in 09)\r\n";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlInvalidAdd

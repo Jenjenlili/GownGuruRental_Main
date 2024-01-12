@@ -201,7 +201,8 @@ namespace GownGuru_MainSystem
                                 "FROM tblRent AS R " +
                                 "JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
-                                "WHERE CONVERT(date, rentDate) = '" + today.ToString("yyyy-MM-dd") + "' " +
+                                "WHERE CONVERT(date, rentDate) = '" + today.ToString("MM-dd-yyyy") + "' " +
+                                "AND status = 'In-Possession' " +
                                 "AND CONCAT(rentID, R.gownID, G.gownName, R.customerID, C.customerName, qty, total, status) LIKE '%" + searchBox.Text + "%'", con);
 
             con.Open();
@@ -209,7 +210,7 @@ namespace GownGuru_MainSystem
             while (dr.Read())
             {
                 i++;
-                dgvTodayTransac.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("dd/MM/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("dd/MM/yyyy"),
+                dgvTodayTransac.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("MM/dd/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("MM/dd/yyyy"),
                     dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString());
             }
             dr.Close();
@@ -223,7 +224,7 @@ namespace GownGuru_MainSystem
 
         private void dgvTodayTransac_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadTodayRent();
+            //LoadTodayRent();
         }
     }
 }
