@@ -141,7 +141,7 @@ namespace GownGuru_MainSystem
                 CustomerTotal.Text = clientcount.ToString();
 
                 // Get count of gowns
-                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown", con);
+                cm = new SqlCommand("SELECT COUNT(*) FROM tblGown WHERE archived = 'NO'", con);
                 int gowncount = (int)cm.ExecuteScalar();
                 GownTotal.Text = gowncount.ToString();
 
