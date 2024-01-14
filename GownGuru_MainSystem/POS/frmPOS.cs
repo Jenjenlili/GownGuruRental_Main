@@ -118,25 +118,38 @@ namespace GownGuru_MainSystem
 
         private void LoadGown()
         {
-            cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO'", con);
-            con.Open();
-            dr = cm.ExecuteReader();
-
-            while (dr.Read())
+            
+            try
             {
-                byte[] ImageArray = (byte[])dr["gownPic"];
-                AddGowns(
-                         dr["gownID"].ToString(),
-                         dr["gownName"].ToString(),
-                         Image.FromStream(new MemoryStream(ImageArray)),
-                         dr["gownPrice"].ToString(),
-                         dr["gownStatus"].ToString()
-                );
+                cm = new SqlCommand("SELECT * FROM tblGown WHERE archived = 'NO'", con);
+                con.Open();
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    byte[] ImageArray = (byte[])dr["gownPic"];
+                    AddGowns(
+                             dr["gownID"].ToString(),
+                             dr["gownName"].ToString(),
+                             Image.FromStream(new MemoryStream(ImageArray)),
+                             dr["gownPrice"].ToString(),
+                             dr["gownStatus"].ToString()
+                    );
+                }
+                dr.Close();
+                con.Close();
             }
-            dr.Close();
-            con.Close();
+            catch (OutOfMemoryException ex)
+            {
+                MessageBox.Show("Out of memory: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
-        private void AddGowns(string id, string name, Image gpic, string price,string status)
+
+        private void AddGowns(string id, string name, Image gpic, string price, string status)
         {
             var w = new ucGown()
             {
@@ -146,25 +159,67 @@ namespace GownGuru_MainSystem
                 id = Convert.ToInt32(id),
                 gStatus = status //added
             };
+
+            // Enable all gowns by default
+            w.Enabled = true;
+
             // If the gown status is 'in-possession', disable it
             if (status == "In-possession")
             {
                 w.Enabled = false;
                 w.BackColor = Color.FromArgb(250, 242, 212);
             }
-            if (status == "Not Available")
-            {
-                w.Enabled = false;
-                w.BackColor = Color.LightCoral;
-            }
-            if (status == "Damaged")
+            else if (status == "Not Available" || status == "Damaged")
             {
                 w.Enabled = false;
                 w.BackColor = Color.LightCoral;
             }
 
             flowLayoutPanel1.Controls.Add(w);
+
+            //final
+            bool gownSelected = false; // Flag to check if the gown is selected
+
             w.onSelect += (ss, ee) =>
+            {
+                var wdg = (ucGown)ss;
+
+                // Check if the gown is not already selected
+                if (!gownSelected)
+                {
+                    if (wdg.gStatus == "In-Possession" || wdg.gStatus == "Not Available" || wdg.gStatus == "Damaged")
+                    {
+                        // Show a message box for special statuses
+                        string message = wdg.gStatus == "In-Possession"
+                            ? "This gown is currently in possession and cannot be rented."
+                            : "This gown is not available or is damaged.";
+
+                        MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        // Mark the gown as selected
+                        gownSelected = true;
+
+                        // Change the background color to yellow
+                        wdg.BackColor = Color.FromArgb(236, 208, 98);
+
+                        // Add the gown to the DataGridView
+                        dataGridView.Rows.Add(new object[] { 0, 0, wdg.id, wdg.gName, 1, wdg.gPrice, wdg.gPrice });
+
+                        GetTotal(); // Calculate total after adding the item
+                    }
+                }
+                else
+                {
+                    string message = "This gown has been already selected.";
+                    MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
+
+
+            //old code
+            /*w.onSelect += (ss, ee) =>
             {
                 var wdg = (ucGown)ss;
                 if (wdg.gStatus != "In-Possession" && wdg.gStatus != "Not Available")// added if else
@@ -192,7 +247,7 @@ namespace GownGuru_MainSystem
 
                     GetTotal(); // Calculate total after updating or adding the item
 
-                }/*
+                }*//*
                 else
                 {
                     string message = wdg.gStatus == "In-Possession"
@@ -201,10 +256,9 @@ namespace GownGuru_MainSystem
 
                     MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                }*/
-            };
+                }*//*
+            };*/
         }
-
         private void GetTotal()
         {
             double tot = 0;
@@ -426,6 +480,7 @@ namespace GownGuru_MainSystem
                 con.Close();
             }
         }
+        
         public void GetCustomer()
         {
             int i = 0;
@@ -513,7 +568,7 @@ namespace GownGuru_MainSystem
         {
             // Enable the return date picker and update its minimum date based on the selected rent date
             dtReturn.Enabled = true;
-            dtReturn.MinDate = DateTime.Today;
+            dtReturn.MinDate = dtRent.Value;
             
         }
     }

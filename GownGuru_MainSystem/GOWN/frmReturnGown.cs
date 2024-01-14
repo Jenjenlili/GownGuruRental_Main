@@ -139,7 +139,8 @@ namespace GownGuru_MainSystem.GOWN
                                 "FROM tblRent AS R JOIN tblCustomer AS C ON R.customerID = C.customerID " +
                                 "JOIN tblGown AS G ON R.gownID = G.gownID " +
                                 "WHERE CONCAT(rentID, rentDate, returnDate, R.gownID, G.gownName, R.customerID, C.customerName, qty, price, total) LIKE '%" + searchBox.Text + "%'" +
-                                "AND R.status = 'In-Possession'", con);
+                                "AND R.status = 'In-Possession' " +
+                                "ORDER BY rentID ASC", con);
             con.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())

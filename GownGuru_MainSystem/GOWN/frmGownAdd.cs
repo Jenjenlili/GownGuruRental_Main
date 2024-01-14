@@ -191,7 +191,7 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@color", txtColor.Text);
                     cm.Parameters.AddWithValue("@condition", cbCondition.Text);
                     cm.Parameters.AddWithValue("@gownPrice", double.Parse(txtRprice.Text));
-                    cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
+                    cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("dd-MM-yyyy"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
 
@@ -294,7 +294,7 @@ namespace GownGuru_MainSystem.GOWN
                     cm.Parameters.AddWithValue("@color", txtColor.Text);
                     cm.Parameters.AddWithValue("@condition", cbCondition.Text);
                     cm.Parameters.AddWithValue("@gownPrice", double.Parse(txtRprice.Text));
-                    cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("yyyy-MM-dd"));
+                    cm.Parameters.AddWithValue("@dateAdded", dtDateAdded.Value.ToString("dd-MM-yyyy"));
                     cm.Parameters.AddWithValue("@category", cbCategory.Text);
                     cm.Parameters.AddWithValue("@gownStatus", cbStatus.Text);
 

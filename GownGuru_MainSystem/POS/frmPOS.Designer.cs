@@ -46,13 +46,6 @@
             this.btnClear = new GownGuru_MainSystem.CustomButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.dgvSr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvRentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvGownId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +69,13 @@
             this.txtChange = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dgvSr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGownId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -297,61 +297,6 @@
             this.dataGridView.Size = new System.Drawing.Size(543, 127);
             this.dataGridView.TabIndex = 76;
             this.dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_CellFormatting);
-            // 
-            // dgvSr
-            // 
-            this.dgvSr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvSr.FillWeight = 30F;
-            this.dgvSr.HeaderText = "Sr";
-            this.dgvSr.MinimumWidth = 30;
-            this.dgvSr.Name = "dgvSr";
-            this.dgvSr.Width = 30;
-            // 
-            // dgvRentId
-            // 
-            this.dgvRentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvRentId.HeaderText = "RentId";
-            this.dgvRentId.MinimumWidth = 8;
-            this.dgvRentId.Name = "dgvRentId";
-            this.dgvRentId.Visible = false;
-            // 
-            // dgvGownId
-            // 
-            this.dgvGownId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvGownId.HeaderText = "GownId";
-            this.dgvGownId.MinimumWidth = 8;
-            this.dgvGownId.Name = "dgvGownId";
-            // 
-            // dgvName
-            // 
-            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvName.HeaderText = "Gown Name";
-            this.dgvName.MinimumWidth = 8;
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvQty
-            // 
-            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvQty.FillWeight = 50F;
-            this.dgvQty.HeaderText = "Qty";
-            this.dgvQty.MinimumWidth = 50;
-            this.dgvQty.Name = "dgvQty";
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvPrice.FillWeight = 70F;
-            this.dgvPrice.HeaderText = "Price";
-            this.dgvPrice.MinimumWidth = 70;
-            this.dgvPrice.Name = "dgvPrice";
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvAmount.FillWeight = 70F;
-            this.dgvAmount.HeaderText = "Amount";
-            this.dgvAmount.MinimumWidth = 70;
-            this.dgvAmount.Name = "dgvAmount";
             // 
             // dgvCustomer
             // 
@@ -646,6 +591,61 @@
             this.label6.Size = new System.Drawing.Size(55, 23);
             this.label6.TabIndex = 110;
             this.label6.Text = "Total";
+            // 
+            // dgvSr
+            // 
+            this.dgvSr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvSr.FillWeight = 30F;
+            this.dgvSr.HeaderText = "Sr";
+            this.dgvSr.MinimumWidth = 30;
+            this.dgvSr.Name = "dgvSr";
+            this.dgvSr.Width = 30;
+            // 
+            // dgvRentId
+            // 
+            this.dgvRentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvRentId.HeaderText = "RentId";
+            this.dgvRentId.MinimumWidth = 8;
+            this.dgvRentId.Name = "dgvRentId";
+            this.dgvRentId.Visible = false;
+            // 
+            // dgvGownId
+            // 
+            this.dgvGownId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvGownId.HeaderText = "GownId";
+            this.dgvGownId.MinimumWidth = 8;
+            this.dgvGownId.Name = "dgvGownId";
+            // 
+            // dgvName
+            // 
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.HeaderText = "Gown Name";
+            this.dgvName.MinimumWidth = 8;
+            this.dgvName.Name = "dgvName";
+            // 
+            // dgvQty
+            // 
+            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvQty.FillWeight = 50F;
+            this.dgvQty.HeaderText = "Qty";
+            this.dgvQty.MinimumWidth = 50;
+            this.dgvQty.Name = "dgvQty";
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvPrice.FillWeight = 70F;
+            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.MinimumWidth = 70;
+            this.dgvPrice.Name = "dgvPrice";
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvAmount.FillWeight = 70F;
+            this.dgvAmount.HeaderText = "Amount";
+            this.dgvAmount.MinimumWidth = 70;
+            this.dgvAmount.Name = "dgvAmount";
             // 
             // frmPOS
             // 

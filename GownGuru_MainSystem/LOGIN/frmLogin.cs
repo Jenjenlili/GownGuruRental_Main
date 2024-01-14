@@ -160,7 +160,7 @@ namespace GownGuru_MainSystem.LOGIN
         {
             try
             {
-                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username = @username AND password = @password", con);
+                cm = new SqlCommand("SELECT * FROM tblEmployee WHERE username COLLATE Latin1_General_CS_AS = @username AND password COLLATE Latin1_General_CS_AS = @password", con);
                 cm.Parameters.AddWithValue("@username", txtUsername.Text);
                 cm.Parameters.AddWithValue("@password", txtPassword.Text);
 

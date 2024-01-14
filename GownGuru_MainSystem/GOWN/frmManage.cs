@@ -78,7 +78,7 @@ namespace GownGuru_MainSystem.GOWN
                     }
 
                     // Add data to the DataGridView, including the image in the 11th cell
-                    dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToDateTime(dr[7].ToString()).ToString("MM/dd/yyyy"), dr[8].ToString(), dr[9].ToString(), img);
+                    dgvGowns.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToDateTime(dr[7].ToString()).ToString("dd/MM/yyyy"), dr[8].ToString(), dr[9].ToString(), img);
                 }
             }
             catch (OutOfMemoryException ex)
