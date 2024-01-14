@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms; 
 
 namespace GownGuru_MainSystem
-{
+{ 
     public partial class frmPOS : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuru_MainSystem\GownGuruDB.mdf;Integrated Security=True");
