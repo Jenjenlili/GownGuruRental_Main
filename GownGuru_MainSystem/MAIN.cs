@@ -260,11 +260,11 @@ namespace GownGuru_MainSystem
             // Reset the button's appearance to its original state
             btnDashboard.ForeColor = Color.Black;
             btnDashboard.BackColor = Color.FromArgb(236, 208, 98);
-            btnDashboard.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsHome-24.png");
+            btnDashboard.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconsHome-24.png");
 
             btnGown.ForeColor = Color.Black;
             btnGown.BackColor = Color.FromArgb(236, 208, 98);
-            btnGown.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\icondGown.png");
+            btnGown.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\icondGown.png");
 
             btnManage.ForeColor = Color.Black;
             btnManage.BackColor = Color.FromArgb(233, 201, 75);
@@ -280,15 +280,15 @@ namespace GownGuru_MainSystem
 
             btnCustomers.ForeColor = Color.Black;
             btnCustomers.BackColor = Color.FromArgb(236, 208, 98);
-            btnCustomers.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsCustomers-26.png");
+            btnCustomers.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconsCustomers-26.png");
 
             btnPOS.ForeColor = Color.Black;
             btnPOS.BackColor = Color.FromArgb(236, 208, 98);
-            btnPOS.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconPOS.png");
+            btnPOS.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconPOS.png");
 
             btnSettings.ForeColor = Color.Black;
             btnSettings.BackColor = Color.FromArgb(236, 208, 98);
-            btnSettings.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsSettings-26.png");
+            btnSettings.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconsSettings-26.png");
 
             btnEmployee.ForeColor = Color.Black;
             btnEmployee.BackColor = Color.FromArgb(233, 201, 75);
@@ -343,7 +343,7 @@ namespace GownGuru_MainSystem
 
             btnDashboard.ForeColor = Color.White;
             btnDashboard.BackColor = Color.FromArgb(36, 36, 36);
-            btnDashboard.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconHome-24 white.png");
+            btnDashboard.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconHome-24 white.png");
 
             hideSubTab();
 
@@ -358,7 +358,7 @@ namespace GownGuru_MainSystem
 
             btnGown.ForeColor = Color.White;
             btnGown.BackColor = Color.FromArgb(36, 36, 36);
-            btnGown.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconGownWhite.png");
+            btnGown.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconGownWhite.png");
 
             SetDoubleBuffer(btnGown, true);
         }
@@ -371,7 +371,7 @@ namespace GownGuru_MainSystem
 
             btnCustomers.ForeColor = Color.White;
             btnCustomers.BackColor = Color.FromArgb(36, 36, 36);
-            btnCustomers.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconsCustomersWhite.png");
+            btnCustomers.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconsCustomersWhite.png");
 
             hideSubTab();
 
@@ -385,7 +385,7 @@ namespace GownGuru_MainSystem
 
             btnPOS.ForeColor = Color.White;
             btnPOS.BackColor = Color.FromArgb(36, 36, 36);
-            btnPOS.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconPOSWhite.png");
+            btnPOS.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconPOSWhite.png");
 
             hideSubTab();
 
@@ -400,7 +400,7 @@ namespace GownGuru_MainSystem
 
             btnSettings.ForeColor = Color.White;
             btnSettings.BackColor = Color.FromArgb(36, 36, 36);
-            btnSettings.Image = Image.FromFile(@"C:\Liyan\GownGuruSystem\iconSettingsWhite-26.png");
+            btnSettings.Image = Image.FromFile(@"C:\Users\allea\source\repos\GownGuru_MainSystem\GownGuruSystem (mga pics)\iconSettingsWhite-26.png");
 
             SetDoubleBuffer(btnSettings, true);
         }
