@@ -146,7 +146,7 @@ namespace GownGuru_MainSystem.GOWN
             while (dr.Read())
             {
                 i++;
-                dgvGownOnRent.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("MM/dd/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("MM/dd/yyyy"), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
+                dgvGownOnRent.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("dd/MM/yyyy"), Convert.ToDateTime(dr[2].ToString()).ToString("dd/MM/yyyy"), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
             }
             dr.Close();
             con.Close();
